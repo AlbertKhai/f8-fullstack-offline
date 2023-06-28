@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 3 - Bài 1</title>
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <div class="contact">
+         <h2 class="heading">Contact Us</h2>
+         <div class="contact-body">
+            <!-- Info -->
+            <div class="contact-info">
+               <h3 class="sub-heading">Contact Info</h3>
+               <div class="group-info">
+                  <a href="#!">
+                     <img
+                        src="./assets/imgs/address.png"
+                        alt="address icon"
+                        class="icon"
+                     />
+                  </a>
+                  <p class="desc">
+                     <a href="#!">321 Awesome Street New York, NY 17022</a>
+                  </p>
+               </div>
+               <div class="group-info">
+                  <a href="mailto:info@companyname.com">
+                     <img
+                        src="./assets/imgs/mail.png"
+                        alt="email icon"
+                        class="icon"
+                     />
+                  </a>
+                  <p class="desc">
+                     <a href="mailto:info@companyname.com">
+                        info@companyname.com
+                     </a>
+                  </p>
+               </div>
+               <div class="group-info">
+                  <a href="tel:+18001231234">
+                     <img
+                        src="./assets/imgs/phone.png"
+                        alt="phone icon"
+                        class="icon"
+                     />
+                  </a>
+                  <p class="desc">
+                     <a href="tel:+18001231234">+1 800 123 1234</a>
+                  </p>
+               </div>
+            </div>
+
+            <!-- Form -->
+            <div class="contact-form">
+               <h3 class="sub-heading">
+                  Having Any Query! Or Book an appointment
+               </h3>
+               <form
+                  action="https://api-gateway.fullstack.edu.vn/action_page.php"
+                  method="post"
+               >
+                  <input type="text" name="name" placeholder="Your Name" />
+                  <input type="email" name="email" placeholder="Your Email" />
+                  <input type="text" name="subject" placeholder="Subject" />
+                  <textarea
+                     name="message"
+                     id="message"
+                     cols="30"
+                     rows="5"
+                     placeholder="Message"
+                  ></textarea>
+                  <button class="btn">Send Message</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
