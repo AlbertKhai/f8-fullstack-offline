@@ -1,0 +1,62 @@
+body,
+input,
+input::placeholder {
+   color: #3a2617;
+}
+
+.reservation {
+   text-align: center;
+}
+
+.reservation input,
+.reservation button {
+   padding: 8px 15px;
+}
+
+.reservation .sub-heading,
+.reservation input {
+   font-family: "Bebas Neue", sans-serif;
+}
+
+.reservation .heading,
+.reservation button {
+   font-family: "Alfa Slab One", cursive;
+}
+
+.reservation .sub-heading {
+   font-size: 2rem;
+}
+
+.reservation .heading {
+   font-size: 2.5rem;
+}
+
+.reservation .row {
+   display: flex;
+   justify-content: stretch;
+   gap: 20px;
+   margin: 20px auto;
+   width: 500px;
+   max-height: 40px;
+}
+
+.reservation .row * {
+   flex: 1;
+   font-size: 1rem;
+}
+
+.reservation input {
+   border: 2px solid #ddd;
+}
+
+.reservation .btn {
+   border: none;
+   border-radius: 5px;
+   font-size: 0.85rem;
+   color: #fff;
+   background-color: #b0322b;
+}
+
+.reservation .btn:hover {
+   cursor: pointer;
+}
