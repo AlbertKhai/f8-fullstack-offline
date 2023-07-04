@@ -1,9 +1,15 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
 body {
    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .subscribe {
-   margin: 0 auto;
+   margin: 20px auto 0;
    width: 80%;
    padding: 40px 0 20px 45px;
    border-radius: 10px;
@@ -12,7 +18,7 @@ body {
 }
 
 .subscribe .heading {
-   margin: 0;
+   margin-bottom: 16px;
 }
 
 .subscribe .highlight {
@@ -20,6 +26,7 @@ body {
 }
 
 .subscribe .desc {
+   margin-bottom: 16px;
    width: 615px;
    max-width: 100%;
 }

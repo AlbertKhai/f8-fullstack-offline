@@ -163,7 +163,7 @@
 
             <section class="ex-item">
                <h2>
-                  <span class="highlight">...</span>
+                  <span class="highlight">✔</span>
                   <a
                      href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-4"
                   >
@@ -182,7 +182,38 @@
                   </li>
                </ul>
             </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="highlight">...</span>
+                  <a
+                     href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-5"
+                  >
+                     Day 5
+                  </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-5/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-5/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-5/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
          </div>
       </main>
+      <script>
+         var links = document.querySelectorAll("a");
+         for (var i = 0; i < links.length; i++) {
+            if (!links[i].hasAttribute("target")) {
+               links[i].setAttribute("target", "_blank");
+               links[i].setAttribute("rel", "noreferrer noopener");
+            }
+         }
+      </script>
    </body>
 </html>
