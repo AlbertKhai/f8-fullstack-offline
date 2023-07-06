@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 6 - Bài 3</title>
+
+      <!-- Font Awesome -->
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+
+      <!-- Google Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap"
+         rel="stylesheet"
+      />
+
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <main>
+         <div class="form-container">
+            <!-- Form Info -->
+            <div class="form-info">
+               <h1 class="form-info__heading">
+                  <span class="form-info__logo">JL</span> Just Log
+               </h1>
+               <p class="form-info__desc">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Quasi impedit corrupti nobis, molestias vel eligendi!
+               </p>
+               <div>
+                  <a href="#!" class="form-info__btn-more">Read More</a>
+               </div>
+               <div class="form-info__social">
+                  <a href="#!" class="form-info__social-item">
+                     <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="#!" class="form-info__social-item">
+                     <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a href="#!" class="form-info__social-item">
+                     <i class="fa-brands fa-google-plus-g"></i>
+                  </a>
+                  <a href="#!" class="form-info__social-item">
+                     <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+               </div>
+               <button class="form-info__control">
+                  <i class="fa-solid fa-arrow-right"></i>
+               </button>
+            </div>
+
+            <!-- Form Login -->
+            <div class="form-login">
+               <h2 class="form-login__heading">
+                  Login to
+                  <span class="form-login__heading--highlight">
+                     your account
+                  </span>
+               </h2>
+               <form
+                  action="https://api-gateway.fullstack.edu.vn/action_page.php"
+                  method="post"
+                  class="form-login__body"
+               >
+                  <input
+                     class="form-login__input"
+                     type="email"
+                     name="email"
+                     placeholder="Email Address"
+                     required
+                  />
+                  <input
+                     class="form-login__input"
+                     type="password"
+                     name="password"
+                     placeholder="Password"
+                     minlength="8"
+                     maxlength="100"
+                     required
+                  />
+                  <div class="form-option">
+                     <input
+                        type="checkbox"
+                        id="remember"
+                        class="form-option__remember--checkbox"
+                        hidden
+                     />
+                     <label for="remember" class="form-option__remember--label">
+                        Remember me
+                     </label>
+                     <a href="#!" class="form-login__link">Forgot Password</a>
+                  </div>
+                  <button class="form-login__submit">LOGIN</button>
+                  <div class="form-login__to-register">
+                     Don't have an account?
+                     <a href="#!" class="form-login__link">Register here</a>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </main>
+   </body>
+</html>

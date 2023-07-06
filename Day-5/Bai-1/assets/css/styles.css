@@ -26,6 +26,7 @@ body {
 
 .contact-desc {
    color: #b8b8b8;
+   line-height: 1.5;
    margin-bottom: 20px;
 }
 
@@ -45,10 +46,10 @@ body {
 /* Input */
 .contact-box__input {
    flex: 1;
-   margin-left: 50px;
-   padding-left: 15px;
    outline: none;
+   margin-left: 50px;
    border: 1px solid #ddd;
+   padding: 0 30px 0 15px;
    font-size: 1rem;
    transition: all 0.2s;
 }
@@ -62,9 +63,9 @@ body {
 }
 
 .contact-box__input--select {
+   appearance: none;
    -webkit-appearance: none;
    -moz-appearance: none;
-   appearance: none;
    color: #b8b8b8;
 }
 
@@ -72,7 +73,7 @@ body {
    color: #000;
 }
 .contact-box__input--textarea {
-   padding: 15px;
+   padding: 15px 30px 15px 15px;
    resize: none;
 }
 
@@ -115,9 +116,10 @@ body {
 .contact-box__modal {
    display: none;
    position: absolute;
-   top: -65px;
-   left: 50px;
-   padding: 15px;
+   top: -56px;
+   left: 27px;
+   padding: 13px 15px;
+   font-size: 0.8rem;
    color: #fff;
    background-color: #000;
 }
@@ -125,11 +127,12 @@ body {
 .contact-box__modal::after {
    content: "";
    position: absolute;
-   left: 50%;
-   bottom: -25px;
+   left: 33%;
+   bottom: -9px;
    transform: translateX(-50%);
-   border: 15px solid;
-   border-color: #000 transparent transparent;
+   border-top: 10px solid #000;
+   border-left: 14px solid transparent;
+   border-right: 14px solid transparent;
 }
 
 /* Submit */
@@ -148,8 +151,8 @@ body {
    position: relative;
    padding-left: 33px;
    color: #b8b8b8;
-   -webkit-user-select: none;
    user-select: none;
+   -webkit-user-select: none;
 }
 
 .contact__input-copy--label::before {
