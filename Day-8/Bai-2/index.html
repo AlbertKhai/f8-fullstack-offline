@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 8 - Bài 2</title>
+
+      <!-- Font Awesome -->
+      <link rel="preconnect" href="https://site-assets.fontawesome.com" />
+      <link rel="preconnect" href="https://use.fortawesome.com" />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://use.fortawesome.com/kits/1ce05b4b/publications/124411/woff2.css"
+         media="all"
+      />
+
+      <!-- Google Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap"
+         rel="stylesheet"
+      />
+
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <main>
+         <div class="cart">
+            <article class="cart-modal">
+               <!-- Cart heading -->
+               <header class="cart__header row">
+                  <div class="cart__heading">
+                     <h3 class="cart__tittle">Shopping Cart</h3>
+                     <span class="cart__total-product">4</span>
+                  </div>
+                  <button class="cart__close-btn">
+                     <i class="fa-solid fa-circle-xmark"></i>
+                  </button>
+               </header>
+
+               <!-- Product list -->
+               <ul class="cart__list">
+                  <!-- Product 1 -->
+                  <li class="cart__item row">
+                     <figure class="cart__warp-img">
+                        <a href="#!">
+                           <img
+                              src="./assets/imgs/iphone-14.png"
+                              alt="Iphone 14 Pro Max"
+                              class="cart__img-product"
+                           />
+                        </a>
+                     </figure>
+                     <div class="cart__product">
+                        <h4 class="cart__product-name">
+                           <a href="#!">Iphone 14 Pro Max</a>
+                        </h4>
+                        <div class="row">
+                           <div class="cart__product-num-btn row">
+                              <button class="cart__num-btn cart__num-btn--down">
+                                 <i class="fa-solid fa-minus"></i>
+                              </button>
+                              <span class="cart__num-btn--preview">1</span>
+                              <button class="cart__num-btn cart__num-btn--up">
+                                 <i class="fa-solid fa-plus"></i>
+                              </button>
+                           </div>
+                           <span class="cart__product-coefficient">
+                              <span><b class="cart__product-num">1</b>x</span>
+                              $<span class="cart__product-price">999</span>
+                           </span>
+                        </div>
+                     </div>
+                     <button class="cart__btn-del-product">
+                        <i class="fa-regular fa-xmark"></i>
+                     </button>
+                  </li>
+
+                  <!-- Product 2 -->
+                  <li class="cart__item row">
+                     <figure class="cart__warp-img">
+                        <a href="#!">
+                           <img
+                              src="./assets/imgs/airpods-max.png"
+                              alt="AirPods Max"
+                              class="cart__img-product"
+                           />
+                        </a>
+                     </figure>
+                     <div class="cart__product">
+                        <h4 class="cart__product-name">
+                           <a href="#!">AirPods Max</a>
+                        </h4>
+                        <div class="row">
+                           <div class="cart__product-num-btn row">
+                              <button class="cart__num-btn cart__num-btn--down">
+                                 <i class="fa-solid fa-minus"></i>
+                              </button>
+                              <span class="cart__num-btn--preview">1</span>
+                              <button class="cart__num-btn cart__num-btn--up">
+                                 <i class="fa-solid fa-plus"></i>
+                              </button>
+                           </div>
+                           <span class="cart__product-coefficient">
+                              <span><b class="cart__product-num">1</b>x</span>
+                              $<span class="cart__product-price">329</span>
+                           </span>
+                        </div>
+                     </div>
+                     <button class="cart__btn-del-product">
+                        <i class="fa-regular fa-xmark"></i>
+                     </button>
+                  </li>
+
+                  <!-- Product 3 -->
+                  <li class="cart__item row">
+                     <figure class="cart__warp-img">
+                        <a href="#!">
+                           <img
+                              src="./assets/imgs/apple-watch-8.png"
+                              alt="Apple Watch Series 8"
+                              class="cart__img-product"
+                           />
+                        </a>
+                     </figure>
+                     <div class="cart__product">
+                        <h4 class="cart__product-name">
+                           <a href="#!">Apple Watch Series 8</a>
+                        </h4>
+                        <div class="row">
+                           <div class="cart__product-num-btn row">
+                              <button class="cart__num-btn cart__num-btn--down">
+                                 <i class="fa-solid fa-minus"></i>
+                              </button>
+                              <span class="cart__num-btn--preview">4</span>
+                              <button class="cart__num-btn cart__num-btn--up">
+                                 <i class="fa-solid fa-plus"></i>
+                              </button>
+                           </div>
+                           <span class="cart__product-coefficient">
+                              <span><b class="cart__product-num">4</b>x</span>
+                              $<span class="cart__product-price">249</span>
+                           </span>
+                        </div>
+                     </div>
+                     <button class="cart__btn-del-product">
+                        <i class="fa-regular fa-xmark"></i>
+                     </button>
+                  </li>
+
+                  <!-- Product 4 -->
+                  <li class="cart__item row">
+                     <figure class="cart__warp-img">
+                        <a href="#!">
+                           <img
+                              src="./assets/imgs/macbook.png"
+                              alt="MacBook Pro"
+                              class="cart__img-product"
+                           />
+                        </a>
+                     </figure>
+                     <div class="cart__product">
+                        <h4 class="cart__product-name">
+                           <a href="#!">MacBook Pro</a>
+                        </h4>
+                        <div class="row">
+                           <div class="cart__product-num-btn row">
+                              <button class="cart__num-btn cart__num-btn--down">
+                                 <i class="fa-solid fa-minus"></i>
+                              </button>
+                              <span class="cart__num-btn--preview">2</span>
+                              <button class="cart__num-btn cart__num-btn--up">
+                                 <i class="fa-solid fa-plus"></i>
+                              </button>
+                           </div>
+                           <span class="cart__product-coefficient">
+                              <span><b class="cart__product-num">2</b>x</span>
+                              $<span class="cart__product-price">1049</span>
+                           </span>
+                        </div>
+                     </div>
+                     <button class="cart__btn-del-product">
+                        <i class="fa-regular fa-xmark"></i>
+                     </button>
+                  </li>
+               </ul>
+
+               <!-- Cart calculator price -->
+               <div class="cart__info">
+                  <div class="cart__subtotal row">
+                     <span>Subtotal</span>
+                     <span class="cart__total-price">
+                        <strong>$920.00</strong>
+                     </span>
+                  </div>
+
+                  <p class="cart__subtotal-desc">
+                     Texes and shipping calculated at checkout
+                  </p>
+
+                  <!-- Cart action -->
+                  <div class="cart__action">
+                     <button class="cart__btn-view">View Cart</button>
+                     <button class="cart__btn-add">Add To Cart</button>
+                  </div>
+
+                  <!-- Cart offer -->
+                  <div class="row">
+                     <div class="cart__offer-icon">
+                        <i class="fa-light fa-truck-fast"></i>
+                     </div>
+                     <p class="cart__offer-desc">
+                        Spend $
+                        <span class="cart__offer-price">499.00</span> to Free
+                        Shipping
+                     </p>
+                  </div>
+               </div>
+            </article>
+         </div>
+      </main>
+      <script src="./main.js"></script>
+   </body>
+</html>
