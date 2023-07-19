@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 9 - Bài 3</title>
+
+      <!-- Font Awesome -->
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <main>
+         <section class="contact">
+            <h2 class="contact__heading">Drop Us a Line</h2>
+            <p class="contact__desc">
+               Reach out to us from our contact form and we will get back to you
+               shortly.
+            </p>
+            <form
+               action="https://api-gateway.fullstack.edu.vn/action_page.php"
+               method="post"
+               class="contact__form"
+            >
+               <div class="row">
+                  <label class="contact__wrap-input">
+                     <input
+                        type="text"
+                        name="first-name"
+                        id=""
+                        class="contact__first-name contact__input"
+                        placeholder=" "
+                     />
+                     <span class="contact__placeholder">First Name *</span>
+                  </label>
+                  <label class="contact__wrap-input">
+                     <input
+                        type="text"
+                        name="last-name"
+                        id=""
+                        class="contact__last-name contact__input"
+                        placeholder=" "
+                     />
+                     <span class="contact__placeholder">Last Name *</span>
+                  </label>
+               </div>
+
+               <div class="row">
+                  <label class="contact__wrap-input">
+                     <input
+                        type="email"
+                        name="email"
+                        id=""
+                        class="contact__email contact__input"
+                        placeholder=" "
+                     />
+                     <span class="contact__placeholder">Email *</span>
+                  </label>
+
+                  <label class="contact__wrap-input">
+                     <select
+                        name="department"
+                        id=""
+                        class="contact__select contact__input"
+                     >
+                        <option value="">Select a department</option>
+                        <option value="Sale">Sale</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Customer support">
+                           Customer support
+                        </option>
+                     </select>
+                     <span class="contact__select--icon-down">
+                        <i class="fa-solid fa-angle-down"></i>
+                     </span>
+                  </label>
+               </div>
+
+               <div class="row">
+                  <label class="contact__wrap-input">
+                     <textarea
+                        name="message"
+                        id=""
+                        placeholder=" "
+                        class="contact__message contact__input"
+                     ></textarea>
+                     <span class="contact__placeholder">Message *</span>
+                  </label>
+               </div>
+
+               <div class="row">
+                  <button class="contact__btn-submit">Send message</button>
+               </div>
+            </form>
+         </section>
+      </main>
+   </body>
+</html>
