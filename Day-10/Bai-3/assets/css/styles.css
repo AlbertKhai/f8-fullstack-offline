@@ -1,0 +1,167 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --bg-body-mail: #cf4a41;
+   --bg-side-left: #e2514b;
+   --bg-side-right: #e85f57;
+   --bg-pattern-letter: #c85b5c;
+   --bg-circle-in-letter: #efcdcd;
+}
+
+html {
+   font-size: 10px;
+}
+
+body {
+   /* font-family: "Inter", sans-serif; */
+   font-size: 1.6rem;
+   line-height: 1.4;
+}
+
+main {
+   width: 100vw;
+   min-width: 400px;
+   height: 100vh;
+   min-height: 200px;
+   background: #313642;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.email {
+   position: relative;
+   width: 300px;
+   height: 150px;
+   cursor: pointer;
+}
+
+/* Shadow */
+.email__shadow {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 300px;
+   height: 17px;
+   border-radius: 50%;
+   box-shadow: 0px 105px 15px 0px rgba(0, 0, 0, 0.6);
+   transition: transform 0.5s ease, box-shadow 0.3s linear;
+}
+
+.email:hover .email__shadow {
+   transform: scaleX(0.7);
+   box-shadow: 0px 105px 15px 0px rgba(0, 0, 0, 0.6);
+}
+
+/* Body Mail */
+.email__body {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: var(--bg-body-mail);
+   transition: transform 0.5s ease;
+}
+
+.email:hover .email__body {
+   transform: translateY(70px);
+}
+
+/* Seal */
+.email__seal {
+   position: absolute;
+   z-index: 3;
+   border-top: 75px solid var(--bg-body-mail);
+   border-left: 150px solid transparent;
+   border-right: 150px solid transparent;
+
+   transform-origin: center top;
+   transition: transform 0.4s 0.3s ease, z-index 0.4s 0.3s;
+}
+
+.email:hover .email__seal {
+   transform: rotateX(180deg) translateY(-1px);
+   transition: transform 0.5s ease;
+   z-index: 1;
+}
+
+/* Side fold */
+.email__side-fold {
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 99;
+
+   border-top: 76px solid transparent;
+   border-left: 150px solid var(--bg-side-left);
+   border-right: 151px solid var(--bg-side-right);
+   border-bottom: 75px solid var(--bg-side-right);
+}
+
+/* Letter */
+.email__contain-letter {
+   position: absolute;
+   z-index: 2;
+   left: 0;
+   bottom: 1px;
+   width: 100%;
+   height: 300px;
+   overflow: hidden;
+   visibility: hidden;
+}
+
+.email__letter {
+   position: absolute;
+   bottom: -200px;
+   left: 35px;
+   overflow: hidden;
+   visibility: visible;
+
+   width: 230px;
+   height: 200px;
+   white-space: nowrap;
+   background: #fff;
+   transition: transform 0.6s ease-in-out;
+}
+
+.email:hover .email__letter {
+   transform: translateY(calc(-200px - 74px));
+   transition: transform 0.4s 0.3s ease;
+}
+
+.email__letter--cross {
+   display: inline-block;
+   width: 16px;
+   height: 20px;
+   background-color: var(--bg-pattern-letter);
+   transform: skew(-45deg);
+   margin-right: 17px;
+}
+
+.email__letter--line-top {
+   width: 40%;
+   height: 18px;
+   background: var(--bg-pattern-letter);
+   margin: 13px;
+}
+
+.email__letter--line-bottom {
+   width: 20%;
+   height: 18px;
+   background: var(--bg-pattern-letter);
+   margin-left: 13px;
+}
+
+.email__letter--circle {
+   position: absolute;
+   right: 15px;
+   bottom: 30px;
+   width: 45px;
+   height: 45px;
+   border-radius: 50%;
+   background: var(--bg-circle-in-letter);
+}
