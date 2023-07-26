@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 11</title>
+
+      <!-- Font Awesome -->
+      <link rel="preconnect" href="https://site-assets.fontawesome.com" />
+      <link rel="preconnect" href="https://use.fortawesome.com" />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://use.fortawesome.com/kits/1ce05b4b/publications/124411/woff2.css"
+         media="all"
+      />
+
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <header class="header">
+         <div class="container">
+            <div class="header__top">
+               <div class="row">
+                  <figure class="header__logo-wrap">
+                     <a href="#!" class="header__logo-link">
+                        <img
+                           src="./assets/imgs/logo.svg"
+                           alt="header-logo-img"
+                           class="header__logo-img"
+                        />
+                     </a>
+                  </figure>
+                  <!-- End logo -->
+                  <button class="header__btn">
+                     <label for="show-hide-menu">
+                        <img
+                           src="./assets/imgs/header-btn.svg"
+                           alt="header-btn-img"
+                           class="header__btn-img"
+                        />
+                     </label>
+                  </button>
+               </div>
+               <!-- End button -->
+               <input type="checkbox" id="show-hide-menu" hidden />
+               <nav class="header__nav">
+                  <ul class="header__menu">
+                     <li class="menu__item">
+                        <a href="#!" class="menu__link">Home</a>
+                     </li>
+                     <li class="menu__item">
+                        <a href="#!" class="menu__link">Menu</a>
+                     </li>
+                     <li class="menu__item">
+                        <a href="#!" class="menu__link">Service</a>
+                     </li>
+                     <li class="menu__item">
+                        <a href="#!" class="menu__link">Shop</a>
+                     </li>
+                  </ul>
+                  <div class="header__search">
+                     <span class="search__wrap-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                     </span>
+                     <form action="#!" method="post">
+                        <input
+                           type="search"
+                           name="search"
+                           id=""
+                           class="search__input"
+                           placeholder="Search"
+                           required
+                        />
+                     </form>
+                     <span class="search__wrap-icon-cart">
+                        <i class="fa-solid fa-basket-shopping-simple"></i>
+                     </span>
+                  </div>
+               </nav>
+               <!-- End nav -->
+            </div>
+
+            <section class="header__hero">
+               <div class="hero__content">
+                  <p class="hero__more">
+                     <span class="hero__more-desc">More than Faster</span>
+                     <img
+                        src="./assets/imgs/hero-more-strawberry.svg"
+                        alt="hero-more-img"
+                        class="hero__more-img"
+                     />
+                  </p>
+                  <h1 class="hero__heading">
+                     Groceries delivered in as little as
+                     <strong class="hero__heading-highlight">2 hours</strong>
+                  </h1>
+                  <p class="hero__desc desc">
+                     Grocen atssures fresh grocery every morning to your family
+                     without getting out in this pandemic.
+                  </p>
+                  <div class="hero__order row">
+                     <a href="#!" class="order-now btn">Order Now</a>
+                     <a href="#!" class="order-process">
+                        <img
+                           src="./assets/imgs/order-process.svg"
+                           alt="order-process-img"
+                           class="order-process__img"
+                        />
+                        <span class="order-process__desc">Order Process</span>
+                     </a>
+                  </div>
+               </div>
+               <figure class="hero__wrap-img">
+                  <img
+                     src="./assets/imgs/hero-img.png"
+                     alt="hero-img"
+                     class="hero__img"
+                  />
+               </figure>
+            </section>
+            <!-- End Hero -->
+         </div>
+      </header>
+      <main>
+         <section class="service">
+            <div class="container">
+               <p class="service__tag">What we Serve</p>
+               <h2 class="service__tittle tittle">
+                  Fruit And Vegetable Delivered To Your Home
+               </h2>
+               <ul class="service__list row">
+                  <li class="service__item">
+                     <div class="service__item-inner">
+                        <figure class="service__wrap-icon">
+                           <img
+                              src="./assets/icons/free-shipping.svg"
+                              alt="Free shipping"
+                              class="service__icon"
+                           />
+                        </figure>
+                        <h3 class="service__sub-tittle">Free shipping</h3>
+                        <p class="service__item-desc">
+                           Enjoy Order in a hand using the fresness of groceries
+                        </p>
+                     </div>
+                  </li>
+                  <li class="service__item">
+                     <div class="service__item-inner">
+                        <figure class="service__wrap-icon">
+                           <img
+                              src="./assets/icons/15-days.svg"
+                              alt="15 days returns"
+                              class="service__icon"
+                           />
+                        </figure>
+                        <h3 class="service__sub-tittle">15 days returns</h3>
+                        <p class="service__item-desc">
+                           Order in a handy way using the freshness of the
+                           groceries.
+                        </p>
+                     </div>
+                  </li>
+                  <li class="service__item">
+                     <div class="service__item-inner">
+                        <figure class="service__wrap-icon">
+                           <img
+                              src="./assets/icons/secure-checkout.svg"
+                              alt="Secure checkout"
+                              class="service__icon"
+                           />
+                        </figure>
+                        <h3 class="service__sub-tittle">Secure checkout</h3>
+                        <p class="service__item-desc">
+                           If you get rotten items - return immediately to us.
+                        </p>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </section>
+         <!-- End Service -->
+
+         <section class="feature">
+            <div class="container">
+               <figure class="feature__wrap-img">
+                  <img
+                     src="./assets/imgs/feature-1.png"
+                     alt="Find Favorites And Discover New Ones"
+                     class="feature__img"
+                  />
+               </figure>
+               <div class="feature__content">
+                  <p class="feature__tag">WHY CHOOSE US</p>
+                  <h2 class="feature__tittle tittle">
+                     Find Favorites And Discover New Ones
+                  </h2>
+                  <p class="feature__desc desc">
+                     At vero eos et accusamus et iusto odio dignissimos ducimus
+                     blanditiis praesen voluptatum deleniti.
+                  </p>
+                  <div class="feature__btn">
+                     <a href="#!" class="btn">Explore Now</a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Feature 1 -->
+
+         <section class="feature feature-2">
+            <div class="container">
+               <figure class="feature__wrap-img">
+                  <img
+                     src="./assets/imgs/feature-2.png"
+                     alt="Sit At Home We Will Take Care Your Order"
+                     class="feature__img"
+                  />
+               </figure>
+               <div class="feature__content feature-2">
+                  <p class="feature__tag">HOME DELIVERY</p>
+                  <h2 class="feature__tittle tittle">
+                     Sit At Home We Will Take Care Your Order
+                  </h2>
+                  <p class="feature__desc desc">
+                     At vero eos et accusamus et iusto odio dignissimos ducimus
+                     qui blanditiis praesentium voluptatum deleniti atque
+                     corrupti quos
+                  </p>
+                  <div class="feature__btn">
+                     <a href="#!" class="btn">Explore Now</a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Feature 2 -->
+
+         <section class="app">
+            <div class="container">
+               <figure class="app__wrap-img">
+                  <img
+                     src="./assets/imgs/app.svg"
+                     alt="Get The Groceries App Order More Easily."
+                     class="app__img"
+                  />
+               </figure>
+               <div class="app__content">
+                  <p class="app__tag">Download our app</p>
+                  <h2 class="app__tittle tittle">
+                     Get The Groceries App Order More Easily.
+                  </h2>
+                  <p class="app__desc desc">
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                     sed do eiusmod tempor incididunt ut.
+                  </p>
+                  <div class="row">
+                     <a href="#!" class="app__link">
+                        <img
+                           src="./assets/icons/apple.svg"
+                           alt="App Store"
+                           class="app__link-icon"
+                        />
+                        <span>App Store</span>
+                     </a>
+                     <a href="#!" class="app__link">
+                        <img
+                           src="./assets/icons/playstore.svg"
+                           alt="Play Store"
+                           class="app__link-icon"
+                        />
+                        <span>Play Store</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+
+      <footer class="footer">
+         <div class="container">
+            <div class="footer__content">
+               <!-- Footer brand -->
+               <div class="footer__brand">
+                  <figure class="footer__wrap-logo">
+                     <img
+                        src="./assets/imgs/logo.svg"
+                        alt="logo"
+                        class="footer__logo"
+                     />
+                  </figure>
+                  <p class="footer__brand-desc">
+                     Fast delivery, which is active all over the world, serves
+                     with many transportation vehicles.
+                  </p>
+               </div>
+
+               <!-- Footer list -->
+               <ul class="footer__list row">
+                  <li class="footer__item">
+                     <h3 class="footer__tittle">Company</h3>
+                     <ul class="footer__list-info">
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">About Us</a>
+                        </li>
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">Blog</a>
+                        </li>
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">All Products</a>
+                        </li>
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">Locations Map</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="footer__item">
+                     <h3 class="footer__tittle">Services</h3>
+                     <ul class="footer__list-info">
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">Order tracking</a>
+                        </li>
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">Wish List</a>
+                        </li>
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">My account</a>
+                        </li>
+                        <li class="footer__item-info">
+                           <a href="" class="footer__link">
+                              Terms & Conditions
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="footer__item">
+                     <h3 class="footer__tittle">Get in Touch</h3>
+                     <p class="footer-info">
+                        <span>Subscribe to our weekly</span>
+                        <span> Newsletter and receive updates via email.</span>
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <div class="footer__copyright">
+               <p class="footer__copyright-desc">
+                  All Rights Reserved @ BESNIK 2021
+               </p>
+               <ul class="footer__copyright-list row">
+                  <li class="footer__copyright-item">
+                     <a href="#!" class="footer__copyright-link">
+                        Terms & Conditions
+                     </a>
+                  </li>
+                  <li class="footer__copyright-item">
+                     <a href="#!" class="footer__copyright-link">
+                        Privacy & Policy
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </footer>
+   </body>
+</html>
