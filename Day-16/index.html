@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-14</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <style>
+         #copyButton {
+            display: inline-block;
+            padding: 15px 32px;
+            margin: 4px 2px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            background-color: #4caf50;
+            transition-duration: 0.4s;
+         }
+
+         #copyButton:hover {
+            background-color: #45a049;
+         }
+      </style>
+   </head>
+   <body>
+      <button id="copyButton">Copy</button>
+      <pre>
+<code id="codeBlock" class="language-js">
+   function areNaN(...args) {
+      return !args.every((arg) =&gt; typeof arg === &quot;number&quot; &amp;&amp; Number.isFinite(arg));
+   }
+   
+   var result;
+   
+   // -------------------------------------------------------------------------------
+   console.log(`================= Bài 1: Hoán vị 2 số ================= `);
+   
+   var a = 0;
+   var b = 7;
+   
+   if (areNaN(a, b)) {
+      result = &quot;Không thể thực hiện, các giá trị phải cùng kiểu là số&quot;;
+   } else {
+      console.log(`Trước khi hoán vị: a = ${a} | b = ${b}`);
+   
+      a = a + b;
+      b = a - b;
+      a = a - b;
+   
+      result = `Sau khi hoán vị: a = ${a} | b = ${b} `;
+   }
+   console.log(result);
+   
+   // -------------------------------------------------------------------------------
+   console.log(`================= Bài 2: Thực hiện phép toán ================= `);
+   
+   var S = 10 + 20 + 5 ** 10 / 2;
+   
+   console.log(`Kết quả S = ${S}`);
+   
+   // -------------------------------------------------------------------------------
+   console.log(`================= Bài 3: Tìm số lớn nhất ================= `);
+   
+   var a = -10;
+   var b = 2;
+   var c = 50;
+   
+   if (areNaN(a, b, c)) {
+      result = &quot;Không thể thực hiện, các giá trị phải cùng kiểu là số&quot;;
+   } else {
+      result = a;
+   
+      if (b &gt; a &amp;&amp; b &gt; c) {
+         result = b;
+      } else if (c &gt; a) {
+         result = c;
+      }
+   
+      result = `Số lớn nhất trong 3 số là: ${result}`;
+   }
+   console.log(result);
+   
+   // -------------------------------------------------------------------------------
+   console.log(`================= Bài 4: Kiểm tra số cùng dấu ================= `);
+   
+   var a = 10;
+   var b = -5;
+   
+   if (areNaN(a, b)) {
+      result = &quot;Không thể thực hiện, các giá trị phải cùng kiểu là số&quot;;
+   } else if (a * b === 0) {
+      result = &quot;Không thể kiểm tra với số 0, vì số 0 không mang khái niệm dấu&quot;;
+   } else {
+      result = `${a} ${a * b &gt; 0 ? &quot;cùng dấu&quot; : &quot;khác dấu&quot;} với ${b}`;
+   }
+   console.log(result);
+   
+   // -------------------------------------------------------------------------------
+   console.log(`================= Bài 5: Sắp xếp 3 số ================= `);
+   
+   var a = 2;
+   var b = 1;
+   var c = 1;
+   
+   if (areNaN(a, b, c)) {
+      result = &quot;Không thể thực hiện, các giá trị phải cùng kiểu là số&quot;;
+   } else {
+      console.log(`Trước khi sắp xếp: a = ${a} | b = ${b} | b = ${c}`);
+   
+      var num1, num2, num3, temp;
+   
+      if (a &gt; b) {
+         temp = a;
+         a = b;
+         b = temp;
+      }
+      if (b &gt; c) {
+         temp = b;
+         b = c;
+         c = temp;
+      }
+      if (a &gt; b) {
+         temp = a;
+         a = b;
+         b = temp;
+      }
+   
+      result = `Sau khi sắp xếp: a = ${a} | b = ${b} | b = ${c}`;
+   }
+   console.log(result);
+   
+</code>
+</pre>
+      <script>
+         document
+            .getElementById("copyButton")
+            .addEventListener("click", function () {
+               var code = document.getElementById("codeBlock").innerText;
+               var textarea = document.createElement("textarea");
+               textarea.textContent = code;
+               document.body.appendChild(textarea);
+               textarea.select();
+               document.execCommand("copy");
+               document.body.removeChild(textarea);
+               alert("Đã sao chép code bài tập vào clipboard!");
+            });
+      </script>
+      <script src="./js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+   </body>
+</html>
