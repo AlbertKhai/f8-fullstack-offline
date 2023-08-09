@@ -1,7 +1,6 @@
 function areNaN(...args) {
-   return !args.every((arg) => typeof arg === "number" && Number.isFinite(arg));
+   return !args.every((arg) => Number.isFinite(Number(arg)));
 }
-
 var result;
 
 // -------------------------------------------------------------------------------
@@ -41,10 +40,10 @@ if (areNaN(a, b, c)) {
    result = "Không thể thực hiện, các giá trị phải cùng kiểu là số";
 } else {
    result = a;
-
-   if (b > a && b > c) {
+   if (result < b) {
       result = b;
-   } else if (c > a) {
+   }
+   if (result < c) {
       result = c;
    }
 
