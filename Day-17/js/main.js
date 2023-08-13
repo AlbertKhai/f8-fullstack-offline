@@ -100,7 +100,7 @@ function primeNum(n) {
    return true;
 }
 
-var num = 8;
+var num = 9007199254740881;
 
 if (areNaN(num)) {
    result = "Đối số num cần kiểm tra phải là số";
@@ -117,14 +117,14 @@ console.log(result);
 // -------------------------------------------------------------------------------
 console.log(`================= Bài 5: Vẽ tam giác số ================= `);
 
-var n = 5;
+var n = 2;
 
 if (areNaN(n)) {
    result = "Số dòng N để tạo tam giác số phải là số";
 } else if (!Number.isInteger(n)) {
    result = "Số dòng N để tạo tam giác số phải là số nguyên";
-} else if (!(n > 1)) {
-   result = "Số dòng N để tạo tam giác số phải lớn hơn 1";
+} else if (!(n > 0)) {
+   result = "Số dòng N để tạo tam giác số phải lớn hơn 0";
 } else {
    result = "";
    var count = 1;

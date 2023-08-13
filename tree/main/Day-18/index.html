@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-18</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <style>
+         #copyButton {
+            display: inline-block;
+            padding: 15px 32px;
+            margin: 4px 2px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            background-color: #4caf50;
+            transition-duration: 0.4s;
+         }
+
+         #copyButton:hover {
+            background-color: #45a049;
+         }
+      </style>
+   </head>
+   <body>
+      <button id="copyButton">Copy</button>
+      <pre>
+<code id="codeBlock" class="language-js">
+function err(...args) {
+   args.every((arg) =&gt; {
+      typeof arg === &quot;string&quot; ? (arg = +arg) : &quot;&quot;;
+      if (!Number.isFinite(arg)) {
+         throw new Error(&quot;Giá trị truyền vào phải là số&quot;);
+      } else if (!(arg &gt; 0)) {
+         throw new Error(&quot;Giá trị truyền vào phải lớn hơn 0&quot;);
+      } else if (!Number.isInteger(arg)) {
+         throw new Error(&quot;Giá trị truyền vào phải là số nguyên&quot;);
+      }
+   });
+}
+
+let result,
+   checkedError = false;
+
+// -------------------------------------------------------------------------------
+console.log(`================= Bài 1: N số fibonacci ================= `);
+
+// Hiển thị N số Fibonacci đầu tiên
+
+// Ví dụ: Gán n = 10 sẽ hiển thị danh sách 10 số fibonacci
+
+// Yêu cầu: Không dùng vòng lặp
+
+function fibonacci(n, a = 0, b = 1, result = &quot;&quot;) {
+   if (!checkedError) {
+      try {
+         checkedError = true;
+         err(n);
+         const log = `Số đầu tiên trong dãy Fibonacci là:`;
+         if (+n === 1) {
+            return `${log} ${a}`;
+         }
+         return `${n} ${log} ${a} ${fibonacci(n - 1, b, a + b, result)}`;
+      } catch (error) {
+         return error.message;
+      }
+   }
+
+   if (n === 1) return (result += a);
+   result += a + &quot; &quot;;
+   return fibonacci(n - 1, b, a + b, result);
+}
+
+let n = &quot;10&quot;;
+console.log(fibonacci(n));
+
+// -------------------------------------------------------------------------------
+console.log(`================= Bài 2: Đảo ngược số ================= `);
+
+// Viết hàm đảo ngược số nguyên với tham số là số cần đảo ngược
+
+// Ví dụ: Khi gọi hàm và truyền đối số 12345 sẽ trả về kết quả 54321
+
+function reverseNumber(n) {
+   try {
+      err(n);
+   } catch (error) {
+      return error.message;
+   }
+
+   let reversed = &quot;&quot;;
+   while (n &gt; 0) {
+      reversed += n % 10;
+      n = Math.floor(n / 10);
+   }
+   return `Số nguyên sau khi được đảo ngược: ${+reversed}`;
+}
+
+console.log(reverseNumber(12345));
+
+// -------------------------------------------------------------------------------
+console.log(`============= Bài 3: Viết hàm chuyển số thành chữ ============= `);
+
+// Ví dụ: Số 4298 sẽ chuyển thành: Bốn ngàn hai trăm chín tám
+
+// Ràng buộc: Số cần chuyển đổi có giá trị từ 0 đến 9999
+
+function numToWords(num) {
+   if (num &lt; 0 || num &gt; 9999)
+      return &quot;Số cần chuyển đổi phải có giá trị từ 0 đến 9999&quot;;
+   result = &quot;&quot;;
+   let log = `${num} =&gt;`;
+   let ones = [
+      &quot;không&quot;,
+      &quot;một&quot;,
+      &quot;hai&quot;,
+      &quot;ba&quot;,
+      &quot;bốn&quot;,
+      &quot;năm&quot;,
+      &quot;sáu&quot;,
+      &quot;bảy&quot;,
+      &quot;tám&quot;,
+      &quot;chín&quot;,
+   ];
+   let tens = [
+      &quot;&quot;,
+      &quot;mười&quot;,
+      &quot;hai mươi&quot;,
+      &quot;ba mươi&quot;,
+      &quot;bốn mươi&quot;,
+      &quot;năm mươi&quot;,
+      &quot;sáu mươi&quot;,
+      &quot;bảy mươi&quot;,
+      &quot;tám mươi&quot;,
+      &quot;chín mươi&quot;,
+   ];
+
+   let thousands = Math.floor(num / 1000);
+   if (thousands &gt; 0) {
+      result += ones[thousands] + &quot; ngàn &quot;;
+      num -= thousands * 1000;
+   }
+
+   let hundreds = Math.floor(num / 100);
+   if (hundreds &gt; 0) {
+      result += ones[hundreds] + &quot; trăm &quot;;
+      num -= hundreds * 100;
+   } else if (thousands &gt; 0 &amp;&amp; num &gt; 0) {
+      result += &quot;không trăm &quot;;
+   }
+
+   let tensPlace = Math.floor(num / 10);
+   if (tensPlace &gt;= 1) {
+      result += tens[tensPlace] + &quot; &quot;;
+      num -= tensPlace * 10;
+   } else if (tensPlace === 0 &amp;&amp; (hundreds &gt; 0 || thousands &gt; 0) &amp;&amp; num &gt; 0) {
+      result += &quot;lẻ &quot;;
+   }
+
+   if (num &gt; 0) {
+      if (num === 1 &amp;&amp; tensPlace &gt;= 2) {
+         result += &quot;mốt&quot;;
+      } else {
+         result += ones[num];
+      }
+   }
+   result = result.trim().charAt(0).toUpperCase() + result.slice(1);
+   return `${log} ${result}`;
+}
+
+console.log(numToWords(4298));
+</code>
+</pre>
+      <script>
+         document
+            .getElementById("copyButton")
+            .addEventListener("click", function () {
+               var code = document.getElementById("codeBlock").innerText;
+               var textarea = document.createElement("textarea");
+               textarea.textContent = code;
+               document.body.appendChild(textarea);
+               textarea.select();
+               document.execCommand("copy");
+               document.body.removeChild(textarea);
+               alert("Đã sao chép code bài tập vào clipboard!");
+            });
+      </script>
+      <script src="./js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+   </body>
+</html>
