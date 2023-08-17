@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-18</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <link rel="stylesheet" href="./styles/styles.css" />
+   </head>
+   <body>
+      <p></p>
+      <div class="wrap-copy-btn">
+         <a
+            href="https://raw.githubusercontent.com/AlbertKhai/download/main/Day-18.rar"
+            class="download-btn"
+            >Download Folder Code</a
+         >
+         <button class="copyButton js" role="button">Copy code JS</button>
+      </div>
+
+      <div class="wrap-code">
+         <pre>
+<code class="codeBlock language-js">var content = `Lorem   ipsum dolor sit   amet consectetur
+ adipisicing elit. Ipsa dignissimos soluta         veritatis rerum minima? Expedita.`;
+var tagP = document.getElementsByTagName(&quot;p&quot;)[0];
+
+if (!content) {
+   tagP.innerHTML = &quot;Vui lòng nhập nội dung cho content&quot;;
+} else if (!content.trim().includes(&quot; &quot;)) {
+   content = content.trim();
+   tagP.innerHTML = `${content}`;
+   setInterval(() =&gt; {
+      tagP.innerHTML = `&lt;span&gt;${content}&lt;/span&gt;`;
+   }, 1000);
+   setInterval(() =&gt; {
+      tagP.innerHTML = `${content}`;
+   }, 2000);
+} else {
+   tagP.innerHTML = `${content}`;
+   content = tagP.innerText;
+   var position = 0;
+   var nextPosition;
+
+   setInterval(() =&gt; {
+      nextPosition = content.indexOf(&quot; &quot;, position);
+      if (nextPosition !== -1) {
+         tagP.innerHTML = `${content.slice(0, position)}
+            &lt;span&gt;${content.slice(position, nextPosition)}&lt;/span&gt; 
+            ${content.slice(nextPosition)}`;
+
+         position = nextPosition + 1;
+      } else {
+         tagP.innerHTML = `${content.slice(0, position)} &lt;span&gt;${content.slice(
+            position
+         )}&lt;/span&gt;`;
+
+         position = 0;
+      }
+   }, 1000);
+}</code>
+</pre>
+      </div>
+
+      <div class="wrap-copy-btn">
+         <button class="copyButton html" role="button">Copy code HTML</button>
+      </div>
+
+      <div class="wrap-code">
+         <pre>
+<code class="codeBlock language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+   &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot; /&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+      &lt;title&gt;Document&lt;/title&gt;
+      &lt;style&gt;
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         html {
+            font-size: 10px;
+         }
+
+         body {
+            font-family: &quot;Times New Roman&quot;, Times, serif;
+            font-size: 1.6rem;
+            padding-top: 20px;
+         }
+
+         span {
+            color: red;
+         }
+
+         p {
+            margin-bottom: 50px;
+            border-top: 3px solid #000;
+            padding: 20px;
+            text-align: justify;
+            font-size: 3.5rem;
+         }
+      &lt;/style&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;p&gt;&lt;/p&gt;
+      &lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code>
+</pre>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script>
+         var buttons = document.getElementsByClassName("copyButton");
+
+         for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+               var buttonClass = this.classList[1]; // lấy class thứ 2 (html hoặc js)
+               var codeBlock = document.querySelector(
+                  ".codeBlock.language-" + buttonClass
+               ).innerText;
+               var textarea = document.createElement("textarea");
+               textarea.textContent = codeBlock;
+               document.body.appendChild(textarea);
+               textarea.select();
+               document.execCommand("copy");
+               document.body.removeChild(textarea);
+               alert("Đã sao chép code " + buttonClass + " vào clipboard!");
+            });
+         }
+      </script>
+      <script src="./js/main.js"></script>
+   </body>
+</html>
