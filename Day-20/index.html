@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-20</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <link rel="stylesheet" href="./styles/styles.css" />
+   </head>
+   <body>
+      <h2 class="heading-ex">Bài 4</h2>
+      <ul class="post__list"></ul>
+
+      <div class="wrap-copy-btn">
+         <a
+            href="https://raw.githubusercontent.com/AlbertKhai/download/main/Day-20.rar"
+            class="download-btn"
+            >Download Folder Code</a
+         >
+         <button class="copyButton js" role="button">Copy code JS</button>
+      </div>
+
+      <div class="wrap-code">
+         <pre>
+<code class="codeBlock language-js">function err(edit = false, ...args) {
+   args.forEach((arr) =&gt; {
+      if (!Array.isArray(arr)) {
+         throw new Error(edit ? &quot;notArr&quot; : &quot;Tham số truyền vào phải là mảng&quot;);
+      } else if (arr.length === 0) {
+         throw new Error(&quot;Tham số mảng truyền vào chưa có phần tử&quot;);
+      }
+   });
+}
+// --------------------------------------------------------------------------------------------------------------------------
+console.log(&quot;# Bài 1/ Lấy kết quả giao giữa 2 mảng:&quot;);
+var arrA = [1, 4, 3, 2];
+var arrB = [5, 2, 6, 7, 1];
+
+var intersectArr = () =&gt; {
+   // Log error
+   try {
+      err(true, arrA, arrB);
+   } catch (error) {
+      if (error.message === &quot;notArr&quot;) {
+         return `Tham số arrA và arrB phải cùng là mảng`;
+      }
+      return `Mỗi tham số arrA, arrB phải có ít nhất 1 phần tử`;
+   }
+
+   // Handle
+   return arrA.reduce((prev, current) =&gt; {
+      return (
+         !prev.includes(current) &amp;&amp;
+            arrB.includes(current) &amp;&amp;
+            prev.push(current),
+         prev
+      );
+   }, []);
+};
+console.log(&quot;Input:&quot;, arrA, &quot;và&quot;, arrB);
+console.log(&quot;Output:&quot;, intersectArr(), `\n`);
+
+// --------------------------------------------------------------------------------------------------------------------------
+console.log(&quot;# Bài 2/ Làm phẳng array sau (Chuyển về mảng 1 chiều):&quot;);
+var arr = [0, 1, [2, 3], [4, 5, [6, 7]], [8, [9, 10, [11, 12]]]];
+
+var flatten = (array) =&gt; {
+   // Log error
+   try {
+      err(array);
+   } catch (error) {
+      return error.message;
+   }
+
+   // Handle
+   let arr = Array.from(array);
+   for (let i = 0; i &lt; arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+         var arrChild = arr[i];
+         arr.splice(i, 1);
+         for (let j = arrChild.length - 1; j &gt;= 0; j--) {
+            arr.splice(i, 0, arrChild[j]);
+         }
+         i = arr.findIndex((value) =&gt; Array.isArray(value)) - 1;
+         if (i === -2) {
+            break;
+         }
+      }
+   }
+   return arr;
+};
+
+console.log(&quot;Input:&quot;, arr);
+console.log(&quot;Output:&quot;, flatten(arr), `\n`);
+
+// --------------------------------------------------------------------------------------------------------------------------
+console.log(&quot;# Bài 3/ Tách phần tử trong mảng theo đúng kiểu dữ liệu:&quot;);
+var arr = [
+   [&quot;a&quot;, 1, true],
+   [&quot;b&quot;, 2, false],
+];
+
+var splitArrByType = (array) =&gt; {
+   // Log error
+   try {
+      err(array);
+   } catch (error) {
+      return error.message;
+   }
+
+   // Handle
+   let arr = flatten(array);
+   return arr.reduce((prev, current) =&gt; {
+      let index = prev.findIndex((value) =&gt; typeof value[0] === typeof current);
+      return (
+         index !== -1 ? prev[index].push(current) : prev.push([current]), prev
+      );
+   }, []);
+};
+
+console.log(&quot;Input:&quot;, arr);
+console.log(&quot;Output:&quot;, splitArrByType(arr), `\n`);
+
+// --------------------------------------------------------------------------------------------------------------------------
+console.log(
+   &quot;# Bài 4/ Thiết kế 1 mảng phù hợp và thực hiện đổ dữ liệu lên giao diện:&quot;
+);
+var arr = [
+   [
+      `Tiêu đề bài viết 1`,
+      `Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis facilis
+necessitatibus, excepturi praesentium totam blanditiis velit natus
+dolor porro architecto exercitationem illo neque ut deserunt nihil
+ratione temporibus, incidunt non?`,
+      `./assets/imgs/1.jpg`,
+   ],
+   [
+      `Tiêu đề bài viết 2`,
+      `Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis facilis
+necessitatibus, excepturi praesentium totam blanditiis velit natus
+dolor porro architecto exercitationem illo neque ut deserunt nihil
+ratione temporibus, incidunt non?`,
+      `./assets/imgs/2.jpg`,
+   ],
+   [
+      `Tiêu đề bài viết 3`,
+      `Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis facilis
+necessitatibus, excepturi praesentium totam blanditiis velit natus
+dolor porro architecto exercitationem illo neque ut deserunt nihil
+ratione temporibus, incidunt non?`,
+      `./assets/imgs/3.jpg`,
+   ],
+];
+
+var view = (array) =&gt; {
+   // Log error
+   try {
+      err(array);
+   } catch (error) {
+      return error.message;
+   }
+
+   // Handle
+   let arr = Array.from(array);
+   return arr.reduce((prev, current, index) =&gt; {
+      if (!Array.isArray(current)) {
+         console.error(`Phần tử tại vị trí index = ${index} phải là mảng`);
+      } else if (current.length &lt; 3) {
+         console.error(
+            `Phần tử tại vị trí index = ${index} trong mảng thiếu dữ liệu để hiển thị`
+         );
+      } else if (!current.every((value) =&gt; !!value)) {
+         console.error(
+            `Phần tử tại vị trí index = ${index} có dữ liệu chưa hợp lệ`
+         );
+      } else {
+         return (prev += `&lt;li class=&quot;post__item&quot;&gt;
+         &lt;div class=&quot;post__content&quot;&gt;
+            &lt;h2 class=&quot;post__heading&quot;&gt;
+               &lt;a href=&quot;#!&quot; class=&quot;post__heading--link&quot;&gt;
+                  ${current[0]}
+               &lt;/a&gt;
+            &lt;/h2&gt;
+            &lt;p class=&quot;post__desc&quot;&gt;
+               ${current[1]}
+            &lt;/p&gt;
+         &lt;/div&gt;
+         &lt;figure class=&quot;post__wrap-img&quot;&gt;
+            &lt;a href=&quot;#!&quot;&gt;
+               &lt;img class=&quot;post__img&quot; src=&quot;${current[2]}&quot; alt=&quot;&quot; /&gt;
+            &lt;/a&gt;          
+         &lt;/figure&gt;
+      &lt;/li&gt;`);
+      }
+      return (prev += `&lt;li class=&quot;post__item&quot;&gt;&lt;h2 class=&quot;post__heading&quot;&gt;Nội dung bài viết đang cập nhật...&lt;/h2&gt;&lt;/li&gt;`);
+   }, &quot;&quot;);
+};
+
+document.querySelector(&quot;.post__list&quot;).innerHTML = view(arr);</code>
+</pre>
+      </div>
+
+      <div class="wrap-copy-btn">
+         <button class="copyButton html" role="button">Copy code HTML</button>
+      </div>
+
+      <div class="wrap-code">
+         <pre>
+<code class="codeBlock language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+   &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot; /&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+      &lt;title&gt;Day-20&lt;/title&gt;
+      &lt;style&gt;
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         html {
+            font-size: 10px;
+         }
+
+         body {
+            font-family: &quot;Times New Roman&quot;, Times, serif;
+            font-size: 1.6rem;
+            padding-top: 20px;
+         }
+
+         .heading-ex {
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 20px;
+         }
+
+         .container {
+            max-width: 1000px;
+            margin: 0 auto;
+         }
+
+         .post__item {
+            display: flex;
+            flex: 1 0;
+            gap: 15px;
+            padding: 25px 0;
+         }
+
+         .post__item:nth-child(odd) {
+            flex-direction: row-reverse;
+         }
+
+         .post__item:not(:last-child) {
+            border-bottom: 2px solid #ccc;
+         }
+
+         .post__heading {
+            margin-bottom: 20px;
+         }
+
+         .post__heading--link {
+            text-decoration: none;
+            color: black;
+            font-size: 3rem;
+         }
+
+         .post__desc {
+            font-size: 1.8rem;
+         }
+
+         .post__wrap-img {
+            max-width: 300px;
+            max-height: 200px;
+         }
+
+         .post__img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+      &lt;/style&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;header&gt;
+         &lt;div class=&quot;container&quot;&gt;
+            &lt;h1 class=&quot;heading-ex&quot;&gt;Bài 4&lt;/h1&gt;
+         &lt;/div&gt;
+      &lt;/header&gt;
+      &lt;main&gt;
+         &lt;section&gt;
+            &lt;div class=&quot;container&quot;&gt;
+               &lt;ul class=&quot;post__list&quot;&gt;&lt;/ul&gt;
+            &lt;/div&gt;
+         &lt;/section&gt;
+      &lt;/main&gt;
+      &lt;script src=&quot;./js/main.js&quot;&gt;&lt;/script&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code>
+</pre>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="./js/copyButton.js"></script>
+      <script src="./js/main.js"></script>
+   </body>
+</html>
