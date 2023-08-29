@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-22</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <link rel="stylesheet" href="./styles/styles.css" />
+   </head>
+   <body>
+      <div class="wrap-copy-btn">
+         <a
+            href="https://raw.githubusercontent.com/AlbertKhai/download/main/Day-22.rar"
+            class="download-btn"
+            >Download Folder Code</a
+         >
+         <button class="copyButton js" role="button">Copy code JS</button>
+      </div>
+
+      <div class="wrap-code">
+         <pre>
+<code class="codeBlock language-js">function areNaN(args) {
+   if (!args.every((value) =&gt; value !== null &amp;&amp; Number.isFinite(+value))) {
+      throw new Error(&quot;Các tham số truyền vào phải là số hữu hạn&quot;);
+   }
+}
+
+function validateCurrency(value, currency) {
+   if (!Number.isFinite(+value) || !+value) {
+      throw new Error(&quot;Giá trị cần lấy đơn vị tiền tệ phải là 1 số hữu hạn&quot;);
+   } else if (typeof currency !== &quot;string&quot;) {
+      throw new Error(&quot;Vui lòng nhập đơn vị tiền tệ dạng chuỗi.&quot;);
+   }
+}
+
+// -------------------------------- Bài 1 -----------------------------------------------
+console.log(&quot;# Bài 1&quot;);
+function sum(...args) {
+   console.log(&quot;Input:&quot;, ...args);
+   // Log error
+   try {
+      areNaN(args);
+   } catch (error) {
+      return error.message;
+   }
+   // Handle
+   return args.reduce((prev, next) =&gt; +prev + +next);
+}
+
+console.log(&quot;Output:&quot;, sum(1, &quot;2&quot;, 3));
+
+// -------------------------------- Bài 2 -----------------------------------------------
+console.log(&quot;\n# Bài 2&quot;);
+Number.prototype.getCurrency = function (currency = &quot;$&quot;) {
+   // Log Error
+   try {
+      validateCurrency(this, currency);
+   } catch (error) {
+      return error.message;
+   }
+
+   // Handle
+   num = this.toString().split(&quot;&quot;);
+   for (let i = num.length - 3; i &gt; 0; i -= 3) {
+      num.splice(i, 0, &quot;,&quot;);
+   }
+   return `${num.join(&quot;&quot;)} ${currency}`;
+};
+
+String.prototype.getCurrency = Number.prototype.getCurrency;
+
+var money = &quot;25360000&quot;;
+console.log(&quot;Input:&quot;, money);
+console.log(&quot;Output:&quot;, money.getCurrency(&quot;₫&quot;));
+
+// -------------------------------- Bài 3 -----------------------------------------------
+console.log(&quot;\n# Bài 3&quot;);
+var array = [
+   {
+      id: 1,
+      name: &quot;Chuyên mục 1&quot;,
+      parent: 0,
+   },
+   {
+      id: 2,
+      name: &quot;Chuyên mục 2&quot;,
+      parent: 0,
+   },
+   {
+      id: 3,
+      name: &quot;Chuyên mục 3&quot;,
+      parent: 0,
+   },
+   {
+      id: 4,
+      name: &quot;Chuyên mục 2.1&quot;,
+      parent: 2,
+   },
+   {
+      id: 5,
+      name: &quot;Chuyên mục 2.2&quot;,
+      parent: 2,
+   },
+   {
+      id: 6,
+      name: &quot;Chuyên mục 2.3&quot;,
+      parent: 2,
+   },
+   {
+      id: 7,
+      name: &quot;Chuyên mục 3.1&quot;,
+      parent: 3,
+   },
+   {
+      id: 8,
+      name: &quot;Chuyên mục 3.2&quot;,
+      parent: 3,
+   },
+   {
+      id: 9,
+      name: &quot;Chuyên mục 3.3&quot;,
+      parent: 3,
+   },
+   {
+      id: 10,
+      name: &quot;Chuyên mục 2.2.1&quot;,
+      parent: 5,
+   },
+   {
+      id: 11,
+      name: &quot;Chuyên mục 2.2.2&quot;,
+      parent: 5,
+   },
+   {
+      id: 12,
+      name: &quot;Chuyên mục 2.2.3&quot;,
+      parent: 5,
+   },
+];
+
+function validateArr(arr) {
+   if (!Array.isArray(arr)) {
+      throw new Error(&quot;Tham số truyền vào phải là mảng&quot;);
+   } else if (arr.length === 0) {
+      throw new Error(&quot;Tham số mảng truyền vào chưa có phần tử&quot;);
+   }
+   if (
+      arr.every(
+         (value) =&gt;
+            !isNaN(+value.id) &amp;&amp;
+            !isNaN(+value.parent) &amp;&amp;
+            value.name &amp;&amp;
+            typeof value.id === &quot;number&quot; &amp;&amp;
+            typeof value.parent === &quot;number&quot; &amp;&amp;
+            value.name === &quot;string&quot;
+      )
+   ) {
+      throw new Error(&quot;Phần tử trong mảng có dữ liệu chưa hợp lệ&quot;);
+   }
+}
+
+function nestArray(arr) {
+   try {
+      validateArr(arr);
+   } catch (error) {
+      return error.message;
+   }
+
+   arr = [...arr.sort((a, b) =&gt; a.parent - b.parent)];
+   let end = () =&gt; arr.length - 1;
+   let max = () =&gt; arr[end()].parent;
+   while (arr[end()].parent &gt; 0) {
+      let maxParent = max();
+      let lastIndex = end();
+      let parent = arr[maxParent - 1];
+      if (!parent) {
+         arr.splice(lastIndex, 1);
+         continue;
+      }
+      parent.children = [];
+      for (let i = lastIndex; i &gt;= 0; i--) {
+         if (arr[i].parent === maxParent) {
+            delete arr[i].parent;
+            parent.children.unshift(...arr.splice(i, 1));
+         }
+      }
+      parent.children = parent.children.sort((a, b) =&gt; a.id - b.id);
+   }
+   arr.forEach((element) =&gt;
+      element.parent === 0 ? delete element.parent : &quot;&quot;
+   );
+   return arr;
+}
+console.log(nestArray(array));
+
+// -------------------------------- Bài 4 -----------------------------------------------
+console.log(&quot;\n# Bài 4&quot;);
+Array.prototype.reduce2 = function (callback, result) {
+   let i = 1;
+   result ? (i = 0) : (result = this[0]);
+   for (i; i &lt; this.length; i++) {
+      result = callback(result, this[i], i, this);
+   }
+   return result;
+};
+
+// --------- Test 1 ---------
+console.log(&quot;--- Test 1: Tìm phần tử khác nhau giữa 2 mảng&quot;);
+var arr1 = [5, 2, 1, 9, 8];
+var arr2 = [2, 1, 8, 3];
+// Kết quả: [5, 9]
+
+// Reduce Original
+var reduce = arr1.reduce(function (prev, current) {
+   if (!arr2.includes(current)) {
+      prev.push(current);
+   }
+   return prev;
+}, []);
+console.log(&quot;reduce:&quot;, reduce);
+
+// Reduce 2
+var reduce2 = arr1.reduce(function (prev, current) {
+   if (!arr2.includes(current)) {
+      prev.push(current);
+   }
+   return prev;
+}, []);
+console.log(&quot;reduce 2:&quot;, reduce2);
+
+// --------- Test 2 ---------
+console.log(&quot;--- Test 2: Tìm max&quot;);
+var numbers = [5, 2, 1, 9, 8]; // Kết quả: 9
+
+// Reduce Original
+var reduce = numbers.reduce(function (prev, current) {
+   return prev &lt; current ? current : prev;
+});
+console.log(&quot;reduce:&quot;, reduce);
+
+// Reduce 2
+var reduce2 = numbers.reduce(function (prev, current) {
+   return prev &lt; current ? current : prev;
+});
+console.log(&quot;reduce 2:&quot;, reduce2);</code>
+</pre>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="./js/copyButton.js"></script>
+      <script src="./js/main.js"></script>
+   </body>
+</html>
