@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>DAY-23</title>
+      <link rel="preconnect" href="https://site-assets.fontawesome.com" />
+      <link rel="preconnect" href="https://use.fortawesome.com" />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://use.fortawesome.com/kits/1ce05b4b/publications/124411/woff2.css"
+         media="all"
+      />
+
+      <link rel="stylesheet" href="./css/style.css" />
+   </head>
+   <body>
+      <!-- Header -->
+      <header class="header">
+         <div class="container">
+            <!-- Logo -->
+            <h1 class="header-logo">
+               <a href="#!">
+                  <img
+                     src="./images/icons/logo-dan-tri.svg"
+                     alt="Logo Dân trí"
+                  />
+               </a>
+            </h1>
+            <!-- End logo -->
+
+            <!-- Btn Account -->
+            <div class="btn-wrap__account">
+               <button class="btn__account">
+                  Đăng nhập
+                  <span class="btn__account-icon">
+                     <i class="fa-regular fa-user"></i>
+                  </span>
+               </button>
+            </div>
+         </div>
+      </header>
+      <!-- End header -->
+
+      <!-- Main -->
+      <main class="main">
+         <!-- Auth -->
+         <div class="auth-wrap">
+            <div class="auth-overlay"></div>
+
+            <!-- Auth account -->
+            <div class="auth-container">
+               <!-- Auth nav -->
+               <div class="auth-nav">
+                  <button class="btn__tab active">Đăng nhập</button>
+                  <button class="btn__tab">Đăng ký</button>
+               </div>
+               <!-- End .auth-nav -->
+               <div class="auth-panel">
+                  <!-- Auth-tab login -->
+                  <div class="auth-tab auth-login">
+                     <p class="auth-desc">với các tài khoản mạng xã hội</p>
+
+                     <!-- Auth Social -->
+                     <div class="auth-social">
+                        <button class="auth-social__btn">
+                           <span class="auth-social__btn-icon">
+                              <img
+                                 src="./images/icons/google.svg"
+                                 alt="icon-google"
+                              />
+                           </span>
+                           Google
+                        </button>
+                        <button class="auth-social__btn">
+                           <span class="auth-social__btn-icon">
+                              <img
+                                 src="./images/icons/fb.svg"
+                                 alt="icon-facebook"
+                              />
+                           </span>
+                           Facebook
+                        </button>
+                     </div>
+                     <!-- End .auth-social -->
+
+                     <p class="auth-desc line"><span>hoặc</span></p>
+
+                     <!-- Form -->
+                     <form
+                        action="#!"
+                        method="POST"
+                        class="auth-form form-login"
+                     >
+                        <!-- Message -->
+                        <p class="auth-message"></p>
+                        <!-- End .auth-message when submit -->
+
+                        <!-- Auth email -->
+                        <div class="auth-control">
+                           <label for="auth-email-login" class="auth-label">
+                              Email
+                           </label>
+                           <div class="auth-row">
+                              <input
+                                 type="email"
+                                 name="email"
+                                 id="auth-email-login"
+                                 placeholder="Email"
+                                 class="auth-input"
+                                 value=""
+                              />
+                           </div>
+                           <p class="auth-message"></p>
+                        </div>
+                        <!-- End .auth-email -->
+
+                        <!-- Auth Password -->
+                        <div class="auth-control">
+                           <label for="auth-password-login" class="auth-label">
+                              Mật khẩu
+                           </label>
+                           <div class="auth-row password">
+                              <input
+                                 type="password"
+                                 name="password"
+                                 id="auth-password-login"
+                                 placeholder="Mật khẩu"
+                                 class="auth-input"
+                                 value=""
+                              />
+                              <button type="button" class="auth-view">
+                                 <i class="fa-light fa-eye"></i>
+                                 <i class="fa-light fa-eye-slash d-none"></i>
+                              </button>
+                           </div>
+                           <p class="auth-message"></p>
+                        </div>
+                        <!-- End .auth-password -->
+
+                        <!-- Auth action forgot -->
+                        <div class="auth-control action">
+                           <button class="auth-forgot">
+                              <i>Quên mật khẩu?</i>
+                           </button>
+                        </div>
+
+                        <!-- End .auth-forgot -->
+
+                        <!-- Submit Login -->
+                        <div class="auth-control">
+                           <button
+                              type="submit"
+                              class="auth-submit"
+                              name="btnLogin"
+                           >
+                              Đăng nhập
+                           </button>
+                        </div>
+                        <!-- End auth-submit -->
+                     </form>
+                     <!-- End .auth-form -->
+                  </div>
+                  <!-- End tab-login -->
+
+                  <!-- Auth tab register -->
+                  <div class="auth-tab auth-register d-none">
+                     <div class="auth-desc">
+                        Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!
+                     </div>
+
+                     <!-- Form -->
+                     <form
+                        action="#!"
+                        method="POST"
+                        class="auth-form form-register"
+                     >
+                        <p class="auth-message ta-c"></p>
+                        <!-- Auth name -->
+                        <div class="auth-control">
+                           <label for="auth-name-register" class="auth-label">
+                              Họ và tên
+                           </label>
+                           <div class="auth-row">
+                              <input
+                                 class="auth-input"
+                                 id="auth-name-register"
+                                 type="text"
+                                 name="name"
+                                 placeholder="Họ và tên"
+                                 value=""
+                              />
+                           </div>
+                           <div class="auth-message">
+                              Vui lòng nhập thông tin
+                           </div>
+                        </div>
+                        <!-- End .auth-name-sign-up -->
+
+                        <!-- Auth email Sign-in -->
+                        <div class="auth-control">
+                           <label for="auth-email-register" class="auth-label">
+                              Email
+                           </label>
+                           <div class="auth-row">
+                              <input
+                                 type="email"
+                                 name="email"
+                                 id="auth-email-register"
+                                 placeholder="Email"
+                                 class="auth-input"
+                                 value=""
+                              />
+                           </div>
+                           <p class="auth-message"></p>
+                        </div>
+                        <!-- End .auth-email -->
+
+                        <!-- Auth Password Sign-up -->
+                        <div class="auth-control">
+                           <label
+                              for="auth-password-register"
+                              class="auth-label"
+                           >
+                              Mật khẩu
+                           </label>
+                           <div class="auth-row password">
+                              <input
+                                 type="password"
+                                 name="password"
+                                 id="auth-password-register"
+                                 placeholder="Mật khẩu"
+                                 class="auth-input pass-limit"
+                                 value=""
+                              />
+                              <button type="button" class="auth-view">
+                                 <i class="fa-light fa-eye"></i>
+                                 <i class="fa-light fa-eye-slash d-none"></i>
+                              </button>
+                           </div>
+                           <p class="auth-message"></p>
+                        </div>
+                        <!-- End .auth-password -->
+
+                        <!-- Auth Term -->
+                        <div class="auth-control term">
+                           Bằng cách đăng ký tài khoản, bạn cũng đồng thời chấp
+                           nhận mọi
+                           <a href="#!">
+                              điều kiện về qui định và chính sách của Dân trí
+                           </a>
+                        </div>
+                        <!-- End Auth Term -->
+
+                        <!-- Submit Register -->
+                        <div class="auth-control">
+                           <button
+                              type="submit"
+                              class="auth-submit"
+                              name="btnRegister"
+                           >
+                              Đăng ký
+                           </button>
+                        </div>
+                     </form>
+                     <!-- End .auth-form -->
+                  </div>
+                  <!-- End tab-register -->
+               </div>
+               <!-- End Auth panel -->
+            </div>
+            <!-- End Auth account -->
+         </div>
+      </main>
+      <!--End .header-->
+
+      <script src="./js/main.js"></script>
+   </body>
+</html>

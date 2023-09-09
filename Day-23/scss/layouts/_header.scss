@@ -1,0 +1,33 @@
+.header {
+   padding: 24px 0;
+   .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .header-logo {
+         width: 132px;
+         img {
+            display: block;
+            max-width: 100%;
+         }
+      }
+
+      // End .header-logo
+      .btn-wrap__account {
+         .btn__account {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 105px;
+            font-size: 1.4rem;
+            font-weight: 500;
+
+            &-icon {
+               font-size: 2rem;
+               color: #4d4d4d;
+            }
+         }
+      }
+   }
+}
