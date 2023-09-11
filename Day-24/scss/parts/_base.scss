@@ -1,0 +1,12 @@
+body {
+   background-color: $primaryColor;
+}
+
+.todo-app {
+   width: 1200px;
+   max-width: calc(100% - 48px);
+   margin: 0 auto;
+
+   display: flex;
+   justify-content: center;
+}

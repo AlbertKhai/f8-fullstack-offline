@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  margin: 20px 0;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+button {
+  color: #fff;
+  cursor: pointer;
+}
+
+body {
+  background-color: #8758ff;
+}
+
+.todo-app {
+  width: 1200px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.todo-app .todo-wrap {
+  margin-top: 80px;
+  padding: 32px;
+  border-radius: 5px;
+  background-color: #1a1a40;
+  max-width: 80vw;
+}
+.todo-app .todo-wrap .todo__heading {
+  margin: 0px 0 8px;
+  font-weight: 500;
+  font-size: 3rem;
+  text-align: center;
+}
+.todo-app .todo-wrap .todo__form {
+  text-align: center;
+}
+.todo-app .todo-wrap .todo__form .todo__row {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0 32px;
+}
+.todo-app .todo-wrap .todo__form .todo__row .todo__input {
+  width: 300px;
+  border: 1px solid #8758ff;
+  padding: 8px 16px;
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: #1a1a40;
+}
+.todo-app .todo-wrap .todo__form .todo__row .todo__input::placeholder {
+  font-size: 1.35rem;
+  color: #5f5f7a;
+  font-weight: 500;
+}
+.todo-app .todo-wrap .todo__form .todo__row .todo__btn-add {
+  background-color: #8758ff;
+  padding: 9px;
+  font-size: 1.3rem;
+}
+.todo-app .todo-wrap .todo-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  padding: 12px 16px;
+  background-color: #8758ff;
+}
+.todo-app .todo-wrap .todo-box p {
+  text-align: center;
+  word-break: break-word;
+}
+.todo-app .todo-wrap .todo-box .todo__action-btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.todo-app .todo-wrap .todo-box .todo__action-btn-wrap button {
+  padding: 3px;
+}
+
+/*# sourceMappingURL=style.css.map */
