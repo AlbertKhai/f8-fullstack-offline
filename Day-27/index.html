@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-27</title>
+      <link rel="preconnect" href="https://site-assets.fontawesome.com" />
+      <link rel="preconnect" href="https://use.fortawesome.com" />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://use.fortawesome.com/kits/1ce05b4b/publications/124411/woff2.css"
+         media="all"
+      />
+
+      <link rel="stylesheet" href="./css/style.css" />
+   </head>
+   <body>
+      <main>
+         <div class="container">
+            <section class="product">
+               <h2>DANH SÁCH SẢN PHẨM</h2>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>STT</th>
+                        <th></th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Thêm vào giỏ</th>
+                     </tr>
+                  </thead>
+                  <tbody class="product__list"></tbody>
+               </table>
+            </section>
+
+            <hr />
+
+            <section class="cart">
+               <h2>GIỎ HÀNG</h2>
+               <p class="cart__mess show">Đang cô đơn</p>
+               <table class="cart__table">
+                  <thead>
+                     <tr>
+                        <th>STT</th>
+                        <th></th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Xóa</th>
+                     </tr>
+                  </thead>
+                  <tbody class="product__list"></tbody>
+                  <tfoot>
+                     <tr>
+                        <th colspan="4">Tổng</th>
+                        <td class="cart__total-quantity">Tổng số lượng</td>
+                        <td class="cart__total-price" colspan="2">Tổng giá</td>
+                     </tr>
+                  </tfoot>
+               </table>
+               <div class="cart__action row">
+                  <button class="cart__btn-update">Cập nhật giỏ hàng</button>
+                  <button class="cart__btn-del">Xóa giỏ hàng</button>
+               </div>
+            </section>
+
+            <div class="preview">
+               <figure class="preview__inner">
+                  <img
+                     class="preview__img"
+                     src="./assets/imgs/product-1.jpg"
+                     alt=""
+                  />
+               </figure>
+               <div class="preview__overlay"></div>
+            </div>
+         </div>
+      </main>
+      <script src="./js/index.js"></script>
+   </body>
+</html>
