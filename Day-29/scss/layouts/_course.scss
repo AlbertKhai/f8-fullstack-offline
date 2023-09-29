@@ -1,0 +1,35 @@
+.course {
+   background-color: #4286f4;
+   width: fit-content;
+   padding: 16px;
+
+   .list {
+      &:not(:has(.ghost)) .list-item:hover {
+         color: #fff;
+      }
+
+      .list-item {
+         border: 1px solid #fff;
+         margin: 1px 0;
+         padding: 8px;
+         background: #8bb3f4;
+         transition: color 0.15s, opacity 0.1s;
+
+         span {
+            pointer-events: none;
+         }
+
+         //  &:hover {
+         //  }
+
+         &.ghost {
+            opacity: 0.5;
+            color: #fff;
+         }
+
+         &.active {
+            background-color: #ff6f00;
+         }
+      }
+   }
+}
