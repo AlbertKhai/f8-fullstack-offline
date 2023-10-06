@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: #2361ff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+  margin: 20px 0;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+button {
+  color: #000;
+  cursor: pointer;
+}
+
+noscript {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+#root .timer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #03bdf0;
+}
+#root .timer h2 {
+  font-size: 4.5rem;
+  text-align: center;
+  color: #fff;
+}
+#root .timer .counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+  background: #ff9100;
+}
+#root .timer .action {
+  margin-top: 30px;
+  text-align: center;
+}
+#root .timer .action .btn {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 99px;
+  color: #fff;
+  padding: 10px 25px;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+#root .timer .action .btn[disabled] {
+  opacity: 0.5;
+  font-weight: 500;
+  cursor: not-allowed;
+}
+
+/*# sourceMappingURL=style.css.map */
