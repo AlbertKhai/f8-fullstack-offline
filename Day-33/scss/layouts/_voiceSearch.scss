@@ -1,0 +1,50 @@
+.heading {
+   padding: 50px 0 40px;
+   text-align: center;
+   font-size: 4rem;
+}
+
+.btn__record {
+   display: block;
+   margin: 0 auto 20px;
+   padding: 10px 20px;
+   min-width: 100px;
+   border-radius: 15px;
+   font-weight: 500;
+   font-size: 2rem;
+
+   transition: scale 0.3s;
+
+   &:hover {
+      scale: 0.95;
+   }
+}
+
+.message {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 15px;
+   .mess__ready {
+      color: deeppink;
+   }
+
+   .mess__end {
+      color: $btnBg;
+   }
+
+   .mess__show {
+      width: 80%;
+      border: 1px solid $secondaryColor;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      font-weight: 500;
+      color: $secondaryColor;
+
+      &.fail {
+         color: deeppink;
+         border-color: deeppink;
+      }
+   }
+}
