@@ -1,0 +1,70 @@
+.todo {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   min-height: 100vh;
+
+   .todo-inner {
+      min-width: 700px;
+      text-align: center;
+
+      .main {
+         margin-top: 20px;
+         text-align: left;
+
+         .todo-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+
+            margin: 12px 0;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 0 5px 0 #ccc;
+
+            .todo-item__content {
+               max-width: 100%;
+               flex: 1 0;
+            }
+
+            button {
+               padding: 0;
+            }
+         }
+
+         .todo-done {
+            @include show-hide;
+         }
+
+         .btn__show-todo-done {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background-color: $btnBg;
+
+            &:hover {
+               background-color: darken($btnBg, 5%);
+            }
+
+            &:focus {
+               box-shadow: 0 0 0 4px lighten($btnBg, 30%);
+            }
+
+            i {
+               transition: rotate 0.3s;
+            }
+
+            &.show {
+               @extend .btn-success;
+
+               i {
+                  rotate: 90deg;
+               }
+            }
+         }
+      }
+   }
+}

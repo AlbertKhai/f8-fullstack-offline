@@ -1,0 +1,70 @@
+.row {
+   display: flex;
+   align-items: center;
+}
+
+@mixin show-hide {
+   opacity: 1;
+   visibility: visible;
+
+   transition: opacity 0.3s, visibility 0.3s;
+
+   &.hide {
+      opacity: 0;
+      visibility: hidden;
+   }
+}
+
+.btn {
+   padding: 10px 16px;
+}
+
+@mixin btn-hover-focus($color) {
+   background-color: $color;
+
+   &:hover {
+      background-color: darken($color, 5%);
+   }
+
+   &:focus {
+      box-shadow: 0 0 0 4px lighten($color, 30%);
+   }
+}
+
+.btn-primary {
+   @include btn-hover-focus(#1d4ed8);
+}
+
+.btn-second {
+   border: 1px solid $btnBorder;
+   color: #555;
+   background-color: #fff;
+
+   &:hover {
+      background-color: #f5f5f5;
+   }
+}
+
+.btn-success {
+   @include btn-hover-focus(#047857);
+}
+
+.btn-danger {
+   @include btn-hover-focus(#be123c);
+}
+
+.btn-status {
+   &.done {
+      @extend .btn-success;
+   }
+
+   background-color: $btnBg;
+
+   &:hover {
+      background-color: darken(#047857, 5%);
+   }
+
+   &:focus {
+      box-shadow: 0 0 0 4px lighten(#047857, 30%);
+   }
+}

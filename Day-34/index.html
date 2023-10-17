@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>DAY-34</title>
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+      <!-- font-awesome -->
+      <link rel="preconnect" href="https://site-assets.fontawesome.com" />
+      <link rel="preconnect" href="https://use.fortawesome.com" />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://use.fortawesome.com/kits/1ce05b4b/publications/124411/woff2.css"
+         media="all"
+      />
+
+      <!-- style -->
+      <link rel="stylesheet" href="./css/style.css" />
+   </head>
+   <body>
+      <div class="todo">
+         <div class="todo-inner">
+            <header class="header">
+               <h1 class="heading">
+                  <span class="heading__highlight">Smatyx</span> Todo App
+               </h1>
+               <div class="header__action row">
+                  <div class="wrap__search">
+                     <input
+                        type="search"
+                        name=""
+                        id=""
+                        class="heading__search"
+                        placeholder="Search Todos"
+                     />
+                     <button class="btn__search-icon btn-primary">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                     </button>
+                  </div>
+                  <button class="btn-add-todo btn-success">Add Todos</button>
+               </div>
+            </header>
+
+            <main class="main">
+               <div class="todo-undone"></div>
+
+               <button class="btn__show-todo-done">
+                  <span>Completed Todos</span>
+                  <i class="fa-regular fa-circle-right"></i>
+               </button>
+
+               <div class="todo-done hide"></div>
+            </main>
+         </div>
+
+         <div class="todo-modal hide">
+            <div class="todo-modal__overlay"></div>
+            <form action="#!" method="post" class="todo-modal__form">
+               <div class="todo-modal__wrap-input">
+                  <input
+                     type="text"
+                     class="todo-modal__input"
+                     placeholder="Add todo"
+                     required
+                  />
+               </div>
+               <div class="todo-modal__wrap-action">
+                  <button type="submit" class="btn__save-todo btn-success">
+                     Save
+                  </button>
+                  <button type="button" class="btn__cancel-todo btn-second">
+                     Cancel
+                  </button>
+               </div>
+            </form>
+         </div>
+      </div>
+      <div class="loader hide">
+         <div class="loader-inner"></div>
+      </div>
+      <script src="./js/index.js"></script>
+   </body>
+</html>
