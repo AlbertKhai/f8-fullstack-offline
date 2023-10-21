@@ -1,0 +1,11 @@
+@mixin show-hide {
+   opacity: 1;
+   visibility: visible;
+
+   transition: opacity 0.3s, visibility 0.3s;
+
+   &.hide {
+      opacity: 0;
+      visibility: hidden;
+   }
+}

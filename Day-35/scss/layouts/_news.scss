@@ -1,0 +1,290 @@
+.news {
+   margin-top: 30px;
+   .container {
+      .news-inner {
+         margin-left: 60px;
+         max-width: 700px;
+
+         .heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 5rem;
+            line-height: 0.9;
+            color: $primaryColor;
+
+            .heading-icon {
+               display: inline-flex;
+               justify-content: center;
+               align-items: center;
+
+               width: 45px;
+               height: 45px;
+               border-radius: 50%;
+               text-align: center;
+               font-size: 3rem;
+               font-weight: 900;
+               color: #fff;
+               background-color: #ed2e2e;
+            }
+         }
+
+         .sort-news {
+            position: relative;
+            width: 100%;
+            margin-top: 30px;
+            background-color: $primaryColor;
+
+            .sort-news__inner {
+               width: fit-content;
+               cursor: pointer;
+
+               &:hover {
+                  .sort-news__control {
+                     visibility: visible;
+                     opacity: 1;
+                  }
+               }
+
+               .sort-news__label {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  min-width: 107px;
+                  padding: 10px;
+                  font-size: 1.6rem;
+                  font-weight: 500;
+                  color: #fff;
+               }
+
+               .sort-news__control {
+                  position: absolute;
+                  z-index: 1;
+                  left: 0;
+                  top: 100%;
+
+                  display: inline-flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+
+                  background-color: $primaryColor;
+                  visibility: hidden;
+                  opacity: 0;
+
+                  transition: visibility 0.2s, opacity 0.2s;
+
+                  .sort-new__btn {
+                     display: inline-flex;
+                     align-items: center;
+                     justify-content: space-between;
+
+                     min-width: 107px;
+
+                     padding: 10px;
+                     color: #fff;
+                     background-color: $primaryColor;
+
+                     transition: background-color 0.2s;
+
+                     &:hover {
+                        background-color: $secondaryColor;
+                     }
+
+                     .fa-solid {
+                        font-size: 1.2rem;
+                     }
+                  }
+               }
+            }
+         }
+
+         .news-top {
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+            height: fit-content;
+            margin-top: 25px;
+
+            &.loading {
+               background: #eee;
+               background: linear-gradient(
+                  110deg,
+                  #ececec 8%,
+                  #f5f5f5 18%,
+                  #ececec 33%
+               );
+               border-radius: 5px;
+               background-size: 200% 100%;
+               animation: 1.5s shine linear infinite;
+            }
+
+            @keyframes shine {
+               to {
+                  background-position-x: -200%;
+               }
+            }
+
+            .news-top__content {
+               position: absolute;
+               left: 0;
+               bottom: 0;
+
+               background: -moz-linear-gradient(
+                  top,
+                  rgba(30, 87, 153, 0) 0,
+                  rgba(0, 0, 0, 0.75) 40%,
+                  rgba(0, 0, 0, 0.78) 100%
+               );
+               background: -webkit-linear-gradient(
+                  top,
+                  rgba(30, 87, 153, 0) 0,
+                  rgba(0, 0, 0, 0.75) 40%,
+                  rgba(0, 0, 0, 0.78) 100%
+               );
+               background: linear-gradient(
+                  to bottom,
+                  rgba(30, 87, 153, 0) 0,
+                  rgba(0, 0, 0, 0.75) 40%,
+                  rgba(0, 0, 0, 0.78) 100%
+               );
+               .news-top__content-inner {
+                  padding: 60px 20px 15px;
+
+                  .news-top__title {
+                     font-size: 2.8rem;
+                     line-height: 1.25;
+
+                     .news-top__link {
+                        color: #fff;
+                     }
+                  }
+
+                  .news-top__time {
+                     margin-top: 20px;
+                     color: $btnBg;
+                  }
+               }
+            }
+
+            .news-top__wrap-thumbnail {
+               .news-top__thumbnail {
+                  display: block;
+                  max-width: 100%;
+                  object-fit: cover;
+               }
+            }
+         }
+
+         .news-list {
+            position: relative;
+            margin-top: 26px;
+
+            .news-item {
+               display: flex;
+               justify-content: center;
+               align-items: flex-start;
+               gap: 20px;
+
+               border-top: 1px solid #ddd;
+               padding: 20px 0 26px;
+
+               .news-item__wrap-thumbnail {
+                  flex: 1 0 35.7%;
+
+                  .news-item__thumbnail {
+                     max-width: 100%;
+                     object-fit: cover;
+                  }
+               }
+
+               .news-item__content {
+                  .news-item__title {
+                     font-size: 2.2rem;
+                     line-height: 1.27;
+                     color: $headingColor;
+                  }
+
+                  .news-item__meta {
+                     margin-top: 11px;
+                     font-size: 1.4rem;
+                     font-weight: 500;
+                     line-height: 1.28;
+                     color: $headingColor;
+
+                     .new-item__categories {
+                        margin-right: 5px;
+                     }
+
+                     .new-item__time {
+                        color: #999;
+                     }
+                  }
+
+                  .news-item__excerpt {
+                     margin-top: 6px;
+                     font-size: 1.4rem;
+                     line-height: 1.46;
+                     color: #555;
+                  }
+               }
+            }
+
+            .news-item__loading {
+               @extend .news-item;
+               position: absolute;
+               bottom: 0;
+               translate: 0 100%;
+               opacity: 1;
+               visibility: visible;
+               transition: opacity 0.3s 0.2s, visibility 0.3s 0.2s,
+                  translate 0.2s;
+
+               &.hide {
+                  opacity: 0;
+                  visibility: hidden;
+                  transition: translate 0.2s 0.3s;
+                  translate: 0 0;
+               }
+
+               .loading {
+                  background: #eee;
+                  background: linear-gradient(
+                     110deg,
+                     #ececec 8%,
+                     #f5f5f5 18%,
+                     #ececec 33%
+                  );
+                  border-radius: 5px;
+                  background-size: 200% 100%;
+                  animation: 1.5s shine linear infinite;
+               }
+
+               .news-item__wrap-thumbnail {
+                  width: 250px;
+                  height: 154px;
+               }
+               .news-item__content {
+                  width: 430px;
+               }
+               .news-item__title {
+                  height: 80px;
+               }
+               .news-item__meta {
+                  margin-top: 11px;
+                  height: 18px;
+               }
+               .news-item__excerpt {
+                  margin-top: 6px;
+                  height: 60px;
+               }
+
+               @keyframes shine {
+                  to {
+                     background-position-x: -200%;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
