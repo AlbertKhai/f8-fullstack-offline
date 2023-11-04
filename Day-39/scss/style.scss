@@ -1,0 +1,13 @@
+//Import Parts
+@import "parts/variables";
+@import "parts/fonts";
+@import "parts/reset";
+@import "parts/mixin";
+@import "parts/base";
+
+//Import Layouts
+@import "layouts/header";
+@import "layouts/blogs";
+@import "layouts/form-auth";
+@import "layouts/date-picker";
+@import "layouts/footer";
