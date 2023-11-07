@@ -1,0 +1,11 @@
+header {
+   padding: 20px;
+   border-bottom: 1px solid red;
+   h1 {
+      color: red;
+      a {
+         color: currentColor;
+         text-decoration: none;
+      }
+   }
+}
