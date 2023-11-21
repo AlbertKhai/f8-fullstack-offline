@@ -1,0 +1,24 @@
+.support {
+   .header {
+      .header-heading {
+         text-align: center;
+         font-size: 4rem;
+      }
+
+      .header-title {
+         width: 40%;
+         margin: 20px auto 0;
+         font-size: 2.5rem;
+         text-align: center;
+         color: $secondaryColor;
+      }
+
+      .wrap__btn-login {
+         margin-top: 30px;
+         text-align: center;
+         .btn-login {
+            @include btn();
+         }
+      }
+   }
+}
