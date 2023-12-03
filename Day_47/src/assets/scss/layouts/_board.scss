@@ -1,0 +1,253 @@
+.board {
+  $boardHeight: calc($headerHeight + 30px);
+  height: calc(100vh - $boardHeight);
+  padding: 10px 0 5px;
+
+  display: flex;
+  gap: 20px;
+
+  .column-list {
+    display: flex;
+    gap: 12px;
+    width: calc(100wh - 40px);
+
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 10px;
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #fafafa;
+      border-radius: 99px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+      border-radius: 99px;
+    }
+
+    .column-item {
+      position: relative;
+      min-width: 300px;
+      max-width: 300px;
+      height: fit-content;
+      max-height: calc(100vh - $boardHeight - 40px);
+      padding: 8px;
+      border-radius: 12px;
+      background-color: $bgItem;
+
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .column-header {
+        color: $primaryColor;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+
+        .column-header__textarea {
+          padding: 6px 8px 6px 12px;
+          flex: 1 0;
+          font-size: 1.8rem;
+          font-weight: 500;
+          line-height: 1.25;
+          resize: none;
+          overflow-y: auto;
+          max-height: 120px;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background-color: #fafafa;
+            border-radius: 99px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+            border-radius: 99px;
+          }
+        }
+
+        .btn__remove-column {
+          @include btn(#7986cb, #3f51b5, #1a237e);
+        }
+      }
+
+      .card-list {
+        overflow-y: auto;
+        height: fit-content;
+        padding: 0 7px 0 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &::-webkit-scrollbar {
+          width: 7px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #fafafa;
+          border-radius: 99px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+          border-radius: 99px;
+        }
+
+        .card-item {
+          border: 1px solid $primaryColor;
+          border-radius: 6px;
+          padding: 8px 3px 8px 8px;
+          position: relative;
+          .card-item__textarea {
+            width: 100%;
+            padding-right: 40px;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.25;
+            overflow: auto;
+            resize: none;
+
+            &::-webkit-scrollbar {
+              width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background-color: #fafafa;
+              border-radius: 99px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+              border-radius: 99px;
+            }
+          }
+
+          &:hover {
+            .btn__remove-card {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+
+          .btn__remove-card {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            translate: 0 -50%;
+            @include btn(#64b5f6, #1e88e5, #0d47a1, $min-w: 10px);
+            font-size: 1rem;
+            .text {
+              padding: 7px 7px 5px;
+            }
+          }
+        }
+      }
+
+      .column-footer {
+        display: flex;
+        .btn-open__add-card {
+          flex: 1 0;
+
+          @include btn(#64b5f6, #1e88e5, #0d47a1);
+
+          .text {
+            display: inline-flex;
+            gap: 15px;
+          }
+        }
+
+        .wrap__action-adding-card {
+          display: flex;
+          gap: 15px;
+          .btn__add-card {
+            @include btn(#64b5f6, #1e88e5, #0d47a1);
+            .text {
+              display: inline-flex;
+              gap: 10px;
+            }
+          }
+
+          .btn-cancel__add-card {
+            @include btn(#ef9a9a, #f44336, #b71c1c);
+          }
+        }
+      }
+
+      .wrap__add-column {
+        .btn__add-column {
+          width: 100%;
+          @include btn($min-w: 150px);
+
+          .text {
+            display: inline-flex;
+            gap: 15px;
+          }
+        }
+
+        .form__add-column {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          padding: 8px;
+          border-radius: 12px;
+          background-color: $bgItem;
+
+          @include show-hide();
+          .textarea__add-column {
+            width: 100%;
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.25;
+            resize: none;
+            overflow-y: auto;
+            max-height: 120px;
+
+            border: 1px solid $primaryColor;
+            border-radius: 6px;
+            padding: 10px;
+
+            &::-webkit-scrollbar {
+              width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background-color: #fafafa;
+              border-radius: 99px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+              border-radius: 99px;
+            }
+          }
+
+          .wrap__action {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+            .btn__add-column {
+              @include btn(#64b5f6, #1e88e5, #0d47a1);
+            }
+
+            .btn-cancel__add-column {
+              @include btn(#ef9a9a, #f44336, #b71c1c);
+            }
+          }
+        }
+      }
+    }
+  }
+}
