@@ -1,0 +1,88 @@
+.card-item {
+  border: 1px solid rgba($color: $primaryColor, $alpha: 0.25);
+  border-radius: 6px;
+  padding: 7px 5px;
+  background-color: lighten($color: $bgItem, $amount: 1.8);
+  position: relative;
+
+  transition: border-color 0.3s;
+
+  @if $dragging {
+    cursor: grabbing;
+  } @else {
+    cursor: grab;
+  }
+
+  &:hover {
+    border: 1px solid $primaryColor;
+    .wrap-btn__remove-card {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .card-item__inner {
+    height: 67px;
+    padding-right: 30px;
+    overflow-y: auto;
+    direction: rtl;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #fafafa;
+      border-radius: 99px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+      border-radius: 99px;
+    }
+
+    .card-item__textarea {
+      direction: ltr;
+      padding-left: 5px;
+      width: 100%;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.25;
+      overflow: auto;
+      resize: none;
+
+      &:read-only {
+        @if $dragging {
+          cursor: grabbing;
+        } @else {
+          cursor: grab;
+        }
+      }
+    }
+  }
+
+  .wrap-btn__remove-card {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    translate: 0 -50%;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+
+    .btn__remove-card {
+      @include btn(#64b5f6, #1e88e5, #0d47a1, $min-w: 12px, $borRad: 99px);
+      font-size: 1.2rem;
+      font-weight: 500;
+
+      .text {
+        padding: 7px 7px 5px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

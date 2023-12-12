@@ -1,88 +1,97 @@
-import { useState } from 'react'
-import { editTitle } from '~/helper/actionsSlice'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addCard } from '~/helper/actionsSlice'
+import { addCard, postNewColumn } from '~/helper/actionsSlice'
 
 import ColumnHeader from './ColumnHeader'
 import CardList from '../Card/CardList'
-import AddCard from '../Card/AddCard'
+import AddCard from '../ActionBoard/AddCard'
 import ColumnFooter from './ColumnFooter'
 
-const Column = ({ idColumn, title, listCard }) => {
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+
+const Column = (props) => {
+  const { idColumn, title, listCard } = props
   const dispatch = useDispatch()
   const [state, setState] = useState({
-    title,
     addingCard: false,
     newCard: '',
-    added: false
+    ignoreBlur: false
   })
-
-  const handleEditTitleColumn = () => {
-    if (!state.title.trim().length) {
-      setState({ ...state, title })
-      return
-    }
-    dispatch(editTitle({ idColumn, title: state }))
-  }
-
-  const handleInputTitleColumn = (e) => {
-    const valueTitleColumn = e.target.value
-    setState({ ...state, title: valueTitleColumn })
-  }
 
   const handleInputNewCard = (e) => {
     const valueNewCard = e.target.value
     setState({ ...state, newCard: valueNewCard })
   }
 
-  const handleAddNewCard = () => {
+  const openAddNewCard = () => {
     setState({ ...state, addingCard: true })
   }
 
-  const addNewCard = (e) => {
-    const hasValue = state.newCard.trim().length
-    const isBtn = e.relatedTarget
-
-    if (hasValue) {
+  const addNewCardViaBtn = () => {
+    if (state.newCard) {
       dispatch(addCard({ idColumn, card: { content: state.newCard } }))
-      if (isBtn) {
-        setState({ ...state, newCard: '', added: true })
-      } else {
-        handleCancelAddCard()
-      }
-    } else if (isBtn) {
-      setState({ ...state, addingCard: false, added: false })
+      dispatch(postNewColumn())
+      setState({ ...state, newCard: '', ignoreBlur: true })
     } else {
-      state.added ? setState({ ...state, added: false }) : setState({ ...state, addingCard: false })
+      setState({ ...state, addingCard: false, ignoreBlur: true })
+    }
+  }
+
+  const addNewCardViaBlur = () => {
+    if (!state.ignoreBlur) {
+      if (state.newCard) {
+        dispatch(addCard({ idColumn, card: { content: state.newCard } }))
+        dispatch(postNewColumn())
+        setState({ ...state, addingCard: false, newCard: '' })
+      } else {
+        setState({ ...state, addingCard: false })
+      }
     }
   }
 
   const handleCancelAddCard = () => {
-    setState({ ...state, newCard: '', addingCard: false })
+    setState({ ...state, addingCard: false, newCard: '', ignoreBlur: true })
+  }
+
+  useEffect(() => {
+    if (state.ignoreBlur) {
+      setState({ ...state, ignoreBlur: false })
+    }
+  }, [state])
+
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: idColumn,
+    data: { ...props }
+  })
+
+  const dndKitColumnStyles = {
+    touchAction: 'none',
+    transform: CSS.Translate.toString(transform),
+    transition,
+    opacity: isDragging ? 0.4 : null
   }
 
   return (
-    <li className='column-item'>
-      <ColumnHeader
-        title={state.title}
-        idColumn={idColumn}
-        handleEditTitleColumn={handleEditTitleColumn}
-        handleInputTitleColumn={handleInputTitleColumn}
-      />
-      <CardList addingCard={state.addingCard} listCard={listCard} idColumn={idColumn}>
-        <AddCard
+    <li className='column-item' ref={setNodeRef} style={dndKitColumnStyles} {...attributes}>
+      <div className='column-inner' {...listeners}>
+        <ColumnHeader title={title} idColumn={idColumn} />
+        <CardList addingCard={state.addingCard} listCard={listCard}>
+          <AddCard
+            addingCard={state.addingCard}
+            onInputNewCard={handleInputNewCard}
+            addNewCard={addNewCardViaBlur}
+            newCardValue={state.newCard}
+            ignoreBlur={state.ignoreBlur}
+          />
+        </CardList>
+        <ColumnFooter
           addingCard={state.addingCard}
-          handleInputNewCard={handleInputNewCard}
-          addNewCard={addNewCard}
-          newCardValue={state.newCard}
+          addNewCard={addNewCardViaBtn}
+          onCancelAddCard={handleCancelAddCard}
+          onOpenAddNewCard={openAddNewCard}
         />
-      </CardList>
-      <ColumnFooter
-        addingCard={state.addingCard}
-        addNewCard={addNewCard}
-        handleCancelAddCard={handleCancelAddCard}
-        handleAddNewCard={handleAddNewCard}
-      />
+      </div>
     </li>
   )
 }

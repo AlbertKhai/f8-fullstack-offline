@@ -1,15 +1,11 @@
-import Header from './components/Header/Header'
 import Loading from './components/Loading'
 import Toasts from './components/Toasts/Toasts'
-import Board from './layouts/Board/Board'
+import TrelloInner from './layouts/TrelloInner'
 
 const App = () => {
   return (
     <div className='trello'>
-      <div className='trello-inner'>
-        <Header />
-        <Board />
-      </div>
+      <TrelloInner />
       <Loading />
       <Toasts />
     </div>

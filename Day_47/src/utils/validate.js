@@ -1,3 +1,5 @@
+import { toastAdd } from '~/helper/actionsSlice'
+
 const emailRegex =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
 
@@ -18,6 +20,6 @@ export const validateEmail = (value, dispatch) => {
       return false
   }
 
-  dispatch({ mess: `${mess}\n Bạn vui lòng nhập lại nhé`, type: 'warning' })
+  dispatch(toastAdd({ mess: `${mess}\n Bạn vui lòng nhập lại nhé`, type: 'warning' }))
   return true
 }
