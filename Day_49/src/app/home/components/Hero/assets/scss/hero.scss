@@ -1,0 +1,89 @@
+@import '@assets/scss/parts/variables';
+
+.hero {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $dark;
+
+  .hero__heading {
+    font-size: 3.8rem;
+    line-height: 1.5;
+  }
+
+  .hero__desc {
+    width: 35%;
+    margin-top: 5px;
+    font-size: 2.4rem;
+    text-align: center;
+    color: #fff;
+  }
+
+  .wrap-btn__to-endow {
+    margin-top: 30px;
+    .hero-btn__to-endow {
+      padding: 10px 20px;
+      background-color: rgba($color: $primaryColor, $alpha: 1);
+      border: 1px solid $primaryColor;
+      font-weight: 500;
+      line-height: 1.6;
+      scale: 1;
+
+      transition: background-color 0.3s, scale 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: rgba($color: $primaryColor, $alpha: 0.2);
+        scale: 1.2;
+        color: $primaryColor;
+      }
+    }
+  }
+
+  .hero__bg {
+    margin-top: 48px;
+    .hero__video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      width: 100%;
+    }
+
+    .switch-bg {
+      border-radius: 99px;
+      padding: 10px;
+      background-color: rgba($color: $dark, $alpha: 0.6);
+
+      display: flex;
+      gap: 15px;
+      align-items: center;
+
+      &:hover {
+        .btn__switch-bg.active:not(:hover) {
+          background-color: $btnBg;
+        }
+      }
+
+      .btn__switch-bg {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+
+        &.active {
+          background-color: $primaryColor;
+        }
+
+        &:hover {
+          background-color: $primaryColor;
+        }
+      }
+    }
+  }
+}

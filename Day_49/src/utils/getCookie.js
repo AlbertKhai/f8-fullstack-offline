@@ -1,0 +1,6 @@
+import { cookies } from 'next/headers'
+
+export const getTheme = () => {
+  const cookieStore = cookies()
+  return cookieStore.get('lightMode')?.value === 'true'
+}
