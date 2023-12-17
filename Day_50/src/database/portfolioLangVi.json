@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "nameUser": "Xin chào, tôi là Kawsar 👋🏻",
+    "introUser": "Nhà phát triển thương hiệu & sản phẩm số",
+    "contentLinkIntroProfile": "Sản phẩm mới nhất"
+  },
+  "service": {
+    "title": "Sát cánh cùng thương hiệu tạo nên thành quả ấn tượng",
+    "nameServices": ["UX & UI", "Web & Mobile App", "Design & Creative", "Development"],
+    "descServices": [
+      "Xây dựng giao diện ứng dụng trực quan và thân thiện cho người sử dụng.",
+      "Chuyển đổi số nhanh chóng với ứng dụng web và di động, kết nối thông tin toàn cầu hiệu quả.",
+      "Thiết kế sản phẩm thành tác phẩm, sáng tạo thương hiệu thành kì lân.",
+      "Thực hiện tầm nhìn của bạn thành hiện thực với công nghệ và xu hướng thiết kế mới nhất."
+    ]
+  },
+  "contact": {
+    "title": "Ý tưởng của bạn là sứ mệnh của tôi",
+    "contentLinkContact": "Liên hệ ngay"
+  },
+  "notFound": {
+    "title": "Không tìm thấy nội dung",
+    "backHome": "Quay về trang chủ"
+  },
+  "profile": {
+    "notLink": "Tài khoản của bạn chưa liên kết với ",
+    "clickToLink": "Bấm vào đây để liên kết với ",
+    "linked": "Đã liên kết với ",
+    "backHome": "Quay về trang chủ"
+  }
+}
