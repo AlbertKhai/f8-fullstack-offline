@@ -26,7 +26,8 @@ const BtnCreateMindmap = () => {
           id: '0',
           type: 'customNode',
           data: { label: 'My Mindmap' },
-          position: { x: 0, y: 0 }
+          position: { x: 0, y: 0 },
+          deletable: false
         }
       ],
       initialEdges: []
@@ -39,7 +40,6 @@ const BtnCreateMindmap = () => {
       dispatch(createMindmap(newMindmap))
       router.push(`/mindmap/${id}`)
     } catch (error) {
-      router.push(`/mindmap`)
       toast.error(error.message)
     }
   }

@@ -1,10 +1,33 @@
+'use client'
 import clsx from 'clsx'
 import Link from 'next/link'
-import Auth from './Auth/Auth'
-import { headers } from 'next/headers'
+import { usePathname } from 'next/navigation'
 
-const Nav = () => {
-  const pathname = headers().get('next-url')
+const dataLinks = [
+  {
+    href: '/',
+    content: 'Trang chủ'
+  },
+  {
+    href: '/about',
+    content: 'Giới thiệu'
+  },
+  {
+    href: '/feature',
+    content: 'Tính năng'
+  },
+  {
+    href: '/price',
+    content: 'Bảng giá'
+  },
+  {
+    href: '/contact',
+    content: 'Liên hệ'
+  }
+]
+
+const Nav = ({ children }) => {
+  const pathname = usePathname()
 
   const isActive = (path) => {
     let classCss = 'p-2 lg:px-4 md:mx-2 rounded'
@@ -24,22 +47,14 @@ const Nav = () => {
           </Link>
         </div>
         <div className='hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0' id='navbar-collapse'>
-          <Link href={'/'} className={clsx(isActive('/'))}>
-            Trang chủ
-          </Link>
-          <Link href={'/about'} className={clsx(isActive('/about'))}>
-            Giới thiệu
-          </Link>
-          <Link href={'/feature'} className={clsx(isActive('/feature'))}>
-            Tính năng
-          </Link>
-          <Link href={'/price'} className={clsx(isActive('/price'))}>
-            Bảng giá
-          </Link>
-          <Link href={'/contact'} className={clsx(isActive('/contact'))}>
-            Liên hệ
-          </Link>
-          <Auth />
+          {dataLinks.map(({ content, href }) => {
+            return (
+              <Link key={href} href={href} className={clsx(isActive(href))}>
+                {content}
+              </Link>
+            )
+          })}
+          {children}
         </div>
       </div>
     </nav>

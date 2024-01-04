@@ -1,0 +1,23 @@
+$background-color_1: rgb(167, 71, 245);
+
+#lock {
+  &:checked {
+    + {
+      .lock-label {
+        .lock-wrapper {
+          .shackle {
+            transform: rotateY(150deg) translateX(3px);
+            transform-origin: right;
+          }
+        }
+        background-color: $background-color_1;
+      }
+    }
+  }
+}
+
+.lock-label {
+  &:active {
+    transform: scale(0.9);
+  }
+}

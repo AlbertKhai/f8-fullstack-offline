@@ -1,9 +1,12 @@
+import Auth from './Auth/Auth'
 import Nav from './Nav'
 
-const Header = async () => {
+const Header = () => {
   return (
     <header className='header-2'>
-      <Nav />
+      <Nav>
+        <Auth />
+      </Nav>
     </header>
   )
 }

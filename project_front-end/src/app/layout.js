@@ -12,7 +12,10 @@ import Providers from '@/redux/Providers'
 
 export const metadata = {
   title: 'Mindmap Flow',
-  description: 'Project Front-end'
+  description: 'Project Front-end',
+  icons: {
+    icon: '/icon.png'
+  }
 }
 
 export default function RootLayout({ children }) {

@@ -1,29 +1,18 @@
 'use client'
-import React, { useCallback, useEffect, useRef, useMemo } from 'react'
-import ReactFlow, { MiniMap, Controls, Background, useNodesState, useEdgesState, addEdge, useReactFlow } from 'reactflow'
+import { useCallback, useEffect, useRef } from 'react'
+import ReactFlow, { Background, Controls, MiniMap, addEdge, useEdgesState, useNodesState, useReactFlow } from 'reactflow'
 
 import 'reactflow/dist/style.css'
 import '../assets/scss/mindmap.scss'
-import { useDispatch, useSelector } from 'react-redux'
-import { notFound, useParams } from 'next/navigation'
-import { updateItemMindmap } from '@/redux/slice/mindmapSlice'
 
 import CustomNode from './CustomNode'
 
 const nodeTypes = { customNode: CustomNode }
 
-const MindmapFlow = () => {
-  const { idMindmap } = useParams()
-  const initMindmap = useSelector(({ mindmap }) => mindmap.listMindmap.find(({ id }) => id === idMindmap))
-  const statusMindmap = useSelector(({ mindmap }) => mindmap.statusMindmap)
-  const dispatch = useDispatch()
-  if (!initMindmap) notFound()
-
-  const { initialNodes, initialEdges } = useMemo(() => initMindmap, [])
-
+const MindmapFlow = ({ initialNodes, initialEdges }) => {
   const reactFlowWrapper = useRef(null)
   const connectingNodeId = useRef(null)
-  const { screenToFlowPosition, deleteElements } = useReactFlow()
+  const { screenToFlowPosition } = useReactFlow()
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
 
@@ -93,23 +82,6 @@ const MindmapFlow = () => {
       })
     )
   }, [])
-
-  useEffect(() => {
-    if (statusMindmap === 'updating') {
-      const data = {
-        initialNodes: nodes.map(({ id, type, data, position, deletable }) => ({
-          id,
-          type,
-          data: { label: data.label },
-          position,
-          deletable
-        })),
-        initialEdges: edges
-      }
-
-      dispatch(updateItemMindmap({ idMindmap, data, status: 'updatedItemMindmap' }))
-    }
-  }, [statusMindmap])
 
   return (
     <div className='py-5' style={{ width: '100%', height: '500px' }} ref={reactFlowWrapper}>

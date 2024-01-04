@@ -1,12 +1,12 @@
-import BtnHeaderMindmap from './BtnHeaderMindmap'
-import InfoMindmap from './InfoMindmap'
+import BtnHeaderMindmap from './BtnHeaderMindmap/BtnHeaderMindmap'
+import TitleMindmap from './TitleMindmap'
 
-const HeaderMindmap = ({ idMindmap }) => {
+const HeaderMindmap = () => {
   return (
     <header className='text-start'>
       <div className='container mx-auto'>
         <div className='flex flex-wrap'>
-          <InfoMindmap idMindmap={idMindmap} />
+          <TitleMindmap />
           <BtnHeaderMindmap />
         </div>
       </div>

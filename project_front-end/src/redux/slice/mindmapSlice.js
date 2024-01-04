@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   listMindmap: getCookie('listMindmap') || [],
-  statusMindmap: 'idle'
+  statusMindmap: 'idle',
+  share: {}
 }
 
 export const mindmapSlice = createSlice({
@@ -21,13 +22,15 @@ export const mindmapSlice = createSlice({
     },
     updateItemMindmap: (state, action) => {
       const { idMindmap, data, status } = action.payload
-      state.listMindmap.forEach((mindmap, index) => {
-        if (mindmap.id === idMindmap) {
-          state.listMindmap[index] = { ...mindmap, ...data }
-        }
-      })
+      const index = state.listMindmap.findIndex((mindmap) => mindmap.id === idMindmap)
+      if (index !== -1) {
+        state.listMindmap[index] = { ...state.listMindmap[index], ...data }
+      }
 
       state.statusMindmap = status || state.statusMindmap
+    },
+    shareMindmap: (state, action) => {
+      state.share = action.payload
     }
   }
 })
