@@ -17,16 +17,20 @@ export default function ModalShare({ isOpen, onOpen }) {
   const [updateMindmapShare, resultUp] = mindmapShare.useUpdateMindmapShareMutation()
   const [deleteMindmapShare, resultDel] = mindmapShare.useDeleteMindmapShareMutation()
 
-  const [dataMindmap, setDataMindmap] = useState({ title: mindmap?.title, desc: mindmap?.desc })
+  const [dataMindmap, setDataMindmap] = useState({
+    title: mindmap?.title,
+    desc: mindmap?.desc,
+    image: `${process.env.AUTH0_BASE_URL}/mindmap.jpg`
+  })
   const [isShare, setIsShare] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const cancelButtonRef = useRef(null)
   const formRef = useRef()
 
-  const handleCopyLinkShare = () => {
+  const handleCopyLinkShare = (mess) => {
     navigator.clipboard.writeText(`${process.env.AUTH0_BASE_URL}/mindmap/share/${idMindmap}`)
-    toast.success('Copy link share thành công')
+    toast.success(mess || 'Copy link share thành công')
   }
 
   const handleShare = async (e) => {
@@ -59,6 +63,7 @@ export default function ModalShare({ isOpen, onOpen }) {
       if (res.error) throw new Error('Lưu không thành công, bạn vui lòng thử lại nhé')
       onOpen(false)
       toast.success('Lưu lại thành công')
+      handleCopyLinkShare('Đã copy link share mindmap')
     } catch (error) {
       toast.error(error.message)
     }
@@ -157,13 +162,13 @@ export default function ModalShare({ isOpen, onOpen }) {
                           id='imageShareMindmap'
                           className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
                           placeholder='Ảnh chia sẻ mindmap'
-                          defaultValue={`${process.env.AUTH0_BASE_URL}/mindmap.jpg`}
+                          defaultValue={dataMindmap.image}
                         />
                       </div>
                       <div className='col-span-2'>
                         <button
                           type='button'
-                          onClick={handleCopyLinkShare}
+                          onClick={() => handleCopyLinkShare()}
                           className='bg-gray-300 hover:bg-gray-400 text-base text-gray-800 font-bold py-2 px-4 mx-auto gap-2 rounded flex items-center'
                         >
                           <FontAwesomeIcon icon={faCopy} />
