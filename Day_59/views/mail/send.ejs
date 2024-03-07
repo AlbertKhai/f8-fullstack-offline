@@ -1,0 +1,44 @@
+<section class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-3">Soạn mail</h1>
+
+
+  <form id="formMail" action="" method="post">
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control mb-1" id="mailTo" name="mailTo" placeholder="Email người nhận" value="<%= req.old.mailTo %>">
+      <label for="mailTo">Email người nhận</label>
+      <span class="text-danger"><%= req.errors.mailTo %></span>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control mb-1" id="mailSubject" name="mailSubject" placeholder="Tiêu đề" value="<%= req.old.mailSubject %>">
+      <label for="mailSubject">Tiêu đề</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea style="resize: none; height: 40vh;" value="<%= req.old.mailContent %>" class="form-control mb-1" name="mailContent" placeholder="Nội dung" id="mailContent"></textarea>
+      <label for="mailContent">Nội dung</label>
+    </div>
+    <div class="d-flex gap-2 justify-content-end">
+      <a href="/email/send" class="btn btn-lg btn-danger">Hủy</a>
+      <button class="btn-submit btn btn-lg btn-primary">Gửi</button>
+    </div>
+  </form>
+
+
+  <% if (msg.length) { %>
+  <div class="position-absolute" style="top: 20px;right: 18px;">
+    <div id="msgToast" data-bs-delay="3000" class="toast align-items-center bg-success text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"><%= msg %></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</section>
+
+<script>
+  const formMail = document.querySelector("#formMail")
+  const btnSubmit = document.querySelector(".btn-submit")
+  formMail.addEventListener("submit", (e) => {
+    btnSubmit.attributes.disabled = true
+  })
+</script>

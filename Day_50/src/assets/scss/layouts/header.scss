@@ -1,0 +1,178 @@
+#body {
+  @import '../styleInherit';
+  .container {
+    padding: 20px 0 0 0;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba($color: $textColor, $alpha: 0.2);
+
+      .header-btn {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        .header-btn__dark-mode {
+          position: relative;
+          background: none;
+          font-size: 25px;
+          color: $textColor;
+          transition: color 0.3s;
+
+          min-width: 25px;
+          min-height: 39px;
+
+          &:hover {
+            color: $textColorHover;
+          }
+
+          i {
+            @include show-hide($delay: 0.3s);
+
+            padding: 5px 0 7px;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+
+        .wrap__switch-languages {
+          display: flex;
+          gap: 6px;
+
+          > * {
+            padding: 7px 0;
+          }
+
+          &:hover {
+            .link-language:not(:hover) {
+              color: $textColor;
+            }
+          }
+
+          .link-language {
+            color: $textColor;
+            transition: color 0.3s, scale 0.3s;
+          }
+
+          .link-language:is(.active, :hover) {
+            color: $textColorHover;
+          }
+
+          .link-language:hover {
+            scale: 1.1;
+          }
+        }
+      }
+
+      .auth {
+        display: flex;
+        gap: 15px;
+
+        > * {
+          color: $textColor;
+        }
+
+        .user-name {
+          color: $textColorHover;
+        }
+
+        .btn-auth {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: none;
+          transition: color 0.3s, scale 0.3s;
+
+          &:hover {
+            color: $textColorHover;
+            scale: 1.1;
+          }
+        }
+
+        .link__back-home {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+      .link__back-home {
+        color: $textColor;
+        transition: color 0.3s, scale 0.3s;
+
+        &:hover {
+          color: $textColorHover;
+          scale: 1.1;
+        }
+      }
+    }
+  }
+
+  &.light-mode {
+    @import '../parts/colorsLight';
+
+    .header {
+      .nav {
+        .nav-link {
+          color: $textColor;
+
+          &:hover {
+            color: $textColorHover;
+          }
+        }
+      }
+
+      .header-btn {
+        .header-btn__dark-mode {
+          color: $textColor;
+          &:hover {
+            color: $textColorHover;
+          }
+        }
+
+        .wrap__switch-languages {
+          &:hover {
+            .link-language:not(:hover) {
+              color: $textColor;
+            }
+          }
+
+          .link-language {
+            color: $textColor;
+          }
+
+          .link-language:is(.active, :hover) {
+            color: $textColorHover;
+          }
+        }
+      }
+
+      .auth {
+        .user-name {
+          color: $textColorHover;
+        }
+
+        .btn-auth {
+          &:hover {
+            color: $textColorHover;
+          }
+        }
+
+        .link__back-home {
+          color: $textColor;
+        }
+      }
+
+      .link__back-home {
+        color: $textColor;
+
+        &:hover {
+          color: $textColorHover;
+        }
+      }
+    }
+  }
+}

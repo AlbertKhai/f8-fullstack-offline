@@ -1,0 +1,84 @@
+@mixin show-hide($time: 0.3s, $delay: 0) {
+   opacity: 1;
+   visibility: visible;
+
+   transition: opacity $time, visibility $time;
+
+   transition-delay: $delay;
+
+   &.hide {
+      opacity: 0;
+      visibility: hidden;
+   }
+}
+
+@mixin btn($c1: #af40ff, $c2: #5b42f3, $c3: #00ddeb, $min-w: 50px) {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+
+   min-width: $min-w;
+   border-radius: 8px;
+   padding: 3px;
+   font-size: 1.7rem;
+   font-weight: 500;
+   line-height: 1em;
+   color: #fff;
+   background-image: linear-gradient(144deg, $c1, $c2 50%, $c3);
+   box-shadow: #{$c1}33 0 10px 30px -5px;
+
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+
+   transition: transform 0.3s, min-width 0.7s;
+
+   .text {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      padding: 8px 12px;
+      background-color: rgb(5, 6, 45);
+      transition: background 0.3s, color 0.3s, padding 0.7s;
+      pointer-events: none;
+   }
+
+   &.mini {
+      min-width: 60px;
+      background-image: linear-gradient(144deg, $c1, $c2);
+      span {
+         padding: 10px;
+      }
+   }
+
+   &:hover {
+      outline: 0;
+      span {
+         background: none;
+         // color: rgb(5, 6, 45);
+      }
+   }
+
+   &:active {
+      outline: 0;
+      transform: scale(0.9);
+   }
+}
+
+@mixin toast($name, $c1, $c2, $c3) {
+   $accentColor: darken($c2, 50);
+   .#{$name} {
+      background-image: linear-gradient(144deg, $c1, $c2 50%, $c3);
+      border-left: 5px solid $c3;
+      .close {
+         border-color: $accentColor;
+         i {
+            color: $accentColor;
+         }
+      }
+   }
+}
+
+@include toast(success-toast, #97fcdc, #43e1b0, #008080);
+@include toast(danger-toast, #ff9a76, #ff6363, #ff1e62);
+@include toast(warning-toast, #f7c965, #eaad26, #ff7f4d);

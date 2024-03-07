@@ -1,0 +1,115 @@
+<h1>Danh sách người dùng</h1>
+<div class="row">
+  <form class="mb-3 col-10" action="/users">
+    <div class="row">
+      <div class="col-3">
+        <select name="status" id="" class="form-select">
+          <% [["all", "Tất cả"], ["active", "Kích hoạt"], ["inactive", "Chưa kích hoạt"]].forEach(([value, content]) => { %>
+          <option value="<%= value %>" <%- value === status ? 'selected' : ""%>><%= content %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="col-7">
+        <input type="search" name="keyword" placeholder="Từ khóa..." class="form-control" id="" value="<%= keyword %>" />
+      </div>
+      <div class="col-2 d-grid">
+        <button class="btn btn-primary">Tìm kiếm</button>
+      </div>
+    </div>
+  </form>
+  <div class="col-2 d-grid mb-3">
+    <button type="button" id="btnCreateUser" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalFormUser">Thêm mới</button>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th width="5%">STT</th>
+      <th>Tên</th>
+      <th>Email</th>
+      <th>Trạng thái</th>
+      <th width="5%">Sửa</th>
+      <th width="5%">Xóa</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <% users.forEach((user, index) => { %>
+    <tr class="tr-user">
+      <td><%= index + 1 %></td>
+      <td class="td-name"><%= user.name %></td>
+      <td class="td-email"><%= user.email %></td>
+      <td class="td-status"><%= user.status ? 'Kích hoạt' : 'Chưa kích hoạt' %></td>
+      <td><button data-bs-toggle="modal" data-bs-target="#modalFormUser" data-id="<%=user.id%>" data-name="<%=user.name%>" data-email="<%=user.email%>" data-status="<%=user.status%>" class="btn btn-edit btn-warning">Sửa</button></td>
+      <td><button data-bs-toggle="modal" data-bs-target="#modalFormDelUser" data-id="<%=user.id%>" data-name="<%=user.name%>" data-email="<%=user.email%>" class="btn btn-del btn-danger">Xóa</button></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<div class="modal fade" id="modalFormUser" tabindex="-1" aria-labelledby="headingModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-4" id="headingModal">Thêm người dùng</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/users/create" method="post" id="formUser">
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Tên</label>
+            <input name="name" type="text" class="form-control" id="inputName" placeholder="Tên..." value="<%= getValueFlash(valueFormPrev, 'name') %>">
+            <p id="messName" class="mess-error mt-1 text-danger"><%= getValueFlash(errors, 'name') %></p>
+          </div>
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input name="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email..." value="<%= getValueFlash(valueFormPrev, 'email') %>">
+            <p id="messEmail" class="mess-error mt-1 text-danger"><%= getValueFlash(errors, 'email') %></p>
+          </div>
+          <div class="mb-3 form-check">
+            <input name="status" type="checkbox" class="form-check-input" id="inputStatus" <%= getValueFlash(valueFormPrev, 'status') === "on" ? "checked" : "" %>>
+            <label class="form-check-label" for="inputStatus">Trạng thái kích hoạt</label>
+          </div>
+          <input type="hidden" name="id" id="inputId" value="<%= getValueFlash(valueFormPrev, 'id') %>">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" form="formUser" id="btnSubmitFormUser" class="btn btn-primary">Thêm mới</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalFormDelUser" tabindex="-2" aria-labelledby="headingModalDel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-4 text-danger" id="headingModalDel">Bạn có chắc chắn xóa người dùng này</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <section>
+          <h3 class="fs-5">Tên người dùng:</h3>
+          <p id="nameWillDel"></p>
+        </section>
+        <section>
+          <h3 class="fs-5">Email người dùng:</h3>
+          <p id="emailWillDel"></p>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <form action="/users/delete" method="post">
+          <button type="submit" class="btn btn-danger">Xóa</button>
+          <input type="hidden" id="inputDelUser" name="id">
+        </form>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="showError" data-error-from="<%=errorFrom%>" data-bs-toggle="modal" data-bs-target="#modalFormUser" hidden data-is-error="<%=errors.length !== 0%>"></button>
+
+<script src="/javascripts/users_index.js"></script>

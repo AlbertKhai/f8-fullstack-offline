@@ -1,0 +1,110 @@
+<article class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-3">Chỉnh sửa liên rút gọn</h1>
+
+  <form action="" method="post" id="formCreateShortenUrl">
+    <!-- shortened url -->
+    <div class="mb-3">
+      <div class="input-group mb-3">
+        <label for="basic-url" class="input-group-text">Liên kết đã rút gọn</label>
+        <input type="text" class="form-control" name="shortenedUrl" value="<%= req.old.shortenedUrl %>" readonly>
+        <button id="btnCopyUrlShortend" data-url="<%= req.old.shortenedUrl %>" class="btn btn-outline-secondary d-inline-flex justify-content-center align-items-center gap-2" type="button">
+          <i class="fa-regular fa-copy"></i>
+          <span>Copy</span>
+        </button>
+        <a href="javascript:fbShare('<%=  req.old.shortenedUrl %>')" class="btn btn-outline-secondary d-inline-flex justify-content-center align-items-center gap-2" type="button">
+          <i class="fa-regular fa-share-from-square"></i>
+          <span>Chia sẻ</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- original url -->
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="shorten-url">Liên kết gốc</label>
+        <input value="<%= req.old.url %>" name="url" type="text" id="shorten-url" class="form-control" readonly>
+        <a href="<%= req.old.url %>" class="btn btn-outline-secondary d-inline-flex justify-content-center align-items-center gap-2" type="button">
+          <i class="fa-regular fa-up-right-from-square"></i>
+          <span>Mở lên tab mới</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- shortened url password -->
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="passwordUrl">Mật khẩu</label>
+        <input value="<%= req.old.password %>" id="passwordUrl" placeholder="cho liên kết rút gọn (không bắt buộc)" name="password" type="password" class="form-control">
+        <button id="showPassword" class="btn btn-outline-secondary d-inline-flex justify-content-center align-items-center" style="width: 70px;" type="button">
+          <i class="fa-regular fa-eye"></i>
+        </button>
+      </div>
+      <%- req.errors.password ? `<span class="text-danger d-inline-block mt-1">${req.errors.password}</span>` : "" %>
+    </div>
+
+
+    <div class="form-check mb-3">
+      <input <%= req.old.safeNavigation ? 'name="safeNavigation" checked disabled' : "" %> class="form-check-input" type="checkbox" name="safeNavigation" id="safeNavigation">
+      <label class="form-check-label user-select-none" for="safeNavigation">
+        Chuyển hướng an toàn (Tránh bị chặn bởi Facebook)
+      </label>
+    </div>
+
+    <div class="d-flex gap-2 justify-content-end mb-3">
+      <button class="btn btn-primary">Cập nhật</button>
+    </div>
+  </form>
+
+  <div class="position-absolute" style="top: 24px; right: 24px;">
+    <div id="msgCopy" data-bs-delay="4000" class="bg-success toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Đã copy liên kết rút gọn</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <% if (msg) { %>
+  <div class="position-absolute" style="top: 24px; right: 24px;">
+    <div id="msgToast" data-bs-delay="4000" class="<%= typeMsg %> toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"><%= msg %></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</article>
+
+
+<script>
+  const fbShare = (url, winWidth = 520, winHeight = 350) => {
+    var winTop = (screen.height / 2) - (winHeight / 2);
+    var winLeft = (screen.width / 2) - (winWidth / 2);
+    window.open('https://www.facebook.com/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',width=' + winWidth + ',height=' + winHeight);
+  }
+
+  const btnCopyUrlShortend = document.querySelector('#btnCopyUrlShortend')
+
+  if (btnCopyUrlShortend) {
+    btnCopyUrlShortend.addEventListener('click', function() {
+      navigator.clipboard.writeText(this.dataset.url) //this.getAttribute('data-url')
+
+      const msgCopy = document.getElementById('msgCopy')
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(msgCopy)
+      toastBootstrap.show()
+    });
+  }
+
+  const showPassword = document.querySelector("#showPassword")
+  showPassword.addEventListener("click", function() {
+    var x = document.getElementById("passwordUrl");
+    if (x.type === "password") {
+      x.type = "text";
+      this.innerHTML = `<i class="fa-regular fa-eye-slash"></i>`
+    } else {
+      x.type = "password";
+      this.innerHTML = `<i class="fa-regular fa-eye"></i>`
+    }
+  })
+</script>

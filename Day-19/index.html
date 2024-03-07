@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-19</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <link rel="stylesheet" href="./styles/styles.css" />
+   </head>
+   <body>
+      <div class="wrap-copy-btn">
+         <a
+            href="https://raw.githubusercontent.com/AlbertKhai/download/main/Day-19.rar"
+            class="download-btn"
+            >Download Folder Code</a
+         >
+         <button class="copyButton js" role="button">Copy code JS</button>
+      </div>
+
+      <div class="wrap-code">
+         <pre>
+<code class="codeBlock language-js">function isPrime(n) {
+   if (n &lt;= 1) return false;
+   if (n &lt;= 3) return true;
+   if (n % 2 === 0 || n % 3 === 0) return false;
+   for (let i = 5; i * i &lt;= n; i += 6) {
+      if (n % i === 0 || n % (i + 2) === 0) return false;
+   }
+   return true;
+}
+
+function err(arr, integer = false) {
+   if (!Array.isArray(arr)) {
+      throw new Error(&quot;Tham số truyền vào phải là mảng&quot;);
+   } else if (arr.length === 0) {
+      throw new Error(&quot;Tham số mảng truyền vào chưa có phần tử&quot;);
+   }
+
+   arr.forEach((num) =&gt; {
+      typeof num === &quot;string&quot; ? (num = +num) : &quot;&quot;;
+      if (!Number.isFinite(num)) {
+         throw new Error(&quot;Tất cả các phần tử của mảng phải là số&quot;);
+      } else if (!Number.isInteger(num) &amp;&amp; integer) {
+         throw new Error(&quot;Tất cả các phần tử của mảng phải là số nguyên&quot;);
+      }
+   });
+}
+
+console.log(`================= Bài 1 =================`);
+// Cho trước 1 mảng số nguyên, yêu cầu tìm số lớn nhất, nhỏ nhất trong mảng và vị trí
+
+function findNum(arr) {
+   try {
+      err(arr, true);
+   } catch (error) {
+      return error.message;
+   }
+
+   console.log(&quot;Mảng được truyền vào:&quot;, arr);
+
+   let nums = arr.slice(0);
+
+   nums.sort(function (next, prev) {
+      return next - prev;
+   });
+
+   let indexBig = [],
+      indexSmall = [];
+
+   arr.forEach(function (value, index) {
+      if (value === nums[0]) {
+         indexSmall.push(index);
+      }
+      if (value === nums.at(-1)) {
+         indexBig.push(index);
+      }
+   });
+
+   console.log(
+      `Số nhỏ nhất trong mảng là: ${
+         nums[0]
+      } | Ở vị trí index: ${indexSmall.join(&quot;, &quot;)}`
+   );
+   console.log(
+      `Số lớn nhất trong mảng là: ${nums.at(
+         -1
+      )} | Ở vị trí index: ${indexBig.join(&quot;, &quot;)}`
+   );
+}
+
+var numbers = [0, 5456, 15, 50, 7, -94, 254, -7, 22, 199, -94];
+
+findNum(numbers);
+
+console.log(`================= Bài 2 ================= `);
+// Cho trước 1 mảng số nguyên, tính trung bình các số nguyên tố trong mảng. Nếu trong mảng không có số nguyên tố thì hiển thị “Không có số nguyên tố”
+
+function averagePrime(arr) {
+   try {
+      err(arr, true);
+   } catch (error) {
+      return error.message;
+   }
+
+   console.log(&quot;Mảng được truyền vào:&quot;, arr);
+
+   let prime = [0],
+      total = prime[0];
+
+   arr.forEach(function (value) {
+      if (isPrime(value)) {
+         total += value;
+         prime.push(value);
+      }
+   });
+
+   let average;
+
+   if (total === 0) {
+      return &quot;Không có số nguyên tố&quot;;
+   } else {
+      average = total / (prime.length - 1);
+   }
+
+   prime = prime.slice(1).join(&quot;, &quot;);
+
+   console.log(&quot;Các số nguyên tố có trong mảng là:&quot;, prime);
+   console.log(&quot;Kết quả trung bình các số nguyên tố trong mảng là:&quot;, average);
+
+   return average;
+}
+
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+averagePrime(numbers);
+
+console.log(`================= Bài 3 ================= `);
+// Cho trước 1 mảng bất kỳ, nếu trong mảng có các phần tử trùng nhau thì chỉ giữa lại 1 (Gọi là lọc trùng). In ra mảng sau khi đã xử lý
+
+function filterArr(arr) {
+   try {
+      err(arr);
+   } catch (error) {
+      return error.message;
+   }
+
+   console.log(&quot;Mảng ban đầu&quot;, arr);
+
+   arr.forEach(function (value, index) {
+      for (let i = arr.length - 1; i &gt;= 0; i--) {
+         if (i === index) {
+            break;
+         }
+         value === arr[i] ? arr.splice(i, 1) : &quot;&quot;;
+      }
+   });
+
+   console.log(`Mảng sau khi được lọc trùng lặp:`, arr);
+   return arr;
+}
+
+var numbers = [0, 0, 1, 2, 2, 3, 4, 5, 6, 6, 6, 6.2, 7, 8, 9, 10, 10];
+filterArr(numbers);
+
+console.log(`================= Bài 4 ================= `);
+// Cho trước 1 mảng số nguyên và thực hiện các yêu cầu sau
+
+// Sắp xếp mảng theo thứ tự tăng dần
+
+// Chèn thêm 1 số vào bất kỳ vị trí nào trong mảng mà không làm thay đổi thứ tự sắp xếp của mảng
+
+// Ví dụ:
+
+// var numbers = [5, 1, 9, 8, 10];
+// var element = 4;
+// Kết quả hiển thị:
+
+// [1, 4, 5, 8, 9, 10]
+
+function sortArr(arr, num) {
+   try {
+      err(arr, true);
+   } catch (error) {
+      return error.message;
+   }
+
+   console.log(&quot;Mảng ban đầu:&quot;, arr);
+
+   arr.sort((next, prev) =&gt; next - prev);
+
+   console.log(&quot;Mảng sau khi được sắp xếp:&quot;, arr);
+
+   for (let i in arr) {
+      if (arr[i] &gt;= num) {
+         arr.splice(i, 0, num);
+         break;
+      }
+   }
+   console.log(`Mảng sau khi được chèn số &quot;${num}&quot;:`, arr);
+   return arr;
+}
+
+var numbers = [5, 1, 9, 8, 10];
+sortArr(numbers, 4);</code>
+</pre>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script>
+         var buttons = document.getElementsByClassName("copyButton");
+
+         for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+               var buttonClass = this.classList[1]; // lấy class thứ 2 (html hoặc js)
+               var codeBlock = document.querySelector(
+                  ".codeBlock.language-" + buttonClass
+               ).innerText;
+               var textarea = document.createElement("textarea");
+               textarea.textContent = codeBlock;
+               document.body.appendChild(textarea);
+               textarea.select();
+               document.execCommand("copy");
+               document.body.removeChild(textarea);
+               alert("Đã sao chép code " + buttonClass + " vào clipboard!");
+            });
+         }
+      </script>
+      <script src="./js/main.js"></script>
+   </body>
+</html>

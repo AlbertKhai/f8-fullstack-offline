@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: #2361ff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  margin: 20px 0;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+button {
+  color: #000;
+  cursor: pointer;
+}
+
+.carousel {
+  margin: 30px auto 0;
+  width: 95vw;
+  position: relative;
+}
+.carousel .carousel-view {
+  border-radius: 15px;
+  overflow: hidden;
+  height: 400px;
+  background-color: #ddd;
+}
+.carousel .carousel-view .loader {
+  display: none;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid gray;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.carousel .carousel-view .carousel-inner {
+  position: relative;
+  display: flex;
+  transition: translate 0.4s;
+}
+.carousel .carousel-view .carousel-inner img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.carousel .carousel-nav {
+  background-color: #000;
+}
+.carousel .carousel-nav span {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #fff;
+  background: gray;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+.carousel .carousel-nav span.prev {
+  left: 10px;
+}
+.carousel .carousel-nav span.next {
+  right: 10px;
+}
+.carousel .carousel-nav span:hover {
+  opacity: 0.8;
+}
+.carousel .carousel-dot {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  translate: -50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .carousel-dot label {
+  padding: 3px 5px;
+  cursor: pointer;
+}
+.carousel .carousel-dot label::before {
+  content: "";
+  display: inline-block;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+.carousel .carousel-dot label:has(:checked)::before, .carousel .carousel-dot label:hover::before {
+  background-color: #ffe100;
+}
+.carousel .carousel-dot label input {
+  display: none;
+}
+.carousel .carousel-action {
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.carousel .carousel-action .carousel-btn-add-img {
+  border-radius: 99px;
+  padding: 5px 15px;
+  font-weight: 600;
+  background-color: #ccc;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.carousel .carousel-action .carousel-btn-add-img:hover {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

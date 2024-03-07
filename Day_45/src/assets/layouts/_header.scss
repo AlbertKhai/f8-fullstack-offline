@@ -1,0 +1,21 @@
+.game {
+   .header {
+      position: relative;
+      .header-heading {
+         text-align: center;
+         font-size: 3.7rem;
+         color: $bg;
+         transition: color 0.3s;
+      }
+
+      .wrap__btn-dark-mode {
+         position: absolute;
+         right: 0;
+         top: 0;
+
+         .btn__dark-mode {
+            @include btn(#2ee8ff, #2ebeff, #2e94ff, $min-w: 50px);
+         }
+      }
+   }
+}

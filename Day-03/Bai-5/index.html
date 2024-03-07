@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 3 - Bài 5</title>
+      <style>
+         body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+               "Helvetica Neue", sans-serif;
+         }
+
+         .about-us {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+         }
+
+         .about-us > .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 190px;
+            height: 50px;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #fff;
+            background-color: #8498cb;
+         }
+
+         .about-us .highlight {
+            color: #05aaed;
+         }
+
+         .about-us .desc {
+            margin-top: -5px;
+            color: #6d6d6d;
+         }
+
+         .group-btn {
+            display: flex;
+            margin-top: 20px;
+            gap: 20px;
+         }
+
+         .btn {
+            display: inline-block;
+            min-width: 100px;
+            padding: 0px 30px;
+            border-radius: 5px;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #2c3033;
+            transition: 0.2s;
+         }
+
+         .btn:hover {
+            opacity: 0.9;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="about-us">
+         <div class="box">
+            <span>190 x 50</span>
+         </div>
+         <h1>Best <strong class="highlight">Shared Hosting</strong> Company</h1>
+         <p class="desc">
+            With this responsive landing page template, you can promote your all
+            hosting, domain and email services.
+         </p>
+         <div class="group-btn">
+            <a href="#!" class="btn">View Plans</a>
+            <a href="#!" class="btn">All Features</a>
+         </div>
+      </div>
+   </body>
+</html>

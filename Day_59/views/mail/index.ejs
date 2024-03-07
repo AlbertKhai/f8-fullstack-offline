@@ -1,0 +1,25 @@
+<section class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-4">Mail đã gửi</h1>
+
+  <div style="max-height: 68vh;" class="overflow-auto">
+    <% mailboxes.forEach(({ id, mail_to, mail_subject, mail_content, viewed, created_at}) => { %>
+    <section class="my-2 rounded-3 bg-body-secondary">
+      <a href="/mail/detail/<%= id %>" class="link-body-emphasis d-flex justify-content-between p-3 align-items-center text-decoration-none">
+        <div>
+          <h2 class="fs-5">Gửi đến: <%= mail_to %></h2>
+          <span><%= dayjs(created_at).tz().format('DD/MM/YYYY - h:mm:ss') %></span>
+        </div>
+        <% if (viewed) { %>
+        <span class="badge text-bg-success">Người nhận đã xem</span>
+        <% } else { %>
+        <span class="badge text-bg-secondary">Người nhận không thèm xem</span>
+        <% } %>
+      </a>
+    </section>
+    <% }) %>
+
+    <% if (!mailboxes.length) { %>
+    <div class="text-body-secondary">Chưa có mail được gửi</div>
+    <% } %>
+  </div>
+</section>

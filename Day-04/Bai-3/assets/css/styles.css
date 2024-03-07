@@ -1,0 +1,250 @@
+body {
+   box-sizing: border-box;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+.best-seller {
+   width: 80%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.best-seller *:not(.heading) {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.best-seller .heading {
+   font-size: 2.5rem;
+}
+
+.best-seller .category-item {
+   display: inline-block;
+   padding: 15px 25px;
+   background-color: #f4f4f4;
+}
+
+.best-seller .category-item:hover {
+   cursor: pointer;
+   color: #fff;
+   background-color: #29388e;
+}
+
+.best-seller .category-item:checked {
+   color: #fff;
+   background-color: #29388e;
+}
+
+.best-seller .product-list {
+   margin-top: 50px;
+   display: flex;
+   justify-content: space-evenly;
+   gap: 30px;
+}
+
+.best-seller .product-item {
+   flex-grow: 1;
+}
+
+.best-seller .product-img {
+   object-fit: cover;
+   width: 100%;
+   height: 350px;
+}
+
+.best-seller .product-info {
+   padding: 20px 5px 10px;
+}
+
+.best-seller .product-price {
+   font-weight: 600;
+}
+
+/* ========================= Action ========================= */
+/* Click Category type */
+
+.best-seller
+   .product-type:nth-of-type(1):checked
+   ~ .category-list
+   .category-item:nth-of-type(1) {
+   color: #fff;
+   background-color: #29388e;
+}
+
+.best-seller
+   .product-type:nth-of-type(2):checked
+   ~ .category-list
+   .category-item:nth-of-type(2) {
+   color: #fff;
+   background-color: #29388e;
+}
+
+.best-seller
+   .product-type:nth-of-type(3):checked
+   ~ .category-list
+   .category-item:nth-of-type(3) {
+   color: #fff;
+   background-color: #29388e;
+}
+
+.best-seller
+   .product-type:nth-of-type(4):checked
+   ~ .category-list
+   .category-item:nth-of-type(4) {
+   color: #fff;
+   background-color: #29388e;
+}
+
+.best-seller
+   .product-type:nth-of-type(5):checked
+   ~ .category-list
+   .category-item:nth-of-type(5) {
+   color: #fff;
+   background-color: #29388e;
+}
+
+/* Show Product-type */
+
+.best-seller
+   .product-type:nth-of-type(1):not(:checked)
+   ~ .product-list:nth-of-type(1) {
+   display: none;
+}
+
+.best-seller
+   .product-type:nth-of-type(2):not(:checked)
+   ~ .product-list:nth-of-type(2) {
+   display: none;
+}
+
+.best-seller
+   .product-type:nth-of-type(3):not(:checked)
+   ~ .product-list:nth-of-type(3) {
+   display: none;
+}
+
+.best-seller
+   .product-type:nth-of-type(4):not(:checked)
+   ~ .product-list:nth-of-type(4) {
+   display: none;
+}
+
+.best-seller
+   .product-type:nth-of-type(5):not(:checked)
+   ~ .product-list:nth-of-type(5) {
+   display: none;
+}
+
+/* Hover change img */
+
+.best-seller .product-thumb {
+   position: relative;
+   height: 350px;
+}
+
+.best-seller .product-thumb .img-1,
+.best-seller .product-thumb .img-2 {
+   position: absolute;
+   top: 0;
+   left: 0;
+   transition: ease-in-out 0.7s;
+}
+
+.best-seller .product-thumb .img-2 {
+   opacity: 0;
+}
+
+.best-seller .product-thumb:hover .img-1 {
+   opacity: 0;
+}
+
+.best-seller .product-thumb:hover .img-2 {
+   opacity: 1;
+}
+
+/* Product-action */
+
+.best-seller .product-action {
+   position: absolute;
+   top: 260px;
+   left: 0;
+   width: 100%;
+   visibility: hidden;
+   opacity: 0;
+   transition: ease-in-out 0.3s;
+}
+
+.best-seller .product-thumb:hover .product-action {
+   visibility: visible;
+   opacity: 1;
+}
+
+.best-seller .product-action:hover {
+   visibility: visible;
+   opacity: 1;
+}
+
+/* Product-action-above */
+.best-seller .product-action-above {
+   display: flex;
+   justify-content: space-between;
+   text-align: center;
+   gap: 10px;
+}
+
+.best-seller .product-action-item {
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex: 1 0 30%;
+   height: 40px;
+   background-color: #29388e;
+   border: none;
+}
+
+.best-seller .product-action-item img {
+   width: 25px;
+}
+/* Product-action--heart */
+
+.best-seller .box-heart {
+   position: relative;
+}
+
+.best-seller .box-heart .heart-uncheck,
+.best-seller .box-heart .heart-check {
+   position: absolute;
+   top: 18%;
+   left: 34%;
+   transition: ease-in-out 0.2s;
+}
+
+.best-seller .box-heart .heart-check {
+   opacity: 0;
+}
+
+.best-seller .box-heart .heart-checkbox:checked ~ .heart-uncheck {
+   opacity: 0;
+}
+
+.best-seller .box-heart .heart-checkbox:checked ~ .heart-check {
+   opacity: 1;
+}
+
+/* Product-action-below */
+.best-seller .product-action-below {
+   margin-top: 10px;
+}
+.best-seller .product-action-cart {
+   width: 100%;
+   height: 40px;
+   border: none;
+   font-weight: 600;
+   color: #fff;
+   background-color: #29388e;
+   cursor: pointer;
+}

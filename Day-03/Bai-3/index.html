@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 3 - Bài 3</title>
+      <style>
+         .form-login {
+            width: 300px;
+            margin: 0 auto;
+         }
+
+         .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+         }
+
+         .form-group--radio,
+         .form-group--checkbox {
+            display: flex;
+            flex-direction: column;
+         }
+
+         label {
+            width: 110px;
+         }
+
+         .form-group--btn-submit {
+            text-align: center;
+         }
+      </style>
+   </head>
+   <body>
+      <div>
+         <form
+            action="https://api-gateway.fullstack.edu.vn/action_page.php"
+            method="post"
+            class="form-login"
+         >
+            <!-- Username -->
+            <div class="form-group">
+               <label for="username">Username:</label>
+               <input type="text" id="username" name="username" />
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+               <label for="password">Password:</label>
+               <input type="password" id="password" name="password" />
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+               <label for="city">City of Employment:</label>
+               <input type="text" id="city" name="city" />
+            </div>
+
+            <!-- Web server -->
+            <div class="form-group">
+               <label for="web-server">Web server:</label>
+               <select name="web-server" id="web-server">
+                  <option value="" hidden>- Choose a server -</option>
+                  <option value="server-1">Server 1</option>
+                  <option value="server-2">Server 2</option>
+               </select>
+            </div>
+
+            <!-- Role -->
+            <div class="form-group">
+               <label>Please specify your role:</label>
+               <div class="form-group--radio">
+                  <label
+                     ><input
+                        type="radio"
+                        name="role"
+                        value="admin"
+                     />Admin</label
+                  >
+                  <label
+                     ><input
+                        type="radio"
+                        name="role"
+                        value="engineer"
+                     />Engineer</label
+                  >
+                  <label
+                     ><input
+                        type="radio"
+                        name="role"
+                        value="manager"
+                     />Manager</label
+                  >
+                  <label
+                     ><input
+                        type="radio"
+                        name="role"
+                        value="guest"
+                     />Guest</label
+                  >
+               </div>
+            </div>
+
+            <!-- Sign-on -->
+            <div class="form-group">
+               <label>Single Sign-on to the following:</label>
+               <div class="form-group--checkbox">
+                  <label>
+                     <input type="checkbox" name="sign-on" value="mail" />Mail
+                  </label>
+                  <label>
+                     <input
+                        type="checkbox"
+                        name="sign-on[]"
+                        value="payroll"
+                     />Payroll
+                  </label>
+                  <label>
+                     <input
+                        type="checkbox"
+                        name="sign-on[]"
+                        value="self-service"
+                     />Self-service
+                  </label>
+               </div>
+            </div>
+
+            <div class="form-group--btn-submit">
+               <button>Login</button>
+               <button type="reset">Reset</button>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,117 @@
+.support {
+   min-height: 100vh;
+   background-color: $bg;
+   color: $headingColor;
+   padding-top: 30px;
+
+   .main {
+      .wrap__form-support {
+         width: 40%;
+         margin: 0 auto;
+         border-radius: 20px;
+         padding: 30px;
+         text-align: center;
+         background-color: $bgItem;
+
+         .avatar {
+            width: 120px;
+            margin: 0 auto;
+
+            .avatar-img {
+               width: 100%;
+               border-radius: 50%;
+            }
+         }
+
+         .user-name {
+            font-size: 2.7rem;
+            color: $primaryColor;
+         }
+
+         .user-email {
+            font-size: 1.8rem;
+            margin-top: 5px;
+         }
+
+         .form-support {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 85%;
+            margin: 0 auto;
+
+            border-radius: 10px;
+            padding: 20px;
+
+            $pad-x: 17px;
+            $pad-y: 15px;
+            %inputSupport {
+               width: 100%;
+               border: 1px solid $primaryColor;
+               border-radius: 7px;
+               padding: $pad-y $pad-x;
+            }
+            color: #fff;
+            .label__support-email {
+               position: relative;
+
+               .support__email {
+                  @extend %inputSupport;
+               }
+
+               .support__email:not(:placeholder-shown) + .placeholder__support-email {
+                  translate: 0 calc(($fontSize * -1) - ($pad-y * 1.5));
+                  background-color: rgba($color: #020a19, $alpha: 1);
+               }
+
+               .placeholder__support-email {
+                  position: absolute;
+                  top: 50%;
+                  left: $pad-x - 7px;
+                  translate: 0 -50%;
+                  color: $textHighlight;
+                  background-color: #020a19;
+                  padding: 0 7px;
+
+                  transition: translate 0.2s, background-color 0.2s;
+               }
+            }
+
+            .label__support-message {
+               position: relative;
+               .support__message {
+                  @extend %inputSupport;
+
+                  resize: none;
+               }
+
+               .support__message:not(:placeholder-shown) + .placeholder__support-message {
+                  translate: 0 calc(($fontSize * -1.5));
+                  background-color: rgba($color: #020a19, $alpha: 1);
+               }
+
+               .placeholder__support-message {
+                  position: absolute;
+                  top: $pad-y;
+                  left: $pad-x - 7px;
+                  color: $textHighlight;
+                  background-color: rgba($color: #020a19, $alpha: 0);
+
+                  padding: 0 7px;
+                  transition: translate 0.2s, background-color 0.2s;
+               }
+            }
+
+            .support__btn-submit {
+               @include btn(#2ee8ff, #2ebeff, #2e94ff);
+            }
+         }
+
+         .wrap__btn-logout {
+            .btn-logout {
+               @include btn();
+            }
+         }
+      }
+   }
+}

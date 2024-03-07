@@ -1,0 +1,46 @@
+<form method="post">
+  <h1 class="fs-2 mb-3 fw-medium text-center">Đăng ký</h1>
+
+  <% const { name, email, password, passwordVerify } = req.errors; %>
+
+  <!-- Name input -->
+  <div class="form-floating mb-3">
+    <input name="name" type="text" id="inputName" class="form-control" placeholder="" value="<%= req.old.name %>" />
+    <label for="inputName">Tên</label>
+    <% if (name) { %>
+    <span class="text-danger d-inline-block mt-1"><%= name %></span>
+    <% } %>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-floating mb-3">
+    <input name="email" type="text" id="inputEmail" class="form-control" placeholder="" value="<%= req.old.email %>" />
+    <label for="inputEmail">Email</label>
+    <% if (email) { %>
+    <span class="text-danger d-inline-block mt-1"><%= email %></span>
+    <% } %>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-floating mb-3">
+    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="" value="<%= req.old.password %>" />
+    <label for="inputPassword">Nhập mật khẩu</label>
+    <% if (password) { %>
+    <span class="text-danger d-inline-block mt-1"><%= password %></span>
+    <% } %>
+  </div>
+
+  <!-- Password input verify-->
+  <div class="form-floating mb-3">
+    <input name="passwordVerify" type="password" id="passwordVerify" class="form-control" placeholder="" value="<%= req.old.passwordVerify %>" />
+    <label for="passwordVerify">Nhập lại mật khẩu</label>
+    <% if (passwordVerify) { %>
+    <span class="text-danger d-inline-block mt-1"><%= passwordVerify %></span>
+    <% } %>
+  </div>
+
+  <button class="btn fw-medium btn-primary w-100 py-2" type="submit">Đăng ký</button>
+</form>
+
+<hr>
+<a href="/auth/login" class="btn btn-secondary w-100 py-2">Đăng nhập</a>

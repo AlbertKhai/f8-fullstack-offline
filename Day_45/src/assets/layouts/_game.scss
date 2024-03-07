@@ -1,0 +1,217 @@
+.game {
+   background-color: $bgLight;
+   min-height: 100vh;
+   color: $textColor;
+   padding: 25px 50px 30px;
+   transition: background-color 0.7s;
+
+   .game-settings {
+      margin-top: 10px;
+
+      .game-title {
+         text-align: center;
+         font-size: 3rem;
+         color: #1c6dd0;
+         margin-bottom: 10px;
+
+         transition: color 0.3s;
+
+         b {
+            font-size: 3.3rem;
+         }
+      }
+
+      .game-input__level {
+         -webkit-appearance: none;
+         appearance: none;
+         width: 100%;
+         height: 10px;
+         border-radius: 5px;
+         background-color: #4158d0;
+         background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ff1e62 100%);
+         outline: none;
+         -webkit-transition: 0.2s;
+         transition: opacity 0.2s;
+         cursor: pointer;
+
+         &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+         }
+
+         &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #0093e9;
+            background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+            cursor: pointer;
+         }
+      }
+
+      .game-wrap__level {
+         margin-top: 5px;
+         display: flex;
+         justify-content: space-between;
+         .game-level {
+            background-color: transparent;
+            font-size: 1.8rem;
+            color: #325288;
+            transition: color 0.3s;
+         }
+
+         .game-level:not(:last-child):not(:first-child) {
+            translate: 20%;
+         }
+
+         .game-level:first-child {
+            position: relative;
+            left: calc((100vw - 50px * 2) * 0.04);
+         }
+      }
+
+      .game-live {
+         display: block;
+         color: #ff1e62;
+         font-size: 2.5rem;
+         margin-top: -35px;
+         transition: color 0.3s;
+      }
+   }
+
+   .game-play {
+      margin-top: 15px;
+      height: 12vh;
+
+      .btn__play-again {
+         @include btn();
+      }
+
+      .game-play__form {
+         .game-label__play {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.8rem;
+            color: #ff1e62;
+            transition: color 0.3s;
+         }
+
+         .game-input__play {
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+               -webkit-appearance: none;
+               margin: 0;
+            }
+
+            margin-top: 10px;
+            border: 1px solid #24a19c;
+            border-radius: 5px;
+            padding: 10px;
+            color: #24a19c;
+            transition: color 0.3s border-color 0.3s;
+         }
+      }
+   }
+
+   .score {
+      display: flex;
+      margin: 25px 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+
+      padding: 15px 0;
+
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+
+      &::-webkit-scrollbar {
+         height: 12px;
+         cursor: pointer;
+      }
+
+      &::-webkit-scrollbar-track {
+         background-color: #fafafa;
+         border-radius: 99px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+         border-radius: 99px;
+      }
+
+      .score-inner {
+         flex: 1 0 100%;
+         scroll-snap-align: start;
+         scroll-snap-stop: always;
+         table {
+            width: 70%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 10px;
+
+            display: flex;
+            justify-content: space-evenly;
+
+            background-color: rgba($color: #fff, $alpha: 0.1);
+            backdrop-filter: blur(10px);
+
+            border-radius: 20px;
+
+            box-shadow: 6px 6px 10px #cecece, -6px -6px 10px #f2f2f2;
+            transition: box-shadow 0.7s;
+
+            tbody {
+               flex: 1 0 60%;
+               color: $primaryColor;
+               tr {
+                  display: flex;
+                  justify-content: space-around;
+
+                  th {
+                     font-size: 2rem;
+                     color: #1c6dd0;
+                     padding: 7px;
+                     transition: color 0.3s;
+                  }
+
+                  td {
+                     padding: 5px;
+                     font-size: 1.6rem;
+                     color: $bg;
+                     transition: color 0.3s;
+                  }
+               }
+            }
+
+            tfoot {
+               flex: 1 0 40%;
+               align-self: center;
+               color: #d96098;
+               transition: color 0.3s;
+
+               tr {
+                  display: flex;
+                  justify-content: center;
+                  flex-direction: column;
+
+                  td {
+                     font-size: 2.5rem;
+                     padding: 10px 0;
+                  }
+
+                  .btn__rev-tbl {
+                     @include btn();
+                  }
+               }
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,61 @@
+body {
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   background-color: #f6f6f6;
+}
+
+.review {
+   width: 80%;
+   margin: 0 auto;
+}
+
+.review .heading {
+   position: relative;
+   text-align: center;
+   margin-bottom: 90px;
+   font-size: 2rem;
+   color: #333333;
+}
+
+.review .heading::after {
+   position: absolute;
+   content: "";
+   display: inline-block;
+   top: 50px;
+   left: 50%;
+   width: 50px;
+   height: 4px;
+   background: #00efff;
+   background: linear-gradient(0deg, #00efff 0%, #002eff 80%);
+   background: -webkit-linear-gradient(0deg, #00efff 0%, #002eff 80%);
+   background: -moz-linear-gradient(0deg, #00efff 0%, #002eff 80%);
+   transform: translateX(-50%);
+}
+
+.review .row {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 50px;
+}
+
+.review .comment {
+   display: flex;
+   gap: 15px;
+   flex: 1 0 30%;
+}
+
+.review .comment .avatar {
+   width: 70px;
+   height: 70px;
+   object-fit: cover;
+   border-radius: 50%;
+}
+
+.review .comment .content {
+   font-style: italic;
+   color: #939393;
+}
+
+.review .comment .user-name {
+   font-weight: 600;
+   color: #707070;
+}

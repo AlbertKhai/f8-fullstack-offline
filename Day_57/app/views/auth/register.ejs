@@ -1,0 +1,66 @@
+<div class="position-fixed py-4">
+  <a href="/dang-nhap" class="text-decoration-none fs-5">
+    <i class="fa-solid fa-caret-left"></i>
+    <span>Đăng nhập</span>
+  </a>
+</div>
+
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h1 class="text-center mb-4 text-primary">Đăng ký</h1>
+
+        <% if (msg.length) { %>
+        <div class="alert mb-3 text-center alert-success"><%= msg %></div>
+        <% } %>
+
+        <form action="" method="post">
+          <!-- Name input -->
+          <div class="form-outline mb-2">
+            <label class="form-label fw-bold" for="inputName">Tên</label>
+            <input name="name" type="text" id="inputName" class="form-control" value="<%= req.old.name %>" />
+            <span class="text-danger d-inline-block mt-1"><%= req.errors.name %></span>
+          </div>
+
+          <!-- Email input -->
+          <div class="form-outline mb-2">
+            <label class="form-label fw-bold" for="inputEmail">Email</label>
+            <input name="email" type="text" id="inputEmail" class="form-control" value="<%= req.old.email %>" />
+            <span class="text-danger d-inline-block mt-1"><%= req.errors.email %></span>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-2">
+            <label class="form-label fw-bold" for="inputPassword">Nhập mật khẩu</label>
+            <input name="password" type="password" id="inputPassword" class="form-control" value="<%= req.old.password %>" />
+            <span class="text-danger d-inline-block mt-1"><%= req.errors.password %></span>
+          </div>
+
+          <!-- Password input verify-->
+          <div class="form-outline mb-2">
+            <label class="form-label fw-bold" for="passwordVerify">Nhập lại mật khẩu</label>
+            <input name="passwordVerify" type="password" id="passwordVerify" class="form-control" value="<%= req.old.passwordVerify %>" />
+            <span class="text-danger d-inline-block mt-1"><%= req.errors.passwordVerify %></span>
+          </div>
+
+          <!-- Login checkbox after registration-->
+          <div class="form-check mt-3 mb-4">
+            <input class="form-check-input me-3" type="checkbox" name="loginRemember" id="loginRemember" <%- req.old.loginRemember === "on" ? "checked" : ""%>>
+            <label class="form-check-label fw-bold user-select-none" for="loginRemember">
+              Chuyển sang trang đăng nhập sau khi đăng ký thành công
+            </label>
+          </div>
+
+          <!-- Submit button -->
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-lg w-100 btn-block m-auto">Đăng ký</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

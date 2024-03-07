@@ -1,0 +1,121 @@
+<article class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-3">Rút gọn liên kết</h1>
+
+  <form action="" method="post" id="formCreateShortenUrl">
+    <!-- shortened url -->
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="shorten-url">Liên kết </label>
+        <input value="<%= req.old.url %>" placeholder="cần rút gọn" name="url" type="text" id="shorten-url" class="form-control">
+      </div>
+      <%- req.errors.url ? `<span class="text-danger d-inline-block mt-1">${req.errors.url}</span>` : "" %>
+    </div>
+
+    <!-- shortened url password -->
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="passwordUrl">Mật khẩu</label>
+        <input value="<%= req.old.password %>" id="passwordUrl" placeholder="cho liên kết rút gọn (không bắt buộc)" name="password" type="password" class="form-control">
+      </div>
+      <%- req.errors.password ? `<span class="text-danger d-inline-block mt-1">${req.errors.password}</span>` : "" %>
+    </div>
+
+    <!-- Safe navigation -->
+    <div class="form-check mb-1">
+      <input type="hidden" name="safeNavigation" id="safeNavigationHidden" value="off">
+      <input <%= /undefined|on/.test(req.old.safeNavigation) ? "checked" : "" %> class="form-check-input" type="checkbox" name="safeNavigation" id="safeNavigation">
+      <label class="form-check-label user-select-none" for="safeNavigation">
+        Chuyển hướng an toàn (Tránh bị chặn bởi Facebook)
+      </label>
+    </div>
+
+    <!-- Checkbox customize the url ID -->
+    <div class="form-check mb-3 checkbox-custom-id">
+      <input name="checkboxCustomID" <%= req.old.checkboxCustomID ? "checked" : "" %> class="form-check-input" type="checkbox" id="checkboxCustomID">
+      <label class="form-check-label user-select-none" for="checkboxCustomID">
+        Tùy chỉnh ID của liên kết
+      </label>
+    </div>
+
+    <!-- Customize the url ID -->
+    <div class="mb-3" id="boxCustomID">
+      <div class="input-group">
+        <label class="input-group-text" for="customID"><%= url + "/short-url/" %></label>
+        <input id="customID" value="<%= req.old.customID %>" type="text" class="form-control" placeholder="ID của liên kết" name="customID">
+      </div>
+      <%- req.errors.customID ? `<span class="text-danger d-inline-block mt-1">${req.errors.customID}</span>` : "" %>
+    </div>
+
+    <div class="d-flex gap-2 justify-content-end mb-3">
+      <button class="btn btn-primary">Rút gọn</button>
+    </div>
+  </form>
+
+  <% if (idUrlShortend) { %>
+  <% const shortenedUrl = url + "/shorten-url/" + idUrlShortend %>
+  <div class="position-relative">
+    <hr>
+    <h2 class="fs-3">Thành công!</h2>
+    <div>
+      <label for="basic-url" class="form-label">URL rút gọn của bạn</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" value="<%= shortenedUrl %>" readonly>
+        <button id="btnCopyUrlShortend" data-url="<%= shortenedUrl %>" class="btn btn-outline-success d-inline-flex justify-content-center align-items-center gap-2" type="button">
+          <i class="fa-regular fa-copy"></i>
+          <span>Copy</span>
+        </button>
+        <a href="javascript:fbShare('<%= shortenedUrl %>')" class="btn btn-outline-success d-inline-flex justify-content-center align-items-center gap-2" type="button">
+          <i class="fa-regular fa-share-from-square"></i>
+          <span>Chia sẻ</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="position-absolute" style="top: 17px; right: 0;">
+      <div id="msgCopy" data-bs-delay="4000" class="bg-success toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">Đã copy liên kết rút gọn</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+  <% if (msg) { %>
+  <div class="position-absolute" style="top: 24px; right: 24px;">
+    <div id="msgToast" data-bs-delay="4000" class="<%= typeMsg %> toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"><%= msg %></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</article>
+
+
+<script>
+  document.getElementById("formCreateShortenUrl").addEventListener('submit', () => {
+    document.getElementById('safeNavigationHidden').disabled = document.getElementById("safeNavigation").checked;
+    document.getElementById("customID").disabled = !document.getElementById("checkboxCustomID").checked
+  })
+
+  const fbShare = (url, winWidth = 520, winHeight = 350) => {
+    var winTop = (screen.height / 2) - (winHeight / 2);
+    var winLeft = (screen.width / 2) - (winWidth / 2);
+    window.open('https://www.facebook.com/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',width=' + winWidth + ',height=' + winHeight);
+  }
+
+  const btnCopyUrlShortend = document.querySelector('#btnCopyUrlShortend')
+
+  if (btnCopyUrlShortend) {
+    btnCopyUrlShortend.addEventListener('click', function() {
+      navigator.clipboard.writeText(this.dataset.url) //this.getAttribute('data-url')
+
+      const msgCopy = document.getElementById('msgCopy')
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(msgCopy)
+      toastBootstrap.show()
+    });
+  }
+</script>

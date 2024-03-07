@@ -1,0 +1,7 @@
+#boxCustomID {
+   display: none;
+}
+
+.checkbox-custom-id:has(#checkboxCustomID:checked) + #boxCustomID {
+   display: block;
+}

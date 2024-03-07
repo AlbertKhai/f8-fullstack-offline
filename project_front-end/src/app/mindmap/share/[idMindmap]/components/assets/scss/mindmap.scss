@@ -1,0 +1,74 @@
+.react-flow {
+  .react-flow__handle {
+    width: 30px;
+    height: 14px;
+    border-radius: 3px;
+    background-color: #fab840;
+  }
+
+  .react-flow__handle-top {
+    top: -10px;
+  }
+
+  .react-flow__handle-bottom {
+    bottom: -10px;
+  }
+
+  .react-flow__node {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 150px;
+    font-weight: 700;
+    background: #05cfff;
+    color: white;
+
+    transition: background-color 0.3s;
+    &:hover {
+    }
+
+    &.selected {
+      box-shadow: #ff7ed4 0px 0px 0px 1.5px;
+    }
+  }
+
+  .react-flow__node-customNode {
+    border-radius: 3px;
+    .react-flow__node {
+      border-radius: 3px;
+    }
+
+    &.dragging {
+      input {
+        cursor: grabbing;
+      }
+    }
+  }
+
+  .react-flow__edge {
+    .react-flow__edge-path {
+      stroke: #ff7ed4;
+    }
+
+    &.selected {
+      .react-flow__edge-path {
+        stroke: #ff1493;
+      }
+    }
+  }
+
+  .react-flow__connection {
+    .react-flow__connection-path {
+      stroke: #fab840;
+    }
+  }
+}
+
+.react-flow .react-flow__edge path,
+.react-flow__connectionline path {
+  stroke-width: 3;
+  color: #784be8;
+}

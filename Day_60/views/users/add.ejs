@@ -1,0 +1,36 @@
+<article class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-3">Thêm user</h1>
+
+  <% const { name, email, password, passwordVerify } = req.errors; %>
+
+  <form action="" method="post">
+    <div class="form-floating mb-3">
+      <input name="name" type="text" class="form-control" id="username" placeholder="Nhập tên" value="<%= req.old.name %>">
+      <label for="username">Tên</label>
+      <%- name ? `<span class="text-danger d-inline-block mt-1">${name}</span>` : "" %>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input name="email" type="text" class="form-control" id="userEmail" placeholder="Nhập email" value="<%= req.old.email %>">
+      <label for="userEmail">Email</label>
+      <%- email ? `<span class="text-danger d-inline-block mt-1">${email}</span>` : "" %>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input name="password" type="text" class="form-control" id="userPassword" placeholder="Nhập mật khẩu" value="<%= req.old.password %>">
+      <label for="userPassword">Mật khẩu</label>
+      <%- password ? `<span class="text-danger d-inline-block mt-1">${password}</span>` : "" %>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input name="passwordVerify" type="text" class="form-control" id="userPasswordVerify" placeholder="Nhập lại mật khẩu" value="<%= req.old.passwordVerify %>">
+      <label for="userPasswordVerify">Nhập lại mật khẩu</label>
+      <%- passwordVerify ? `<span class="text-danger d-inline-block mt-1">${passwordVerify}</span>` : "" %>
+    </div>
+
+
+    <div class="d-flex gap-2 justify-content-end">
+      <button class="btn btn-primary">Lưu user</button>
+    </div>
+  </form>
+</article>

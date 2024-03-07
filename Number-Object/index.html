@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Number - Object</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <link rel="stylesheet" href="./styles/styles.css" />
+   </head>
+   <body>
+      <main>
+         <div class="container">
+            <h2 class="heading-ex">Bài 5</h2>
+            <form action="" class="form"></form>
+         </div>
+         <div class="wrap-copy-btn">
+            <a
+               href="https://raw.githubusercontent.com/AlbertKhai/download/main/Number-Object.rar"
+               class="download-btn"
+               >Download Folder Code</a
+            >
+            <button class="copyButton js" role="button">Copy code JS</button>
+         </div>
+
+         <div class="wrap-code">
+            <pre>
+<code class="codeBlock language-js">function validateNum(args) {
+   if (!args.length) throw new Error();
+   let mess = args.length &gt; 1 ? &quot;Các tham&quot; : &quot;Tham&quot;;
+   if (
+      !args.every(
+         (value) =&gt; Number.isFinite(+value) &amp;&amp; Number.parseFloat(value)
+      )
+   ) {
+      throw new Error(`${mess} số truyền vào phải là số hữu hạn`);
+   }
+}
+
+function validateCurrency(value, currency) {
+   if (!(Number.isFinite(+value) &amp;&amp; Number.parseFloat(value))) {
+      throw new Error(&quot;Giá trị cần lấy đơn vị tiền tệ phải là 1 số hữu hạn&quot;);
+   }
+   if (typeof currency !== &quot;string&quot;) {
+      throw new Error(&quot;Vui lòng nhập đơn vị tiền tệ dạng chuỗi.&quot;);
+   }
+}
+
+// -------------------------------- Bài 1 -----------------------------------------------
+console.log(&quot;# Bài 1&quot;);
+function sum(...args) {
+   console.log(&quot;Input:&quot;, ...args);
+   // Log error
+   try {
+      validateNum(args);
+   } catch (error) {
+      return error.message;
+   }
+
+   // Handle
+   return args.reduce((prev, next) =&gt; +prev + +next);
+}
+
+console.log(&quot;Output:&quot;, sum(1, 2, 3));
+
+// -------------------------------- Bài 2 -----------------------------------------------
+console.log(&quot;\n# Bài 2&quot;);
+Number.prototype.getCurrency = function (currency = &quot;$&quot;) {
+   // Log Error
+   try {
+      validateCurrency(this, currency);
+   } catch (error) {
+      return error.message;
+   }
+
+   // Handle
+   // num = this.toString().split(&quot;&quot;);
+   // for (let i = num.length - 3; i &gt; 0; i -= 3) {
+   //    num.splice(i, 0, &quot;,&quot;);
+   // }
+   return `${(+this).toLocaleString()} ${currency}`;
+};
+
+String.prototype.getCurrency = Number.prototype.getCurrency;
+
+var money = &quot;25360000&quot;;
+console.log(&quot;Input:&quot;, money);
+console.log(&quot;Output:&quot;, money.getCurrency(&quot;₫&quot;));
+
+// -------------------------------- Bài 3 -----------------------------------------------
+console.log(&quot;\n# Bài 3&quot;);
+Array.prototype.push2 = function (...args) {
+   for (let value of args) {
+      this[this.length] = value;
+   }
+   return this.length;
+};
+
+// --------- Test ---------
+var arr1 = [&quot;a&quot;, 0];
+console.log(&quot;arr1:&quot;, arr1);
+console.log(&quot;arr1.push([]):&quot;, arr1.push([]));
+console.log(&quot;arr1:&quot;, arr1);
+
+console.log(&quot;\n&quot;);
+
+var arr2 = [&quot;a&quot;, 0];
+console.log(&quot;arr2:&quot;, arr2);
+console.log(&quot;arr2.push2([]):&quot;, arr2.push2([]));
+console.log(&quot;arr2:&quot;, arr2);
+
+// -------------------------------- Bài 4 -----------------------------------------------
+console.log(&quot;\n# Bài 4&quot;);
+Array.prototype.filter2 = function (callback) {
+   let result = [];
+   for (let i in this) {
+      if (callback(this[i], i, this)) {
+         result[result.length] = this[i];
+      }
+   }
+   return result;
+};
+
+// --------- Test ---------
+var arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(&quot;arr:&quot;, arr);
+console.log(
+   &quot;arr.filter((value) =&gt; value &gt; 3):&quot;,
+   arr.filter((value) =&gt; value &gt; 3)
+);
+
+console.log(&quot;\n&quot;);
+
+console.log(&quot;arr:&quot;, arr);
+console.log(
+   &quot;arr.filter2((value) =&gt; value &gt; 3):&quot;,
+   arr.filter2((value) =&gt; value &gt; 3)
+);
+
+// -------------------------------- Bài 5 -----------------------------------------------
+console.log(&quot;\n# Bài 5&quot;);
+var categories = [
+   {
+      id: 1,
+      name: &quot;Chuyên mục 1&quot;,
+   },
+   {
+      id: 2,
+      name: &quot;Chuyên mục 2&quot;,
+      children: [
+         {
+            id: 4,
+            name: &quot;Chuyên mục 2.1&quot;,
+         },
+         {
+            id: 5,
+            name: &quot;Chuyên mục 2.2&quot;,
+            children: [
+               {
+                  id: 10,
+                  name: &quot;Chuyên mục 2.2.1&quot;,
+               },
+               {
+                  id: 11,
+                  name: &quot;Chuyên mục 2.2.2&quot;,
+               },
+               {
+                  id: 12,
+                  name: &quot;Chuyên mục 2.2.3&quot;,
+               },
+            ],
+         },
+         {
+            id: 6,
+            name: &quot;Chuyên mục 2.3&quot;,
+         },
+      ],
+   },
+   {
+      id: 3,
+      name: &quot;Chuyên mục 3&quot;,
+      children: [
+         {
+            id: 7,
+            name: &quot;Chuyên mục 3.1&quot;,
+         },
+         {
+            id: 8,
+            name: &quot;Chuyên mục 3.2&quot;,
+         },
+         {
+            id: 9,
+            name: &quot;Chuyên mục 3.3&quot;,
+         },
+      ],
+   },
+];
+
+// Handle
+var categoriesName = [];
+
+function pushName(arr, signLevel) {
+   arr.forEach((obj) =&gt; {
+      categoriesName.push(signLevel + obj.name);
+      if (obj.children) {
+         pushName(obj.children, signLevel + signLevel);
+      }
+   });
+}
+
+categories.forEach((obj) =&gt; {
+   categoriesName.push(obj.name);
+   if (obj.children) {
+      pushName(obj.children, &quot;--|&quot;);
+   }
+});
+
+var form = document.querySelector(&quot;.form&quot;);
+form.innerHTML = `&lt;select name=&quot;&quot; id=&quot;&quot; class=&quot;form__select&quot;&gt;
+   &lt;option value=&quot;&quot;&gt;Chọn chuyên mục&lt;/option&gt;
+   ${categoriesName
+      .map(
+         (value) =&gt;
+            `&lt;option value=&quot;${value.slice(
+               value.lastIndexOf(&quot; &quot;) + 1
+            )}&quot;&gt;${value}&lt;/option&gt;`
+      )
+      .join(&quot;&quot;)}
+&lt;/select&gt;`;</code>
+</pre>
+         </div>
+
+         <div class="wrap-copy-btn">
+            <button class="copyButton html" role="button">
+               Copy code HTML
+            </button>
+         </div>
+
+         <div class="wrap-code">
+            <pre>
+<code class="codeBlock language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+   &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot; /&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+      &lt;title&gt;Number - Object&lt;/title&gt;
+      &lt;style&gt;
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         html {
+            font-size: 10px;
+         }
+
+         body {
+            font-family: &quot;Times New Roman&quot;, Times, serif;
+            font-size: 1.6rem;
+            padding-top: 20px;
+         }
+
+         .heading-ex {
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 20px;
+         }
+
+         .form {
+            text-align: center;
+         }
+
+         .form__select {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 2rem;
+         }
+      &lt;/style&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;main&gt;
+         &lt;div class=&quot;container&quot;&gt;
+            &lt;h2 class=&quot;heading-ex&quot;&gt;Bài 5&lt;/h2&gt;
+            &lt;form action=&quot;&quot; class=&quot;form&quot;&gt;&lt;/form&gt;
+         &lt;/div&gt;
+      &lt;/main&gt;
+      &lt;script src=&quot;./js/main.js&quot;&gt;&lt;/script&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code>
+</pre>
+         </div>
+      </main>
+
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="./js/copyButton.js"></script>
+      <script src="./js/main.js"></script>
+   </body>
+</html>

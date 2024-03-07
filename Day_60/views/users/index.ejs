@@ -1,0 +1,77 @@
+<article class="bg-body-tertiary p-4 position-relative" style="height: 85vh; border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="text-center">Quản lý users</h1>
+
+  <% const permissions = req.flash("permissions") %>
+
+  <% if (permissions.includes("addUsers")) { %>
+  <div class="text-end">
+    <a href="/users/add" class="btn btn-primary">Thêm mới</a>
+  </div>
+  <% } %>
+
+  <table class="table table-striped table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col" width="4%">#</th>
+        <th scope="col" width="35%">Tên</th>
+        <th scope="col" width="35%">Email</th>
+        <% if (permissions.includes("editUsers")) { %>
+        <th class="text-center" scope="col" width="12%">Phân Quyền</th>
+        <th class="text-center" scope="col" width="7%">Sửa</th>
+        <% } %>
+        <% if (permissions.includes("deleteUsers")) { %>
+        <th class="text-center" scope="col" width="7%">Xóa</th>
+        <% } %>
+      </tr>
+    </thead>
+
+    <tbody class="table-group-divider">
+      <% users.forEach((user, index) => { %>
+      <tr>
+        <th class="h-100 align-middle" scope="row"><%= ++offset %></th>
+        <td class="h-100 align-middle text-truncate"><%= user.name %></td>
+        <td class="h-100 align-middle text-truncate"><%= user.email %></td>
+        <% if (permissions.includes("editUsers")) { %>
+        <td class="text-center"><a href="/users/role/<%= user.id %>" class="btn btn-success">Phân quyền</a></td>
+        <td class="text-center"><a href="/users/edit/<%= user.id %>" class="btn btn-warning">Sửa</a></td>
+        <% } %>
+        <% if (permissions.includes("deleteUsers")) { %>
+        <td class="text-center">
+          <form action="/users/delete/<%= user.id %>" method="post" onsubmit="return confirm('Bạn có chắc chắn xóa user: <%= user.name %>')">
+            <button class="btn btn-danger">Xóa</button>
+            <input type="hidden" name="username" value="<%= user.name %>">
+          </form>
+        </td>
+        <% } %>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <% if (totalPage > 1) { %>
+  <nav aria-label="Page navigation example" class="position-absolute mb-1 bottom-0 end-0 me-4 d-flex justify-content-end">
+    <ul class="pagination">
+      <% if (page > 1) { %>
+      <li class="page-item"><a class="page-link" href="?page=<%= +page - 1 %>">Trước</a></li>
+      <% } %>
+      <% for( let index = 1; index <= totalPage; index++ ) { %>
+      <li class="page-item"><a class="page-link <%= index === +page ? "active" : ""%>" href="?page=<%= index %>"><%= index %></a></li>
+      <% } %>
+      <% if (page < totalPage) { %>
+      <li class="page-item"><a class="page-link" href="?page=<%= +page + 1 %>">Sau</a></li>
+      <% } %>
+    </ul>
+  </nav>
+  <% } %>
+
+  <% if (msg.length) { %>
+  <div class="position-absolute" style="top: 24px; right: 24px;">
+    <div id="msgToast" data-bs-delay="4000" class="<%= typeMsg %> toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"><%= msg %></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</article>

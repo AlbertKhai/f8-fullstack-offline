@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-20</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <link rel="stylesheet" href="./styles/styles.css" />
+   </head>
+   <body>
+      <div class="wrap-copy-btn">
+         <a
+            href="https://raw.githubusercontent.com/AlbertKhai/download/main/Day-21.rar"
+            class="download-btn"
+            >Download Folder Code</a
+         >
+         <button class="copyButton js" role="button">Copy code JS</button>
+      </div>
+
+      <div class="wrap-code">
+         <pre>
+<code class="codeBlock language-js">function isObj(obj) {
+   return (
+      (typeof obj === &quot;object&quot; &amp;&amp; !Array.isArray(obj) &amp;&amp; obj !== null) || false
+   );
+}
+
+function errNum(arg) {
+   typeof arg === &quot;string&quot; ? (arg = +arg) : &quot;&quot;;
+   return !Number.isFinite(arg) || !(arg &gt; 0) || !Number.isInteger(arg);
+}
+
+console.log(`========================= Bài 1 =========================`);
+var errors = {
+   name: {
+      required: &quot;Vui lòng nhập họ tên&quot;,
+      min: &quot;Họ tên phải từ 5 ký tự&quot;,
+   },
+   email: {
+      email: &quot;Định dạng email không hợp lệ&quot;,
+      unique: &quot;Email đã có người sử dụng&quot;,
+      required: &quot;Vui lòng nhập địa chỉ email&quot;,
+   },
+   password: {
+      required: &quot;Vui lòng nhập mật khẩu&quot;,
+      same: &quot;Mật khẩu phải khớp với mật khẩu nhập lại&quot;,
+   },
+};
+
+function getError(field) {
+   if (!isObj(errors[field])) {
+      return `&quot;${field}&quot; không phải là 1 nhóm lỗi trong errors`;
+   } else if (Object.keys(errors[field]).length === 0) {
+      return `Nhóm lỗi &quot;${field}&quot; trong errors chưa có dữ liệu`;
+   }
+   return Object.values(errors[field])[0];
+}
+
+console.log(getError(`password`));
+
+console.log(`\n========================= Bài 2 =========================`);
+var Customer = function (name, age, address) {
+   this.name = name;
+   this.age = age;
+   this.address = address;
+};
+
+function getShortName(fullName) {
+   fullName = fullName.trim().split(&quot; &quot;);
+   if (fullName.length === 1) return fullName[0];
+   return fullName.at(0) + &quot; &quot; + fullName.at(-1);
+}
+
+function validateCustomer(arr) {
+   if (!Array.isArray(arr)) {
+      throw new Error(&quot;Tham số truyền vào phải là 1 mảng&quot;);
+   } else if (arr.length === 0) {
+      throw new Error(&quot;Tham số mảng truyền vào chưa có đối tượng&quot;);
+   }
+
+   let keys = [];
+   for (let index in arr) {
+      obj = arr[index];
+      errNum(obj.age) &amp;&amp; keys.push(&quot;age&quot;);
+      (typeof obj.name !== &quot;string&quot; || !obj.name) &amp;&amp; keys.push(&quot;name&quot;);
+      (typeof obj.address !== &quot;string&quot; || !obj.address) &amp;&amp; keys.push(&quot;address&quot;);
+      if (keys.length &gt; 0) {
+         keys = keys.join(&quot;, &quot;);
+         throw new Error(
+            `Thuộc tính ${keys} của đối tượng tại vị trí index: ${index} trong mảng có giá trị không hợp lệ`
+         );
+      }
+   }
+}
+
+function createCustomers(arr) {
+   // Log error
+   try {
+      validateCustomer(arr);
+   } catch (error) {
+      return error.message;
+   }
+
+   // Handle
+   let customers = JSON.parse(JSON.stringify(arr));
+   return (
+      customers
+         .sort((next, prev) =&gt; next.age - prev.age)
+         .forEach(
+            (customer) =&gt; (customer.shortName = getShortName(customer.name))
+         ),
+      customers
+   );
+}
+
+const customers = [
+   { name: &quot;Nguyễn Văn A&quot;, age: 11, address: &quot;Ha Noi&quot; },
+   { name: &quot;Nguyễn Văn B&quot;, age: 2, address: &quot;Hai Phong&quot; },
+   { name: &quot;Nguyễn Văn C&quot;, age: 12, address: &quot;TP.HCM&quot; },
+];
+
+const result = createCustomers(customers);
+console.log(result);
+
+console.log(`\n========================= Bài 3 =========================`);
+var User = function (name, password, email) {
+   this.name = name;
+   this.password = password;
+   this.email = email;
+};
+
+var data = [];
+
+function handleRegister(name, password, email) {
+   if (!name || !password || !email) {
+      console.warn(&quot;Hãy nhập đầy đủ thông tin name, password, email&quot;);
+   } else if (data.some((obj) =&gt; obj.email === email)) {
+      console.warn(`Email &quot;${email}&quot; đã được sử dụng`);
+   } else {
+      let user = new User(name, password, email);
+      user.role = &quot;user&quot;;
+      data.push(Object.assign({}, user));
+      console.log(`Đăng kí thành công`);
+   }
+}
+
+function handleLogin(email, password) {
+   var result = data.find(
+      (obj) =&gt; obj.email === email &amp;&amp; obj.password === password
+   );
+   return result || &quot;Thông tin đăng nhập không hợp lệ&quot;;
+}
+
+handleRegister(&quot;Nguyen Van A&quot;, &quot;123456&quot;, &quot;nguyenvana@email.com&quot;);
+handleRegister(&quot;Nguyen Van B&quot;, &quot;1234567&quot;, &quot;nguyenvanb@email.com&quot;);
+handleRegister(&quot;Nguyen Van B&quot;, &quot;1234567&quot;, &quot;nguyenvanb@email.com&quot;);
+handleRegister(&quot;Nguyen Van C&quot;, &quot;1234567&quot;, &quot;nguyenvanc@email.com&quot;);
+
+const dataLogin = handleLogin(&quot;nguyenvanb@email.com&quot;, &quot;1234567&quot;);
+
+console.log(&quot;data:&quot;, data, `\n`);
+console.log(&quot;dataLogin:&quot;, dataLogin);</code>
+</pre>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="./js/copyButton.js"></script>
+      <script src="./js/main.js"></script>
+   </body>
+</html>

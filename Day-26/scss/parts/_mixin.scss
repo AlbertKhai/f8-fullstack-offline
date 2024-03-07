@@ -1,0 +1,19 @@
+.select-none {
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+%hide {
+   visibility: visible;
+   opacity: 1;
+
+   transition: visibility, opacity;
+   transition-duration: 0.15s;
+
+   &.hide {
+      visibility: hidden;
+      opacity: 0;
+   }
+}

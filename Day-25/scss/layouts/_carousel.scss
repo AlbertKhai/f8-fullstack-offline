@@ -1,0 +1,142 @@
+.carousel {
+   margin: 30px auto 0;
+   width: 95vw;
+   position: relative;
+
+   .carousel-view {
+      border-radius: 15px;
+      overflow: hidden;
+      height: 400px;
+      background-color: #ddd;
+
+      .loader {
+         display: none;
+         border: 10px solid #f3f3f3;
+         border-radius: 50%;
+         border-top: 10px solid gray;
+         width: 50px;
+         height: 50px;
+         animation: spin 2s linear infinite;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         z-index: 1;
+      }
+
+      @keyframes spin {
+         0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+         }
+         100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+         }
+      }
+
+      .carousel-inner {
+         position: relative;
+         display: flex;
+         transition: translate 0.4s;
+
+         img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+         }
+      }
+   }
+
+   .carousel-nav {
+      background-color: #000;
+      span {
+         position: absolute;
+         top: 50%;
+         translate: 0 -50%;
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+
+         font-size: 2rem;
+         color: #fff;
+         background: gray;
+         opacity: 0.5;
+         transition: opacity 0.3s;
+         cursor: pointer;
+
+         &.prev {
+            left: 10px;
+         }
+
+         &.next {
+            right: 10px;
+         }
+
+         &:hover {
+            opacity: 0.8;
+         }
+      }
+   }
+
+   .carousel-dot {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      translate: -50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      label {
+         padding: 3px 5px;
+         cursor: pointer;
+         &::before {
+            content: "";
+            display: inline-block;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #fff;
+
+            transition: background-color 0.3s;
+         }
+
+         &:has(:checked)::before,
+         &:hover::before {
+            background-color: #ffe100;
+         }
+
+         input {
+            display: none;
+         }
+      }
+      // End .carousel-dot label
+   }
+   // End .carousel-dot
+   .carousel-action {
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .carousel-btn-add-img {
+         border-radius: 99px;
+         padding: 5px 15px;
+         font-weight: 600;
+         background-color: #ccc;
+         opacity: 0.7;
+         transition: opacity 0.3s;
+
+         &:hover {
+            opacity: 1;
+         }
+      }
+   }
+}

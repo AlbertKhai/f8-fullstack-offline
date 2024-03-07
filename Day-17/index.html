@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-14</title>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+      />
+      <style>
+         #copyButton {
+            display: inline-block;
+            padding: 15px 32px;
+            margin: 4px 2px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            background-color: #4caf50;
+            transition-duration: 0.4s;
+         }
+
+         #copyButton:hover {
+            background-color: #45a049;
+         }
+      </style>
+   </head>
+   <body>
+      <button id="copyButton">Copy</button>
+      <pre>
+<code id="codeBlock" class="language-js">
+function areNaN(...args) {
+   return !args.every((arg) =&gt; Number.isFinite(Number(arg)));
+}
+
+function formatVND(value) {
+   return value.toLocaleString(&quot;vi-VN&quot;, { style: &quot;currency&quot;, currency: &quot;VND&quot; });
+}
+
+var result;
+
+// -------------------------------------------------------------------------------
+console.log(`================= Bài 1: Tính tiền taxi ================= `);
+
+var km = 120;
+
+if (areNaN(km)) {
+   result = &quot;Đơn vị km phải là số&quot;;
+} else if (!(km &gt; 0)) {
+   result = &quot;Đơn vị km phải lớn hơn 0&quot;;
+} else if (km &gt; 0) {
+   if (km &lt;= 1) {
+      result = km * 15000;
+   } else if (km &lt;= 5) {
+      result = (km - 1) * 13500 + 15000;
+   } else if (km &gt; 5) {
+      result = (km - 5) * 11000 + 4 * 13500 + 15000;
+   }
+   if (km &gt; 120) {
+      result *= 0.9;
+   }
+
+   result = `Taxi fare: ${formatVND(result)}`;
+}
+
+console.log(result);
+
+// -------------------------------------------------------------------------------
+console.log(`================= Bài 2: Tính tiền điện ================= `);
+
+var prices = [1678, 1734, 2014, 2536, 2834, 2927];
+var kWhRange = [0, 50, 100, 200, 300, 400];
+
+var kWh = 201;
+
+if (areNaN(kWh)) {
+   result = &quot;Đơn vị kWh cần tính phải là số&quot;;
+} else if (!(kWh &gt; 0)) {
+   result = &quot;Đơn vị kWh cần tính phải lớn hơn 0&quot;;
+} else if (kWh &gt; 0) {
+   result = 0;
+   for (var i = 0; i &lt; kWhRange.length; i++) {
+      if (kWh &lt;= kWhRange[i + 1] || !kWhRange[i + 1]) {
+         result += (kWh - kWhRange[i]) * prices[i];
+         break;
+      } else {
+         result += (kWhRange[i + 1] - kWhRange[i]) * prices[i];
+      }
+   }
+   result = `Bill tiền điện: ${formatVND(result)}`;
+}
+
+console.log(result);
+
+// -------------------------------------------------------------------------------
+console.log(`================ Bài 3: Tính giá trị biểu thức ================ `);
+
+var n = 5;
+
+if (areNaN(n)) {
+   result = &quot;Đơn vị tính phải là số&quot;;
+} else if (!Number.isInteger(n)) {
+   result = &quot;Đơn vị tính phải là số nguyên&quot;;
+} else if (!(n &gt; 0)) {
+   result = &quot;Đơn vị tính phải lớn hơn 0&quot;;
+} else {
+   result = 0;
+   var i = 1;
+   while (i &lt;= n) {
+      result += i * (i + 1);
+      i++;
+   }
+
+   result = `Kết quả biểu thức S = ${result}`;
+}
+
+console.log(result);
+
+// -------------------------------------------------------------------------------
+console.log(`============ Bài 4: Viết hàm kiểm tra số nguyên tố ============ `);
+
+function primeNum(n) {
+   if (n &lt; 2) {
+      return false;
+   }
+   for (var i = 2; i &lt;= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+         return false;
+      }
+   }
+   return true;
+}
+
+var num = 8;
+
+if (areNaN(num)) {
+   result = &quot;Đối số num cần kiểm tra phải là số&quot;;
+} else if (!Number.isInteger(num)) {
+   result = &quot;Đối số num cấn kiểm tra phải là số nguyên&quot;;
+} else {
+   result = primeNum(num)
+      ? `${num} là số nguyên tố`
+      : `${num} không phải số nguyên tố`;
+}
+
+console.log(result);
+
+// -------------------------------------------------------------------------------
+console.log(`================= Bài 5: Vẽ tam giác số ================= `);
+
+var n = 5;
+
+if (areNaN(n)) {
+   result = &quot;Số dòng N để tạo tam giác số phải là số&quot;;
+} else if (!Number.isInteger(n)) {
+   result = &quot;Số dòng N để tạo tam giác số phải là số nguyên&quot;;
+} else if (!(n &gt; 1)) {
+   result = &quot;Số dòng N để tạo tam giác số phải lớn hơn 1&quot;;
+} else {
+   result = &quot;&quot;;
+   var count = 1;
+
+   for (var i = 1; i &lt;= n; i++) {
+      for (var k = 1; k &lt;= i; k++) {
+         result += count + &quot; &quot;;
+         count++;
+      }
+      result += &quot;\n&quot;;
+   }
+}
+
+console.log(result);
+
+// -------------------------------------------------------------------------------
+console.log(`================= Bài 6: Vẽ bàn cờ vua ================= `);
+
+result = &quot;&quot;;
+for (var i = 1; i &lt;= 8; i++) {
+   for (var k = 1; k &lt;= 8; k++) {
+      if ((i + k) % 2 === 0) {
+         result += &quot;⬜️&quot;;
+      } else {
+         result += &quot;⬛️&quot;;
+      }
+   }
+   result += &quot;\n&quot;;
+}
+
+console.log(result);
+
+// -------------------------------------------------------------------------------
+console.log(`=================  Bài 7: Vẽ bảng cửu chương ================= `);
+
+result = &quot;&quot;;
+for (var i = 1; i &lt;= 10; i++) {
+   for (var k = 1; k &lt;= 10; k++) {
+      result += (i * k).toString().padStart(2, &quot; &quot;) + &quot; &quot;;
+   }
+   result += &quot;\n&quot;;
+}
+console.log(result);
+
+// -------------------------------------------------------------------------------
+console.log(`===== Bài 8: Tính giá trị biểu thức không dùng vòng lặp ===== `);
+
+function S(x) {
+   if (x == 1) {
+      return 1;
+   } else {
+      return 1 / x + S(x - 1);
+   }
+}
+
+var n = 18;
+
+if (areNaN(n)) {
+   result = &quot;Giá trị n cần tính phải là số&quot;;
+} else if (!Number.isInteger(n)) {
+   result = &quot;Giá trị n cần tính phải là số nguyên&quot;;
+} else if (!(n &gt; 0)) {
+   result = &quot;Giá trị n cần tính phải lớn hơn 0&quot;;
+} else {
+   result = `Kết quả biểu thức S = ${S(n)}`;
+}
+
+console.log(result);
+
+</code>
+</pre>
+      <script>
+         document
+            .getElementById("copyButton")
+            .addEventListener("click", function () {
+               var code = document.getElementById("codeBlock").innerText;
+               var textarea = document.createElement("textarea");
+               textarea.textContent = code;
+               document.body.appendChild(textarea);
+               textarea.select();
+               document.execCommand("copy");
+               document.body.removeChild(textarea);
+               alert("Đã sao chép code bài tập vào clipboard!");
+            });
+      </script>
+      <script src="./js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+   </body>
+</html>

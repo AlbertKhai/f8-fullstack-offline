@@ -1,0 +1,38 @@
+<section class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-3">Quản lý các thiết bị</h1>
+
+  <% if (msg.length) { %>
+  <div class="position-absolute" style="top: 20px;right: 18px;">
+    <div id="msgToast" data-bs-delay="3000" class="<%= typeMsg %> toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"><%= msg %></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+
+
+  <form action="" method="post">
+    <% devices.forEach(({info, activity, login, id, current}, index) => { %>
+    <div class="my-2 d-flex justify-content-between p-3 align-items-center bg-body-secondary rounded-4">
+      <div>
+        <p>Thiết bị <%= index + 1 %>: <%= info %></p>
+        <p>Hoạt động gần đây nhất: <%= activity %></p>
+        <%  if(!!current) { %>
+        <span class="text-light bg-success py-1 px-2 rounded-1">Thiết bị này!</span>
+        <% } %>
+      </div>
+      <div>
+        <% if (login) { %>
+        <input type="radio" class="btn-check" name="device" id="device<%= id %>" value="<%= id %>" autocomplete="off">
+        <button class="btn"><label class="btn btn-primary" for="device<%= id %>">Đăng xuất</label></button>
+        <% } else  { %>
+        <button type="button" class="btn btn-secondary" disabled>Đã đăng xuất</button>
+        <% } %>
+      </div>
+    </div>
+    <% }) %>
+  </form>
+</section>

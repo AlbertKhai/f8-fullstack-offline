@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "nameUser": "Hi, I'm Kawsar 👋🏻",
+    "introUser": "Building digital products, brands, and experience.",
+    "contentLinkIntroProfile": "Latest Shots"
+  },
+  "service": {
+    "title": "Collaborate with brands and agencies to create impactful results.",
+    "nameServices": ["UX & UI", "Web & Mobile App", "Design & Creative", "Development"],
+    "descServices": [
+      "Designing interfaces that are intuitive, efficient, and enjoyable to use.",
+      "Transforming ideas into exceptional web and mobile app experiences.",
+      "Crafting visually stunning designs that connect with your audience.",
+      "Bringing your vision to life with the latest technology and design trends."
+    ]
+  },
+  "contact": {
+    "title": "Tell me about your next project",
+    "contentLinkContact": "Latest Shots"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "backHome": "Back home"
+  },
+  "profile": {
+    "notLink": "Your account isn't linked to ",
+    "clickToLink": "Click here to link to ",
+    "linked": "Linked to ",
+    "backHome": "Back home"
+  }
+}

@@ -1,0 +1,140 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --primary-color: #363f50;
+}
+
+html {
+   font-size: 10px;
+}
+
+body {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 1.6rem;
+   line-height: 1.4;
+   color: var(--primary-color);
+   background-color: #fdfdfd;
+}
+
+main {
+   width: 1170px;
+   max-width: calc(100% - 48px);
+   min-width: 900px;
+   margin: 40px auto 0;
+}
+
+.contact__heading {
+   text-align: center;
+   font-size: 4rem;
+}
+
+.contact__desc {
+   margin-top: 20px;
+   font-size: 2rem;
+   text-align: center;
+}
+
+.contact__form {
+   width: 900px;
+   margin: 40px auto 0;
+}
+
+.row {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 25px;
+   margin-bottom: 25px;
+}
+
+.contact__input {
+   flex: 1;
+   border-radius: 7px;
+   border: 1px solid #ddd;
+   padding: 28px 20px 10px;
+   outline: none;
+   color: #000000;
+   font-size: 1.8rem;
+   transition: 0.2s linear;
+   transition-property: border, background;
+}
+
+.contact__input:focus {
+   border: 1px solid var(--primary-color);
+}
+
+.contact__input:not(:placeholder-shown):not(.contact__select) {
+   background: #4d77d925;
+}
+
+.contact__wrap-input {
+   flex: 1;
+   display: inline-flex;
+   position: relative;
+}
+
+.contact__placeholder {
+   position: absolute;
+   top: 19px;
+   left: 20px;
+   font-size: 1.7rem;
+   color: #939393;
+   transition: 0.2s ease;
+   transition-property: transform, font-size;
+}
+
+.contact__input:focus ~ .contact__placeholder,
+.contact__input:not(:placeholder-shown) ~ .contact__placeholder {
+   transform: translateY(-12px);
+   font-size: 1.3rem;
+}
+
+/* Select */
+.contact__select {
+   flex: 1;
+   font-size: 1.7rem;
+   color: #939393;
+   padding: 19px 20px;
+
+   /*for firefox*/
+   -moz-appearance: none;
+   /*for chrome*/
+   -webkit-appearance: none;
+   appearance: none;
+}
+
+.contact__select--icon-down {
+   position: absolute;
+   top: 50%;
+   right: 23px;
+   transform: translateY(-50%);
+}
+
+.contact__message {
+   position: relative;
+   height: 170px;
+   padding: 27px 20px 20px;
+   background: #fff;
+}
+
+.contact__btn-submit {
+   outline: none;
+   border: none;
+   border-radius: 99px;
+   padding: 20px 25px;
+   font-size: 1.7rem;
+   font-weight: 700;
+   color: #fff;
+   background: #4d76d9;
+
+   cursor: pointer;
+   transition: opacity 0.3s linear;
+}
+
+.contact__btn-submit:hover {
+   opacity: 0.8;
+}

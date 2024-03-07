@@ -1,0 +1,33 @@
+<form class="" method="post">
+  <h1 class="h3 mb-3 fw-normal text-center">Đăng nhập</h1>
+
+  <div class="form-floating">
+    <input name="email" type="email" class="form-control" id="loginEmail" placeholder="Nhập email" value="<%= req.old.email %>">
+    <label for="loginEmail">Email</label>
+  </div>
+  <div class="form-floating">
+    <input name="password" type="password" class="form-control" id="loginPassword" placeholder="Nhập password" value="<%= req.old.password %>">
+    <label for="loginPassword">Mật Khẩu</label>
+  </div>
+
+  <div class="text-end my-3">
+    <a class="forgot-password text-body fst-italic" href="/auth/forgot-password">Quên mật khẩu</a>
+  </div>
+  <button class="btn btn-primary w-100 py-2" type="submit">Đăng nhập</button>
+</form>
+
+<a href="/auth/google" class="btn btn-danger w-100 py-2 mt-3">Đăng nhập với Google</a>
+<hr>
+<a href="/auth/register" class="btn btn-secondary w-100 py-2">Đăng Ký</a>
+
+
+<% if (msg.length) { %>
+<div class="position-fixed" style="top: 20px;right: 18px;">
+  <div id="msgToast" data-bs-delay="4000" class="<%= typeMsg %> toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body"><%= msg %></div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<% } %>

@@ -1,0 +1,139 @@
+.hero {
+   .hero__content {
+      height: $heightHero;
+      @include flex-col-center;
+
+      .hero__tittle {
+         font-size: 3.66rem;
+         font-weight: 800;
+         line-height: 1.31;
+         margin-bottom: 14px;
+      }
+
+      .hero__sub-tittle {
+         width: 400px;
+         margin-bottom: 37px;
+
+         strong {
+            @include strong;
+         }
+      }
+
+      .hero__desc {
+         width: 449px;
+      }
+   }
+
+   .hero__banner {
+      position: relative;
+      height: $heightHero;
+      @include flex-col-center;
+
+      .hero__wrap-img {
+         width: min(27.68vw, 520px);
+         max-height: 95%;
+         margin-left: -79px;
+
+         .hero__img {
+            max-width: 100%;
+            max-height: 100%;
+         }
+      }
+
+      .hero__banner-wrap-text {
+         position: absolute;
+         z-index: -1;
+         top: 0;
+         left: 15px;
+         width: calc(50vw - 25px);
+         height: 100%;
+         border-radius: 16.667px 0px 0px 16.667px;
+         background: #dcffca;
+      }
+
+      .hero__banner-text {
+         position: absolute;
+         top: 50%;
+         left: 0;
+         width: min(calc(100% - 16px), 734px);
+         font-size: min(20vh, 16.6rem);
+         font-weight: 800;
+         line-height: 1;
+         writing-mode: vertical-rl;
+         color: #216000;
+         opacity: 0.15;
+
+         translate: 0 -50%;
+      }
+   }
+}
+
+@media screen and (max-width: 1199.98px) {
+   .hero {
+      .hero__content {
+         .hero__tittle {
+            max-width: 300px;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 991.98px) {
+   .hero {
+      .hero__content {
+         height: calc($heightHero / 2);
+         align-items: center;
+         padding-top: 30px;
+
+         .hero__tittle {
+            max-width: 100%;
+            text-align: center;
+         }
+
+         .hero__sub-tittle {
+            width: 100%;
+            margin-bottom: 25px;
+            text-align: center;
+         }
+
+         .hero__desc {
+            text-align: justify;
+            text-align-last: center;
+         }
+      }
+
+      .hero__banner {
+         height: calc($heightHero / 2);
+         align-items: center;
+         justify-content: flex-start;
+         padding-top: 20px;
+
+         .hero__wrap-img {
+            margin-left: 0;
+            text-align: center;
+            translate: 0 -10%;
+            max-height: 65%;
+         }
+
+         .hero__banner-wrap-text {
+            top: 15%;
+            bottom: 0;
+            left: 50%;
+            width: 100vw;
+            height: 85%;
+            border-radius: 0;
+            translate: -50% 0;
+
+            text-align: center;
+         }
+
+         .hero__banner-text {
+            width: 100%;
+            font-size: 10rem;
+            writing-mode: horizontal-tb;
+            top: 100%;
+            translate: 0 -110%;
+         }
+      }
+   }
+}

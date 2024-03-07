@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day - 30</title>
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+      <!-- html2pdf -->
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      ></script>
+
+      <!-- font-awesome -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+      <link rel="stylesheet" href="./css/style.css" />
+   </head>
+   <body>
+      <main>
+         <div class="container">
+            <header class="header"><h1 class="heading">Doc Editor</h1></header>
+            <div class="editor__feature">
+               <div class="action-file">
+                  <button class="action__dropdown btn">
+                     <span>File</span>
+                     <i class="fa-solid fa-sort-down"></i>
+                  </button>
+                  <input
+                     type="text"
+                     value="untitled"
+                     class="action__name-file"
+                  />
+                  <div class="wrap-action">
+                     <button class="action__new">New</button>
+                     <button class="action__txt">Save as TXT</button>
+                     <button class="action__pdf">Save as PDF</button>
+                  </div>
+               </div>
+               <div class="action-editor">
+                  <button class="action__bold btn"><b>b</b></button>
+                  <button class="action__underlined btn">
+                     <u><b>u</b></u>
+                  </button>
+                  <button class="action__italic btn">
+                     <i><b>i</b></i>
+                  </button>
+                  <input
+                     type="color"
+                     value="#ffff00"
+                     class="btn action__color"
+                  />
+               </div>
+            </div>
+            <div class="editor__content" contenteditable="true"></div>
+            <p class="editor__count">
+               <span class="count__letter">Số ký tự: </span>
+               <span class="count__word">Số từ: </span>
+            </p>
+         </div>
+      </main>
+      <script src="./js/main.js"></script>
+   </body>
+</html>

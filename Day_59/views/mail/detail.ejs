@@ -1,0 +1,35 @@
+<section class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="mb-3">Chi tiết mail</h1>
+    <a class="link-body d-flex gap-2 text-decoration-none align-items-center" href="/mail">
+      <i aria-hidden="true" class="fa-regular fa-arrow-left"></i>
+      <span>Về trang danh sách gửi mail</span>
+    </a>
+  </div>
+
+  <% const { mail_to, mail_subject, mail_content, viewed, created_at } = mailbox %>
+  <article class="mb-3 rounded-3 bg-body-secondary text-body p-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <p class="mb-2 fs-5"><b class="fw-medium">Gửi đến:</b> <span class="badge text-bg-info"><%= mail_to %></span></p>
+        <span><%= dayjs(created_at).tz().format('DD/MM/YYYY - h:mm:ss') %></span>
+      </div>
+      <% if (viewed) { %>
+      <span class="badge text-bg-success">Người nhận đã xem</span>
+      <% } else { %>
+      <span class="badge text-bg-secondary">Người nhận không thèm xem</span>
+      <% } %>
+    </div>
+    <hr>
+
+    <div class="form-floating mb-3">
+      <input readonly type="text" style="padding-top: 2rem;" class="form-control-plaintext border border-secondary-subtle rounded-3" id="mailSubject" value="<%= mail_subject %>">
+      <label for="mailSubject">Tiêu đề</label>
+    </div>
+
+    <div class="form-floating mb-1">
+      <textarea readonly style="padding-top: 2rem; height: 10rem; resize: none; height: 40vh;" class="form-control-plaintext border border-secondary-subtle rounded-3" id="mailContent"><%= mail_content %></textarea>
+      <label for="mailContent">Nội dung</label>
+    </div>
+  </article>
+</section>

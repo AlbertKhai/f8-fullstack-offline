@@ -1,0 +1,36 @@
+.header {
+  height: $headerHeight;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .form__login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 50%;
+
+    border-bottom: 1px solid $primaryColor;
+    padding: 0 20px 10px;
+    font-size: 2rem;
+
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    translate: -50% -50%;
+
+    .input__login {
+      flex: 1 0;
+    }
+
+    .btn__login {
+      @include btn($min-w: 140px);
+    }
+  }
+
+  .btn__logout {
+    @include btn($min-w: 140px);
+  }
+}

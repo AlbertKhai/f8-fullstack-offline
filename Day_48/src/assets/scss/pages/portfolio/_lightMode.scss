@@ -1,0 +1,159 @@
+html {
+  #body.light-mode {
+    $textColor: #6f6f6f;
+    $textColorLight: #9a9a9a;
+    $textColorHover: #171717;
+    $btnColor: #000;
+    $bg: #161616;
+    $bgItem: #f3f3f3;
+    $borderColor: #242424;
+    $bgLight: #f8f8f8;
+
+    .header {
+      .nav {
+        .nav-link {
+          color: $textColor;
+
+          &:hover {
+            color: $textColorHover;
+          }
+        }
+      }
+
+      .header-btn {
+        .header-btn__dark-mode {
+          color: $textColor;
+          &:hover {
+            color: $textColorHover;
+          }
+        }
+
+        .wrap__switch-languages {
+          &:hover {
+            .link-language:not(:hover) {
+              color: $textColor;
+            }
+          }
+
+          .link-language {
+            color: $textColor;
+          }
+
+          .link-language:is(.active, :hover) {
+            color: $textColorHover;
+          }
+        }
+      }
+    }
+
+    .portfolio {
+      background-color: $bgLight;
+
+      .portfolio-en,
+      .portfolio-vi {
+        .hero {
+          .name-user {
+            color: $textColor;
+          }
+
+          @supports (background-clip: text) or (-webkit-background-clip: text) {
+            .intro-user {
+              background-image: linear-gradient(97.13deg, #898989 0%, #e9e9e9 100%);
+              filter: invert(1);
+            }
+          }
+
+          .wrap-link__intro-profile {
+            .link__intro-profile {
+              border: 1px solid $textColorLight;
+              color: $textColorHover;
+              background-color: $bgLight;
+            }
+          }
+        }
+
+        .list-brand {
+          background-color: $bgLight;
+          border-top: 1px solid $textColorLight;
+          border-bottom: 1px solid $textColorLight;
+          border-left: none;
+          border-right: none;
+
+          width: 105%;
+          max-width: 100%;
+          text-overflow: hidden;
+
+          .item-brand {
+            .img-brand {
+              filter: invert(1);
+            }
+          }
+        }
+
+        .service {
+          border-bottom: 1px solid $textColorLight;
+
+          @supports (background-clip: text) or (-webkit-background-clip: text) {
+            .service-title {
+              background-image: linear-gradient(97.13deg, $textColorLight 0%, $textColorHover 100%);
+            }
+          }
+
+          .list-service {
+            .item-service {
+              border: 1px solid $textColorLight;
+              background-color: $bgLight;
+
+              .item-service__icon {
+                color: $textColorHover;
+              }
+
+              @supports (background-clip: text) or (-webkit-background-clip: text) {
+                .item-service__name {
+                  color: transparent;
+                  background-color: $textColor;
+                  background-image: linear-gradient(97.13deg, $textColor 0%, $textColorHover 100%);
+                }
+              }
+
+              .item-service__desc {
+                color: $textColorHover;
+              }
+            }
+          }
+        }
+
+        .contact {
+          border-bottom: 1px solid $textColorLight;
+
+          @supports (background-clip: text) or (-webkit-background-clip: text) {
+            .contact-title {
+              background-color: $textColorHover;
+              background-image: linear-gradient(97.13deg, $textColorLight 0%, $textColorHover 100%);
+            }
+          }
+
+          .wrap-link__contact {
+            .link__contact {
+              border: 1px solid $textColorLight;
+              color: $textColorHover;
+              background-color: $bgItem;
+            }
+          }
+        }
+      }
+    }
+
+    .footer {
+      .nav {
+        .nav-link {
+          color: $textColor;
+
+          &:hover {
+            color: $textColorHover;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 5 - Bài 1</title>
+
+      <!-- Font Awesome -->
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+
+      <!-- Google Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap"
+         rel="stylesheet"
+      />
+
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <main>
+         <div class="contact">
+            <h2 class="contact-heading">Hey there</h2>
+            <p class="contact-desc">
+               <span class="contact-desc__highlight"
+                  >We'd like to hear from you</span
+               >. Send us your message or just say hy with our contact form or
+               directly via phone, we love to chat.
+            </p>
+            <form
+               action="https://api-gateway.fullstack.edu.vn/action_page.php"
+               method="post"
+            >
+               <!-- Name -->
+               <label class="contact-box">
+                  <input
+                     class="contact-box__input"
+                     type="text"
+                     name="name"
+                     placeholder="Your name"
+                  />
+                  <i class="fa-solid fa-user contact-box__icon-left"></i>
+                  <span class="contact-box__modal">Enter your name</span>
+                  <i class="fa-solid fa-star contact-box__icon-right"></i>
+                  <i
+                     class="fa-solid fa-xmark contact-box__icon-right contact-box__icon-right--x"
+                     hidden
+                  ></i>
+               </label>
+
+               <!-- Email -->
+               <label class="contact-box">
+                  <input
+                     class="contact-box__input"
+                     type="email"
+                     name="email"
+                     placeholder="your@domain.com"
+                  />
+                  <i class="fa-solid fa-envelope contact-box__icon-left"></i>
+                  <span class="contact-box__modal">Enter your email</span>
+                  <i class="fa-solid fa-star contact-box__icon-right"></i>
+                  <i
+                     class="fa-solid fa-xmark contact-box__icon-right contact-box__icon-right--x"
+                     hidden
+                  ></i>
+               </label>
+
+               <!-- Phone -->
+               <label class="contact-box">
+                  <input
+                     class="contact-box__input"
+                     type="tel"
+                     name="phone"
+                     placeholder="+44 00 123"
+                  />
+                  <i
+                     class="fa-solid fa-mobile-screen-button contact-box__icon-left"
+                  ></i>
+                  <span class="contact-box__modal">Enter your phone</span>
+               </label>
+
+               <!-- Subject -->
+               <label class="contact-box">
+                  <select
+                     class="contact-box__input contact-box__input--select"
+                     name="subject"
+                  >
+                     <option value="" hidden>Subject</option>
+                     <option value="Subject-1">Option-1</option>
+                     <option value="Subject-2">Option-2</option>
+                  </select>
+                  <i class="fa-solid fa-book contact-box__icon-left"></i>
+                  <span class="contact-box__modal">Enter your subject</span>
+                  <i
+                     class="fa-solid fa-sort contact-box__icon-right contact-box__icon-right--select"
+                  ></i>
+               </label>
+
+               <!-- Message -->
+               <label class="contact-box">
+                  <textarea
+                     class="contact-box__input contact-box__input--textarea"
+                     name="message"
+                     placeholder="Message"
+                     cols="30"
+                     rows="10"
+                  ></textarea>
+                  <i
+                     class="fa-solid fa-message fa-flip-horizontal contact-box__icon-left contact-box__icon-left--message"
+                  ></i>
+                  <span class="contact-box__modal">Enter your message</span>
+                  <i class="fa-solid fa-star contact-box__icon-right"></i>
+                  <i
+                     class="fa-solid fa-xmark contact-box__icon-right contact-box__icon-right--x"
+                     hidden
+                  ></i>
+               </label>
+
+               <!-- Submit -->
+               <div class="contact__submit">
+                  <input
+                     type="checkbox"
+                     name="copy"
+                     id="copy"
+                     class="contact__input-copy"
+                     hidden
+                  />
+                  <label for="copy" class="contact__input-copy--label">
+                     Send me a copy of this message
+                  </label>
+                  <button class="contact__submit--btn">SEND</button>
+               </div>
+            </form>
+         </div>
+      </main>
+   </body>
+</html>

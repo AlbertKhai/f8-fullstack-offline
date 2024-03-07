@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #000;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: #2361ff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+  margin: 20px 0;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+button {
+  color: #000;
+  cursor: pointer;
+}
+
+hr {
+  height: 1px;
+  background: #ccc;
+}
+
+.btn {
+  display: inline-block;
+  min-width: 50px;
+  min-height: 40px;
+  border-radius: 5px;
+  padding: 7px 14px;
+  color: #fff;
+  background: #000;
+}
+
+main .container .header {
+  border-bottom: 2px solid #999;
+}
+main .container .header .heading {
+  font-size: 2.8rem;
+}
+
+main .container {
+  width: 90%;
+  margin: 0 auto;
+}
+main .container .editor__feature {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .container .editor__feature .action-file {
+  display: flex;
+  gap: 5px;
+  font-size: 1.8rem;
+  position: relative;
+}
+main .container .editor__feature .action-file .action__dropdown {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 5px;
+  letter-spacing: 0.4px;
+  background-color: #0d6efd;
+  transition: background 0.2s;
+}
+main .container .editor__feature .action-file .action__dropdown:hover {
+  background-color: #0a58ca;
+  opacity: 1;
+}
+main .container .editor__feature .action-file .action__dropdown.active {
+  background-color: #0a58ca;
+}
+main .container .editor__feature .action-file .action__dropdown span {
+  font-weight: 500;
+}
+main .container .editor__feature .action-file .action__dropdown i {
+  position: relative;
+  top: -0.3rem;
+  font-size: 1.6rem;
+}
+main .container .editor__feature .action-file .action__name-file {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+main .container .editor__feature .action-file .wrap-action {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+main .container .editor__feature .action-file .wrap-action.show {
+  opacity: 1;
+  visibility: visible;
+}
+main .container .editor__feature .action-file .wrap-action button {
+  text-align: left;
+  font-weight: 500;
+  padding: 10px 50px 10px 15px;
+  transition: background 0.2s;
+}
+main .container .editor__feature .action-file .wrap-action button:hover {
+  background: #ddd;
+}
+main .container .editor__feature .action-file .wrap-action button:not(:last-child) {
+  border-bottom: 1px solid #000;
+}
+main .container .editor__feature .action-editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 2rem;
+}
+main .container .editor__feature .action-editor button > * {
+  display: inline-block;
+  transition: scale 0.2s;
+}
+main .container .editor__feature .action-editor button:hover > * {
+  scale: 1.2;
+}
+main .container .editor__feature .action-editor .action__underlined {
+  text-underline-offset: 2px;
+}
+main .container .editor__feature .action-editor .action__underlined u {
+  position: relative;
+  top: -2px;
+}
+main .container .editor__feature .action-editor .action__color {
+  padding: 5px 7px;
+  cursor: pointer;
+  transition: padding 0.2s;
+}
+main .container .editor__feature .action-editor .action__color:focus, main .container .editor__feature .action-editor .action__color:hover {
+  padding: 4px 5px;
+}
+main .container .editor__content {
+  margin-top: 30px;
+  background: white;
+  height: 50vh;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 3px #cccccc;
+  padding: 15px;
+  overflow: auto;
+}
+main .container .editor__content i {
+  font-weight: 400 !important;
+}
+main .container .editor__count {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=style.css.map */

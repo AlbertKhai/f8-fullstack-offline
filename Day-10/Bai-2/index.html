@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day 10 - Bài 2</title>
+
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <main>
+         <section class="blog">
+            <input
+               type="radio"
+               class="blog__show-hide"
+               name="blog__show-hide"
+               id="blog-1"
+               checked
+            />
+            <input
+               type="radio"
+               class="blog__show-hide"
+               name="blog__show-hide"
+               id="blog-2"
+            />
+            <input
+               type="radio"
+               class="blog__show-hide"
+               name="blog__show-hide"
+               id="blog-3"
+            />
+            <input
+               type="radio"
+               class="blog__show-hide"
+               name="blog__show-hide"
+               id="blog-4"
+            />
+
+            <header class="blog__header">
+               <ul class="blog__menu">
+                  <li class="blog__item">
+                     <label for="blog-1" class="blog__item--label">
+                        Simples slideshow
+                     </label>
+                  </li>
+                  <li class="blog__item">
+                     <label for="blog-2" class="blog__item--label">
+                        Algoritmo de Levenshtein
+                     </label>
+                  </li>
+                  <li class="blog__item">
+                     <label for="blog-3" class="blog__item--label">
+                        Barra de progresso
+                     </label>
+                  </li>
+                  <li class="blog__item">
+                     <label for="blog-4" class="blog__item--label">
+                        Captcha com PHP
+                     </label>
+                  </li>
+               </ul>
+            </header>
+
+            <div class="blog__content">
+               <article class="blog__article">
+                  <h2 class="blog__heading">Simples slideshow</h2>
+                  <p class="blog__desc">
+                     Mais uma postagem simples e bem usual. Um sistema de
+                     slideshow fácil, rápido e leve, apenas com jQuery e CSS.
+                  </p>
+                  <p class="blog__desc">
+                     Poderá ser usado em banners laterais, animações de
+                     postagens e etc.
+                  </p>
+                  <p class="blog__desc">
+                     Iniciando, vamos montar o CSS que definará a estrutura
+                     final do slide...
+                  </p>
+               </article>
+               <!-- End blog 1 -->
+
+               <article class="blog__article">
+                  <h2 class="blog__heading">Algoritmo de Levenshtein</h2>
+                  <p class="blog__desc">
+                     Atualmente fazer buscas on-line tem se tornado algo muito
+                     comum, quase tudo na internet gira em torno de simples
+                     buscas.
+                  </p>
+                  <p class="blog__desc">
+                     Então decidi publicar um sistema simples, porém muito
+                     interessante que deixará seu sistema de busca muito legal.
+                  </p>
+                  <p class="blog__desc">
+                     O PHP possui uma função nativa, levenshtein. seu manual
+                     mostra todos os detalhes do seu uso e implementação.
+                  </p>
+               </article>
+               <!-- End blog 2 -->
+
+               <article class="blog__article">
+                  <h2 class="blog__heading">Barra de progresso</h2>
+                  <p class="blog__desc">
+                     Uma barra de progresso pode ser um processo importante ao
+                     ocultar o carregamento de páginas ou/e arquivos.
+                  </p>
+                  <p class="blog__desc">
+                     Então ter uma barra de progresso responsiva e sem usar
+                     Jquery, apenas usando CSS3 e JavaScript.
+                  </p>
+                  <p class="blog__desc">
+                     Isso sem dúvida deixaria a sua aplicação um pouquinho mais
+                     leve.
+                  </p>
+               </article>
+               <!-- End blog 3 -->
+
+               <article class="blog__article">
+                  <h2 class="blog__heading">Captcha com PHP</h2>
+                  <p class="blog__desc">
+                     A postagem de hoje aborda um ponto importante para nós, que
+                     temos servidores públicos, que qualquer um pode acessar,
+                     comentar e etc.
+                  </p>
+                  <p class="blog__desc">
+                     Com esse sistema, sem dúvida seus formulários ganharão mais
+                     segurança contra spammers.
+                  </p>
+               </article>
+               <!-- End blog 4 -->
+            </div>
+         </section>
+      </main>
+   </body>
+</html>

@@ -1,0 +1,22 @@
+.ta-c {
+   text-align: center;
+}
+
+@mixin d-none {
+   &.d-none {
+      display: none;
+   }
+}
+
+@mixin show {
+   visibility: hidden;
+   opacity: 0;
+
+   transition: opacity, visibility;
+   transition-duration: 0.3s;
+
+   &.show {
+      visibility: visible;
+      opacity: 1;
+   }
+}

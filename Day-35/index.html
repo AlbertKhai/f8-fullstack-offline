@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-35</title>
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+      <link rel="stylesheet" href="./css/style.css" />
+   </head>
+   <body>
+      <header class="header">
+         <div class="top-header">
+            <div class="container">
+               <ul class="menu-channel">
+                  <li class="item-channel">
+                     <a href="#!" class="item-channel__link">GAMEK</a>
+                  </li>
+                  <li class="item-channel">
+                     <a href="#!" class="item-channel__link">KENH14</a>
+                  </li>
+                  <li class="item-channel">
+                     <a href="#!" class="item-channel__link">CAFEBIZ</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <!-- End Top-header -->
+
+         <div class="main-header">
+            <div class="container">
+               <div class="wrap-logo">
+                  <a href="" class="link-logo">
+                     <img
+                        src="https://static.mediacdn.vn/genk/web_images/logogenk.svg"
+                        alt="logo GenK"
+                        class="logo"
+                     />
+                  </a>
+               </div>
+               <!-- End Logo -->
+
+               <div class="trending">
+                  <div class="wrap-icon__trend">
+                     <i class="fa-solid fa-arrow-trend-up"></i>
+                  </div>
+                  <ul class="trend-list">
+                     <li class="trend-item">
+                        <a href="#!" class="trend-item__link">
+                           # Better Choice Awards
+                        </a>
+                     </li>
+                     <li class="trend-item">
+                        <a href="" class="trend-item__link"># Smart Buy </a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- End Trending -->
+
+               <form action="" class="form-search">
+                  <input
+                     type="search"
+                     name="search"
+                     class="search"
+                     placeholder="Nhập nội dung tìm kiếm"
+                     required
+                  />
+                  <button class="btn-search">
+                     <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+               </form>
+               <!-- End Search -->
+            </div>
+            <!-- End Container -->
+         </div>
+         <!-- End Main Header -->
+
+         <hr />
+
+         <nav class="nav">
+            <div class="container">
+               <ul class="menu-list">
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link">MOBILE</a>
+                  </li>
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link">TIN ICT</a>
+                  </li>
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link">INTERNET</a>
+                  </li>
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link">KHÁM PHÁ</a>
+                  </li>
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link"> XEM - MUA - LUÔN </a>
+                  </li>
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link">THỦ THUẬT</a>
+                  </li>
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link">APPS-GAME</a>
+                  </li>
+                  <li class="menu-item">
+                     <a href="#!" class="menu-item__link">ĐỒ CHƠI SỐ</a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+         <!-- End Nav -->
+      </header>
+
+      <main class="news">
+         <div class="container">
+            <div class="news-inner">
+               <h1 class="heading">
+                  <span class="heading-icon">#</span>
+                  <span>Smart Buy</span>
+               </h1>
+
+               <div class="sort-news">
+                  <div class="sort-news__inner">
+                     <div class="sort-news__label">
+                        <span class="sort-news__content">Mới nhất</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                     </div>
+                     <div class="sort-news__control">
+                        <button class="sort-new__btn desc" data-value="asc">
+                           <span class="sort-new__btn-content">Cũ nhất</span>
+                           <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                        <button class="sort-new__btn asc" data-value="desc">
+                           <span class="sort-new__btn-content">Mới nhất</span>
+                           <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="news-top loading"></div>
+
+               <ul class="news-list">
+                  <li class="news-item__loading hide">
+                     <div class="news-item__wrap-thumbnail loading"></div>
+                     <div class="news-item__content">
+                        <div class="news-item__title loading"></div>
+                        <div class="news-item__meta loading"></div>
+                        <div class="news-item__excerpt loading"></div>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </main>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/vi.js"></script>
+      <script type="module" src="./js/index.js"></script>
+   </body>
+</html>

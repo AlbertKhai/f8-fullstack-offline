@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>F8-Fullstack</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+      <style>
+         :root {
+            --primary-icon: #05cfff;
+            --primary-color: #d7d7dc;
+         }
+
+         * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+         }
+
+         body {
+            font-family: "Outfit", sans-serif;
+            background-color: #030d22;
+            color: var(--primary-color);
+         }
+
+         main {
+            width: 1300px;
+            max-width: calc(100% - 48px);
+            margin: 40px auto;
+         }
+
+         h1 {
+            padding-top: 40px;
+            font-family: "Itim", cursive;
+            text-align: center;
+            font-weight: 400;
+            font-size: 2.3rem;
+            color: var(--primary-icon);
+         }
+
+         h2 {
+            margin-bottom: 8px;
+         }
+
+         ul {
+            margin-top: 0;
+            padding-left: 55px;
+         }
+
+         li {
+            color: var(--primary-icon);
+         }
+
+         a {
+            display: inline-block;
+            padding: 5px 0;
+            text-decoration: none;
+            color: var(--primary-color);
+         }
+
+         a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-decoration-color: var(--primary-icon);
+         }
+
+         .ex-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap-reverse;
+            flex-direction: row-reverse;
+            gap: 43px;
+            transform: translateX(-1.4%);
+         }
+
+         .ex-item {
+            flex: 0 1 15%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .ex-item:last-child {
+            flex-basis: 100%;
+         }
+
+         .done {
+            display: inline-block;
+            min-width: 27px;
+            font-size: 23px;
+            color: var(--primary-icon);
+         }
+
+         .not-done {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            margin-right: 18px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: -8px 0 #fff, 8px 0 #fff;
+            animation: shadowPulse 2s linear infinite;
+         }
+
+         @keyframes shadowPulse {
+            33% {
+               background: #fff;
+               box-shadow: -8px 0 var(--primary-icon), 8px 0 #fff;
+            }
+            66% {
+               background: var(--primary-icon);
+               box-shadow: -8px 0 #fff, 8px 0 #fff;
+            }
+            100% {
+               background: #fff;
+               box-shadow: -8px 0 #fff, 8px 0 var(--primary-icon);
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Hi, have a good day 😄</h1>
+      </header>
+      <main>
+         <div class="ex-list">
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-01"> Day 1 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-01/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-01/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-01/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-02"> Day 2 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-02/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-02/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-02/Bai-3/index.html">Bài 3</a>
+                  </li>
+                  <li>
+                     <a href="./Day-02/Bai-4/index.html">Bài 4</a>
+                  </li>
+                  <li>
+                     <a href="./Day-02/Bai-5/index.html">Bài 5</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="not-done"></span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-03"> Day 3 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-03/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-03/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-03/Bai-3/index.html">Bài 3</a>
+                  </li>
+                  <li>
+                     <a href="./Day-03/Bai-4/index.html">Bài 4</a>
+                  </li>
+                  <li>
+                     <a href="./Day-03/Bai-5/index.html">Bài 5</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-04"> Day 4 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-04/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-04/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-04/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="not-done"></span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-05"> Day 5 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-05/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-05/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-05/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-06"> Day 6 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-06/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-06/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-06/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-07"> Day 7 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-07/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-07/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-07/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-08"> Day 8 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-08/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-08/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-08/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-09"> Day 9 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-09/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-09/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-09/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-10"> Day 10 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-10/Bai-1/index.html">Bài 1</a>
+                  </li>
+                  <li>
+                     <a href="./Day-10/Bai-2/index.html">Bài 2</a>
+                  </li>
+                  <li>
+                     <a href="./Day-10/Bai-3/index.html">Bài 3</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="not-done"></span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-11"> Day 11 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-11/Bai-1/index.html">Bài 1</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="not-done"></span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-12"> Day 12 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-12/Bai-1/index.html">Bài 1</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="not-done"></span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-13"> Day 13 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-16/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-16"> Day 16 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-16/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-17"> Day 17 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-17/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-18"> Day 18 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-18/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-18-"> Day 18 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-18-/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-19"> Day 19 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-19/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-20"> Day 20 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-20/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-21"> Day 21 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-21/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-22"> Day 22 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-22/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Number-Object"> Num - Obj </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Number-Object/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-23"> Day 23 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-23/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-24"> Day 24 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-24/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-25"> Day 25 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-25/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-26"> Day 26 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-26/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-27"> Day 27 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-27/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-28"> Day 28 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-28/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-29"> Day 29 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-29/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-30"> Day 30 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-30/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-31"> Day 31 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-31/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-32"> Day 32 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-32/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-33"> Day 33 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-33/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-34"> Day 34 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-34/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-35"> Day 35 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-35/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="not-done"></span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-36"> Day 36 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-36/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-37"> Day 37 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-37/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-38"> Day 38 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-38/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-39"> Day 39 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="./Day-39/index.html">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-40"> Day 40 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="https://khai-k4-day-40.vercel.app/">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-41"> Day 41 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="https://khai-k4-day-41.vercel.app">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-42"> Day 42 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="https://khai-k4-day-42.vercel.app">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-43"> Day 43 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="https://khai-k4-day-43.vercel.app">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="done">✔</span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-44"> Day 44 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="https://khai-k4-day-44.vercel.app">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+
+            <section class="ex-item">
+               <h2>
+                  <span class="not-done"></span>
+                  <a href="https://github.com/AlbertKhai/f8-fullstack-offline/tree/main/Day-45"> Day 45 </a>
+               </h2>
+               <ul>
+                  <li>
+                     <a href="https://khai-k4-day-45.vercel.app">Gét gô</a>
+                  </li>
+               </ul>
+            </section>
+         </div>
+      </main>
+      <script>
+         var links = document.querySelectorAll("a");
+         for (var i = 0; i < links.length; i++) {
+            if (!links[i].hasAttribute("target")) {
+               links[i].setAttribute("target", "_blank");
+               links[i].setAttribute("rel", "noreferrer noopener");
+            }
+         }
+      </script>
+   </body>
+</html>

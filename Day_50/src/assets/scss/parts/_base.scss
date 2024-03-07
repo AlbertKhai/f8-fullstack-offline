@@ -1,0 +1,31 @@
+#body {
+  position: relative;
+  z-index: -1;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  background-color: $bg;
+  transition: background-color 0.3s;
+  scroll-behavior: smooth;
+
+  .bg-pattern {
+    @include show-hide();
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .container {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  &.light-mode {
+    @import './colorsLight';
+    background-color: $bgLight;
+  }
+}

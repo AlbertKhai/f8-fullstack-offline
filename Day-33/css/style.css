@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: #2361ff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  margin: 0;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+button {
+  color: #030d22;
+  background-color: #05cfff;
+  cursor: pointer;
+}
+
+.d-none {
+  display: none;
+}
+
+.recoding {
+  color: #fff;
+  background-color: deeppink;
+}
+
+body {
+  height: 100vh;
+  background-color: #030d22;
+}
+
+.heading {
+  padding: 50px 0 40px;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.btn__record {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  min-width: 100px;
+  border-radius: 15px;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: scale 0.3s;
+}
+.btn__record:hover {
+  scale: 0.95;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.message .mess__ready {
+  color: deeppink;
+}
+.message .mess__end {
+  color: #05cfff;
+}
+.message .mess__show {
+  width: 80%;
+  border: 1px solid #05cfff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  color: #05cfff;
+}
+.message .mess__show.fail {
+  color: deeppink;
+  border-color: deeppink;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,55 @@
+<article class="bg-body-tertiary p-4 position-relative" style="border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-4 text-center">Chuyển hướng an toàn</h1>
+
+  <div class="d-grid gap-3 col-6 mx-auto">
+    <a href="<%= original_url %>" class="btn btn-success">Nhấn vào đây để tiếp tục</a>
+    <a href="javascript:fbShare('<%= shortenedUrl %>')" class="btn btn-outline-success fw-medium text-body">Chia sẻ lên Facebook</a>
+    <button data-qr-code="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<%= original_url %>" id="btnModalQRCode" data-bs-toggle="modal" data-bs-target="#modalQRCode" class="btn btn-outline-success fw-medium text-body" type="button">Gửi tới điện thoại (QR code)</button>
+    <a href="/shorten-urls/create" class="btn btn-outline-success fw-medium text-body">Rút gọn liên kết mới</a>
+  </div>
+</article>
+
+<!-- Modal -->
+<div class="modal fade" id="modalQRCode" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5">Quét mã QR này từ điện thoại của bạn</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="boxQRCode m-auto d-flex justify-content-center align-items-center" style="width: 250px; height: 250px;">
+          <i id="loadingIcon" class="fa-regular fa-spinner fa-spin fa-2xl"></i>
+          <img id="imgQRCode" src="" alt="qrCode">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btnModalQRCode = document.querySelector("#btnModalQRCode");
+  const imgQRCode = document.querySelector("#imgQRCode");
+  const loadingIcon = document.querySelector("#loadingIcon");
+
+  btnModalQRCode.addEventListener("click", function() {
+    // Hiển thị biểu tượng loading
+    loadingIcon.style.display = 'block';
+    imgQRCode.style.display = 'none'; // Ẩn ảnh QR cho đến khi nó được tải xong
+
+    const color = localStorage.getItem('theme') === "dark" ? "&bgcolor=212529&color=fff" : "&bgcolor=fff&color=212529";
+    imgQRCode.src = this.dataset.qrCode + color;
+
+    // Khi ảnh QR được tải xong, ẩn biểu tượng loading và hiển thị ảnh
+    imgQRCode.onload = function() {
+      loadingIcon.style.display = 'none';
+      imgQRCode.style.display = 'block';
+    };
+  });
+
+  const fbShare = (url, winWidth = 520, winHeight = 350) => {
+    var winTop = (screen.height / 2) - (winHeight / 2);
+    var winLeft = (screen.width / 2) - (winWidth / 2);
+    window.open('https://www.facebook.com/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',width=' + winWidth + ',height=' + winHeight);
+  }
+</script>

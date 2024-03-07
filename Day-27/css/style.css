@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #2f3e46;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: #2f3e46;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2f3e46;
+  margin: 20px 0;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+button {
+  color: #000;
+  cursor: pointer;
+}
+
+.cart .cart__mess, .cart .cart__action, .cart table, .preview {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+.cart .show.cart__mess, .cart .show.cart__action, .cart table.show, .show.preview {
+  visibility: visible;
+  opacity: 1;
+}
+
+body {
+  background-color: #f8f9fd;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+main button {
+  transition: background 0.2s;
+}
+main button:hover {
+  background: #354f52;
+}
+main hr {
+  height: 1px;
+  margin: 55px 0 30px;
+  background-color: #52796f;
+}
+
+.preview {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+.preview .preview__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  height: 90vh;
+}
+.preview .preview__inner .preview__img {
+  max-height: 100%;
+  border-radius: 15px;
+}
+.preview .preview__overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  background-color: #52796f;
+}
+.btn i {
+  --fa-primary-color: #fff;
+  --fa-secondary-color: #eaf0e6;
+}
+
+.wrap__ctrl-quantity {
+  width: fit-content;
+  height: 50px;
+  border-radius: 6px;
+  color: #fff;
+  background: #52796f;
+  overflow: hidden;
+}
+.wrap__ctrl-quantity button {
+  color: inherit;
+}
+.wrap__ctrl-quantity .input__num {
+  max-width: 60px;
+  text-align: center;
+  padding: 0 10px;
+  border-right: 2px solid #fff;
+}
+.wrap__ctrl-quantity .input__num::-webkit-inner-spin-button, .wrap__ctrl-quantity .input__num::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.wrap__ctrl-quantity .ctrl-quantity__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrap__ctrl-quantity .ctrl-quantity__action .btn__increase {
+  border-bottom: 1px solid #fff;
+}
+.wrap__ctrl-quantity .ctrl-quantity__action .btn__decrease {
+  border-top: 1px solid #fff;
+}
+.wrap__ctrl-quantity .ctrl-quantity__action button {
+  flex-basis: 50%;
+  min-width: 40px;
+}
+
+table {
+  width: 90vw;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 16px;
+  box-shadow: 0px 0px 5px #ccc;
+  overflow: hidden;
+}
+table thead tr th {
+  white-space: nowrap;
+  word-break: break-all;
+}
+table th {
+  padding: 15px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  background: #84a98c;
+}
+table th:not(:last-child) {
+  border-right: 2px solid #fff;
+}
+table td {
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+}
+table td:not(:last-child) {
+  border-right: 2px solid #84a98c;
+}
+table tbody tr:not(:last-child) {
+  border-bottom: 2px solid #84a98c;
+}
+
+.product, .cart {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.product .product__list .product__item .product__order, .cart .product__list .product__item .product__order {
+  font-size: 2rem;
+}
+.product .product__list .product__item .product__img-wrap, .cart .product__list .product__item .product__img-wrap {
+  padding: 6px;
+}
+.product .product__list .product__item .product__img-wrap .product__thumb, .cart .product__list .product__item .product__img-wrap .product__thumb {
+  cursor: pointer;
+  width: 160px;
+}
+.product .product__list .product__item .product__img-wrap .product__thumb .product__img, .cart .product__list .product__item .product__img-wrap .product__thumb .product__img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+.product .product__list .product__item .product__name, .cart .product__list .product__item .product__name {
+  max-width: 70%;
+  text-align: left;
+}
+.product .product__list .product__item .product__price, .cart .product__list .product__item .product__price {
+  font-size: 2rem;
+  font-weight: 600;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.product .product__list .product__item .product__action > .row, .cart .product__list .product__item .product__action > .row {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart {
+  font-size: 1.6rem;
+}
+.cart h2 {
+  margin-bottom: 7px;
+}
+.cart table .product__list .product__item {
+  visibility: hidden;
+  opacity: 0;
+  scale: 0;
+  transition: visibility 0.3s, opacity 0.3s, scale 0.3;
+}
+.cart table .product__list .product__item.show {
+  visibility: visible;
+  opacity: 1;
+  scale: 1;
+}
+.cart table .product__list .product__item .product__img-wrap {
+  padding: 6px;
+  width: 120px;
+  height: 120px;
+}
+.cart table .product__list .product__item .product__price {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.cart table .product__list .product__item .product__total-price {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.cart table .product__list .product__item .product__action > .wrap__ctrl-quantity.row {
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 0;
+  margin: 0 auto;
+}
+.cart table tbody {
+  border-bottom: 2px solid #84a98c;
+}
+.cart table tfoot tr th {
+  border-right: 2px solid #84a98c;
+}
+.cart table tfoot tr td {
+  font-size: 2rem;
+  font-weight: 600;
+  word-break: break-all;
+  white-space: nowrap;
+}
+.cart .cart__action {
+  gap: 10px;
+}
+.cart .cart__action button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-weight: 500;
+  color: #fff;
+  background: #52796f;
+}
+.cart .cart__action button:hover {
+  background: #354f52;
+}
+.cart .cart__mess {
+  font-weight: 500;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

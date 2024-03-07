@@ -1,0 +1,193 @@
+<article class="bg-body-tertiary p-4 position-relative" style="height: 85vh; border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+  <h1 class="mb-3 text-center">Danh sách liên kết rút gọn</h1>
+
+  <div class="mb-3">
+    <a href="/shorten-urls/create" class="btn btn-primary">Tạo liên kết rút gọn</a>
+  </div>
+
+  <% if (shortenedUrls.length) { %>
+  <div class="container text-center border rounded-3">
+    <div class="row fw-medium bg-dark-subtle rounded-top-3">
+      <div class="py-2 border-end" style="width: 5%;">#</div>
+      <div class="py-2 border-end text-start" style="width: 25%;">Liên kết rút gọn</div>
+      <div class="py-2 border-end text-start" style="width: 20%;">Liên kết gốc</div>
+      <div class="py-2 border-end" style="width: 10%;">Mật khẩu</div>
+      <div class="py-2 border-end" style="width: 13%;">Lượt truy cập</div>
+      <div class="py-2 border-end" style="width: 14%;">Thời gian tạo</div>
+      <div class="py-2" style="width: 13%;">Hành động</div>
+    </div>
+    <% shortenedUrls.forEach(({ idUrlShortend, uiOriginalUrl, originalUrl, shortenedUrl, uiShortenedUrl, password, visit, created}) => { %>
+    <div class="row border-top row-shorten-url">
+      <div style="width: 5%;" class="py-2 border-end py-2 border-end d-inline-flex justify-content-center align-items-center"><%= ++offset %></div>
+      <div style="width: 25%;" class="py-2 border-end d-flex text-start justify-content-start align-items-center">
+        <a href="<%= shortenedUrl %>" style="max-width: 100%;" class="d-block text-truncate text-decoration-none"><%= uiShortenedUrl %></a>
+      </div>
+      <div style="width: 20%;" class="py-2 border-end d-flex text-start justify-content-start align-items-center">
+        <a href="<%= originalUrl %>" style="max-width: 100%;" class="d-block text-truncate text-decoration-none"><%= uiOriginalUrl %></a>
+      </div>
+      <div style="width: 10%;" class="py-2 border-end d-inline-flex justify-content-center align-items-center">
+        <% if (password) { %>
+        <button data-password="<%= password %>" class="btn-show-password btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#passwordShortenUrlModal">Xem</i></button>
+        <% } else { %>
+        (Không có)
+        <% } %>
+      </div>
+      <div style="width: 13%;" class="py-2 border-end d-inline-flex justify-content-center align-items-center"><%= visit %></div>
+      <div style="width: 14%;" class="py-2 border-end d-inline-flex justify-content-center align-items-center"><%= created %></div>
+      <div style="width: 13%;" class="py-2 gap-2 d-inline-flex justify-content-center align-items-center">
+        <div class="btn-group">
+          <button data-url="<%= shortenedUrl %>" title="Copy liên kết rút gọn" class="btn btn-outline-secondary btn-copy-url-shortend">
+            <i class="fa-regular fa-copy me-1"></i>
+            <span>Copy</span>
+          </button>
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/shorten-urls/edit/<%= idUrlShortend %>" title="Sửa" class="btn dropdown-item">
+                <i class="fa-regular fa-pen-to-square me-1"></i>
+                <span>Sửa liên kết</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:fbShare('<%= shortenedUrl %>')" title="Chia sẻ" class="btn dropdown-item">
+                <i class="fa-regular fa-share-from-square me-1"></i>
+                <span>Chia sẻ Facebook</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <form method="post" action="/shorten-urls/delete/<%= idUrlShortend %>" onsubmit="return confirm('Bạn có chắc chắn xóa liên kết: <%= originalUrl %>')">
+                <button title="Xóa" class="btn dropdown-item">
+                  <i class="fa-regular fa-trash-can me-2"></i>
+                  <span>Xóa liên kết</span>
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+
+  <div class="position-absolute" style="top: 80px; right: 24px;">
+    <div id="msgCopy" data-bs-delay="4000" class="bg-success toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Đã copy liên kết rút gọn</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Password Shortend Url -->
+  <div class="modal fade" id="passwordShortenUrlModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="exampleModalLabel">Mật khẩu để mở liên kết</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="inputCopyPassword" readonly>
+            <button id="btnCopyUrlShortend" class="btn btn-outline-secondary d-inline-flex justify-content-center align-items-center gap-2" type="button">
+              <i class="fa-regular fa-copy"></i>
+              <span id="textBtnCopyPassword">Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% } else { %>
+  <div class="alert alert-warning" role="alert">
+    Bạn chưa rút gọn liên kết nào. Bạn còn chờ gì nữa?
+  </div>
+  <% } %>
+
+  <% if (totalPage > 1) { %>
+  <nav aria-label="Page navigation example" class="position-absolute mb-1 bottom-0 end-0 me-4 d-flex justify-content-end">
+    <ul class="pagination">
+      <% if (page > 1) { %>
+      <li class="page-item"><a class="page-link" href="?page=<%= +page - 1 %>">Trước</a></li>
+      <% } %>
+      <% for( let index = 1; index <= totalPage; index++ ) { %>
+      <li class="page-item"><a class="page-link <%= index === +page ? "active" : ""%>" href="?page=<%= index %>"><%= index %></a></li>
+      <% } %>
+      <% if (page < totalPage) { %>
+      <li class="page-item"><a class="page-link" href="?page=<%= +page + 1 %>">Sau</a></li>
+      <% } %>
+    </ul>
+  </nav>
+  <% } %>
+
+  <% if (msg) { %>
+  <div class="position-absolute" style="top: 80px; right: 24px;">
+    <div id="msgToast" data-bs-delay="4000" class="<%= typeMsg %> toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"><%= msg %></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</article>
+
+<script>
+  const btnsCopyUrlShortend = document.querySelectorAll('.btn-copy-url-shortend')
+
+  const msgCopy = document.getElementById('msgCopy')
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(msgCopy)
+
+  btnsCopyUrlShortend.forEach(item => {
+    item.addEventListener('click', function() {
+      navigator.clipboard.writeText(this.dataset.url) //this.getAttribute('data-url')
+      toastBootstrap.show()
+    });
+  })
+
+  const btnsShowPassword = document.querySelectorAll(".btn-show-password")
+
+  const inputCopyPassword = document.querySelector("#inputCopyPassword")
+  const btnCopyUrlShortend = document.querySelector("#btnCopyUrlShortend")
+  const textBtnCopyPassword = document.querySelector("#textBtnCopyPassword")
+
+  btnsShowPassword.forEach(btnShowPassword => {
+    btnShowPassword.addEventListener("click", function() {
+      inputCopyPassword.value = this.dataset.password
+      textBtnCopyPassword.innerText = "Copy"
+      btnCopyUrlShortend.classList.remove('btn-success')
+      btnCopyUrlShortend.classList.add("btn-outline-secondary")
+    })
+  })
+
+  btnCopyUrlShortend.addEventListener("click", function() {
+    navigator.clipboard.writeText(inputCopyPassword.value)
+    textBtnCopyPassword.innerText = "Đã copy"
+    btnCopyUrlShortend.classList.remove("btn-outline-secondary")
+    btnCopyUrlShortend.classList.add('btn-success')
+  })
+
+
+  const rowsShortenUrl = document.querySelectorAll(".row-shorten-url")
+  rowsShortenUrl.forEach(rowShortenUrl => {
+    rowShortenUrl.addEventListener("mouseenter", function() {
+      this.classList.add("bg-body-secondary")
+    })
+
+    rowShortenUrl.addEventListener("mouseleave", function() {
+      this.classList.remove("bg-body-secondary")
+    })
+  })
+
+  const fbShare = (url, winWidth = 520, winHeight = 350) => {
+    var winTop = (screen.height / 2) - (winHeight / 2);
+    var winLeft = (screen.width / 2) - (winWidth / 2);
+    window.open('https://www.facebook.com/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',width=' + winWidth + ',height=' + winHeight);
+  }
+</script>

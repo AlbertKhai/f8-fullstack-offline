@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'parts/variables';
+@import 'parts/fonts';
+@import 'parts/reset';
+@import 'parts/mixin';
+@import 'parts/base';

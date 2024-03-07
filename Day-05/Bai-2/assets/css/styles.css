@@ -1,0 +1,86 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+body {
+   font-family: Arial, Helvetica, sans-serif;
+   height: 101vh;
+}
+
+.guide-list {
+   width: 1170px;
+   max-width: calc(100% - 48px);
+   margin: 20px auto 0;
+}
+
+.guide-item {
+   margin-bottom: 20px;
+}
+
+.guide-item__active {
+   display: none;
+}
+
+.guide-heading__inner {
+   display: inline-block;
+   width: 100%;
+   padding: 10px 15px;
+   color: #fff;
+   background-color: #d85825;
+}
+
+.guide-heading__inner:hover {
+   cursor: pointer;
+}
+
+.guide-content {
+   padding: 10px 15px 0;
+   visibility: hidden;
+   opacity: 0;
+   line-height: 0;
+   transition: ease-in-out 0.6s;
+}
+
+.guide-content__sub-heading {
+   margin: 0;
+   font-weight: 400;
+}
+
+.guide-content__list {
+   padding: 0 20px;
+}
+
+.guide-heading .guide-heading__icon-hide {
+   min-width: 16px;
+   visibility: hidden;
+   opacity: 0;
+   transition: ease-in-out 0.6s;
+}
+
+.guide-heading .guide-heading__icon-show {
+   min-width: 16px;
+   margin-left: -22px;
+   transition: ease-in-out 0.6s;
+}
+
+/* ========================= Action ========================= */
+/* icon */
+.guide-item__active:checked ~ .guide-heading .guide-heading__icon-hide {
+   visibility: visible;
+   opacity: 1;
+}
+
+.guide-item__active:checked ~ .guide-heading .guide-heading__icon-show {
+   visibility: hidden;
+   opacity: 0;
+}
+
+.guide-item__active:checked ~ .guide-content {
+   visibility: visible;
+   line-height: 1.6;
+   opacity: 1;
+}

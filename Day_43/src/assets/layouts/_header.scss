@@ -1,0 +1,63 @@
+.shop {
+   .shop-inner {
+      .header {
+         position: sticky;
+         top: 0;
+         padding: 25px 0;
+         background-color: $bg;
+
+         .header__heading {
+            font-size: 3.5rem;
+         }
+
+         .header-wrap__action {
+            margin: 30px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            &.logged {
+               margin: 0 auto;
+
+               position: absolute;
+               top: 50%;
+               right: 0;
+
+               translate: 0 -45%;
+            }
+
+            .form__login {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               gap: 15px;
+               width: 70%;
+
+               border-bottom: 1px solid $primaryColor;
+               padding: 0 20px 10px;
+               font-size: 2rem;
+
+               .input__login {
+                  flex: 1 0;
+               }
+
+               .btn__login {
+                  @include btn($min-w: 140px);
+               }
+            }
+
+            .header-wrap__btn-cart {
+               margin-left: auto;
+               .header-btn__show-cart {
+                  @include btn(#2ee8ff, #2ebeff, #2e94ff);
+                  .text {
+                     padding: 10px 20px;
+                     font-size: 2.3rem;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
